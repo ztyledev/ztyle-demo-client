@@ -10,7 +10,7 @@ import { ThemeContext } from "../../../context/ThemeContext";
 
 
 //** Import Image */
-import profile01 from "../../../images/profile/1.jpg";
+import profile01 from "../../../images/pages/landingpageimage.jpg";
 import profile02 from "../../../images/profile/2.jpg";
 import profile03 from "../../../images/profile/3.jpg";
 import profile04 from "../../../images/profile/4.jpg";

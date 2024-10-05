@@ -5,7 +5,7 @@ import NavHorizontal from '../layouts/navHorizontal'
 import Footer from '../layouts/Footer';
 
 // images
-import profile01 from '../images/pages/landingpageimage.jpg';
+import profile01 from '../images/pages/aboutimage.jpg';
 
 
 const LandingPage = () => {
