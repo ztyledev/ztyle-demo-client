@@ -83,7 +83,7 @@ const  Login= ()=> {
 											</div>
 										</div>
 										<div className="text-center form-group mb-3">
-											<button type="submit" className="btn btn-primary btn-block">
+											<button type="submit" className="btn btn-secondary btn-block">
 												Log in
 											</button>
 										</div>

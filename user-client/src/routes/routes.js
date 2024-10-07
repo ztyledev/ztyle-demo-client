@@ -1,3 +1,5 @@
+import { Navigate } from 'react-router-dom';
+
 /// pages
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
@@ -61,8 +63,8 @@ const publicRoutes = [
 
 const authProtectedRoutes = [
     /// dashboard
+    { path: '/', element: () => <Navigate to='/dashboard' /> },
     { path: 'dashboard', element: Home },
-    
     ///form
     { path: 'form-add-basic-profile', element: FormBasicProfileAdd },
     { path: 'form-edit-basic-profile', element: FormBasicProfileEdit },
