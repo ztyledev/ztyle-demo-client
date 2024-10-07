@@ -1,5 +1,4 @@
 /// pages
-
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
@@ -7,8 +6,12 @@ import RegisterSuccessNext from "../pages/RegisterSuccessNext";
 import ForgotPassword from "../pages/ForgotPassword";
 // import Error404 from "../pages/Error404";
 
-/// dashboard
+/// general
+import AboutUs from "../pages/AboutUs";
+import Services from "../pages/Services";
+import Contact from "../pages/Contact";
 
+/// dashboard
 import Home from "../pages/Dashboard/Home";
 
 /// forms
@@ -46,8 +49,13 @@ const publicRoutes = [
     { path: 'page-login', element: Login },
     { path: 'page-register', element: Registration },
     { path: 'page-register-success-next', element: RegisterSuccessNext },
-    { path: 'page-forgot-password', element: ForgotPassword }
+    { path: 'page-forgot-password', element: ForgotPassword },
     // { path: '*', element: Error404 }
+    
+    // general
+    { path: 'page-about-us', element: AboutUs },
+    { path: 'page-services', element: Services },
+    { path: 'page-contact', element: Contact }
     
 ]
 

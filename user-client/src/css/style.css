@@ -2538,12 +2538,12 @@ textarea.form-control-lg {
 
 .btn-secondary {
   color: #000;
-  background-color: #627EEA;
-  border-color: #627EEA; }
+  background-color: #20c997;;
+  border-color: #20c997; }
   .btn-secondary:hover {
     color: #000;
-    background-color: #7a91ed;
-    border-color: #728bec; }
+    background-color: #127155;
+    border-color: #127155; }
   .btn-check:focus + .btn-secondary, .btn-secondary:focus {
     color: #000;
     background-color: #7a91ed;
@@ -5819,7 +5819,7 @@ textarea.form-control-lg {
   color: #1362FC !important; }
 
 .text-secondary {
-  color: #627EEA !important; }
+  color: #20c997 !important; }
 
 .text-success {
   color: #37D159 !important; }

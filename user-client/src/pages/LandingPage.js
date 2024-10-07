@@ -2,10 +2,10 @@ import React from 'react';
 
 // layouts
 import NavHorizontal from '../layouts/navHorizontal'
-import Footer from '../layouts/Footer';
+import FooterHorizontal from '../layouts/FooterHorizontal';
 
 // images
-import profile01 from '../images/pages/aboutimage.jpg';
+import profile01 from '../images/pages/landingpageimage.jpg';
 
 
 const LandingPage = () => {
@@ -28,7 +28,7 @@ const LandingPage = () => {
                                                 <div className="card">
                                                     <div className="card-body">
 
-                                                        <h1 className='text-primary' style={{ fontWeight: "bolder" }}>Unmatched Aesthetics - only with Ztyle </h1>
+                                                        <h1 className='text-secondary' style={{ fontWeight: "bolder" }}>Unmatched Aesthetics - only with Ztyle </h1>
                                                         
                                                         <p>
                                                             Eliminate long wait times and scheduling challenges with Ztyle.
@@ -61,7 +61,7 @@ const LandingPage = () => {
                     </>
                 </div>
             </div>
-            <Footer />
+            <FooterHorizontal />
         </div>
   )
 }
