@@ -7,7 +7,7 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 import { Link } from "react-router-dom";
 import { useScrollPosition } from "react-use-scroll-position";
 import { ThemeContext } from "../../context/ThemeContext";
-import LogoutPage from '../../pages/Logout'
+//import LogoutPage from '../../pages/Logout'
 
 /// Image
 //import profile from "../../../images/profile/pic1.jpg";
@@ -71,22 +71,7 @@ const SideBar = () => {
     "task",
     "srs-matrimony",
   ],
-    app = [
-      "app-profile",
-      "post-details",
-      "app-calender",
-      "email-compose",
-      "email-inbox",
-      "email-read",
-      "ecom-product-grid",
-      "ecom-product-list",
-      "ecom-product-order",
-      "ecom-checkout",
-      "ecom-invoice",
-      "ecom-customers",
-      "post-details",
-      "ecom-product-detail",
-    ],
+    
     profiles = [
       "profiles-matching",
       "profiles-fresh",

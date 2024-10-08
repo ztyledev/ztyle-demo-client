@@ -1,17 +1,56 @@
-import React  from 'react';
+import React, {useState}  from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {Modal,Button} from 'react-bootstrap';
 
+//Actions
+import {resetAuth} from '../store/auth/authSlice'
 
 
 function LogoutPage(props){
+
+    const dispatch= useDispatch ();
+
+    const [basicModal, setbasicModal] = useState(false);
+
     
-    function onLogout() {
-        console.log("");
-       // window.location.reload();
+    function handleLogout() {
+        setbasicModal(false);
+        dispatch(resetAuth());
+         
     }
     return(
         <>
-            <Link  className="dropdown-item ai-icon" onClick={onLogout}>
+            <Modal className="fade" show={basicModal}>
+                <Modal.Header>
+                    <Modal.Title>Are You Sure You want to Logout </Modal.Title>
+                    <Button
+                      variant=""
+                      className="btn-close"
+                      onClick={() => setbasicModal(false)}
+                    >
+                      
+                    </Button>
+                  </Modal.Header>
+                  <Modal.Body> Click if you still want to logout .. . otherwise click close</Modal.Body>
+                  <Modal.Footer>
+                    <Button
+                      onClick={() => setbasicModal(false)}
+                      variant="danger light"
+                    >
+                      Close
+                    </Button>
+            <Button variant="primary"
+              onClick={handleLogout}
+              
+            >
+              
+            Logout 
+            </Button>
+            
+                  </Modal.Footer>
+            </Modal>
+            <Link  className="dropdown-item ai-icon" onClick={()=> setbasicModal(true)}>
                 <svg
                   id="icon-logout" xmlns="http://www.w3.org/2000/svg"
                   className="text-danger" width={18} height={18} viewBox="0 0 24 24" 
