@@ -159,7 +159,7 @@ const SideBar = () => {
             </Link>
           </li>
           <li className={`${account.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+            <Link className="has-arrow ai-icon" to="/page-login" >
               <i className="fa fa-user-circle"></i>
               <span className="nav-text">Sign In ToYour Account</span>
             </Link>

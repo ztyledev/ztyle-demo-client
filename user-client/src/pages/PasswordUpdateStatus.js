@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react'
 import { Link } from "react-router-dom";
-import {Card,Alert} from 'react-bootstrap'
+import { Card, Alert } from 'react-bootstrap'
 
 
-function RegisterSuccessNext() {
-  
-   
+
+
+const PasswordUpdateStatus = () => {
+
   return (
     <div className="authincation h-100 p-meddle">
       <div className="container h-100">
@@ -25,21 +26,20 @@ function RegisterSuccessNext() {
                             </linearGradient>
                           </defs>
                           <text x="50" y="50" font-size="60" font-weight="bold" fill="url(#myGradient)">ztyle</text>
-                        </svg>
-
+                        </svg>                    
                       </Link>
                     </div>
-                    <h4 className="text-center mb-4 ">Registration Success</h4>
+                    <h4 className="text-center mb-4 ">Success</h4>
 
                     <Card>
                       <Card.Body>
                         <Alert
-                          variant="secondary"
+                          variant="success"
                           className="solid alert-dismissible fade show"
 
                         >
                           <Link to="/page-login" style={{"textDecoration":"none","color":"white"}}>
-                            <strong> Your Registration is successful  </strong> . please login again
+                            <strong> Password has reset successfully  </strong> . please login again
                           </Link>
                           
                         </Alert>
@@ -65,10 +65,7 @@ function RegisterSuccessNext() {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-
-
-export default RegisterSuccessNext;
-
+export default PasswordUpdateStatus

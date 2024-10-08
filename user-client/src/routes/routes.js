@@ -6,6 +6,11 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import RegisterSuccessNext from "../pages/RegisterSuccessNext";
 import ForgotPassword from "../pages/ForgotPassword";
+import ResetPassword from '../pages/ResetPassword';
+import PasswordMailsendStatus from '../pages/PasswordMailsendStatus';
+import PassordUpdateStatus from '../pages/PasswordUpdateStatus';
+
+
 // import Error404 from "../pages/Error404";
 
 /// general
@@ -52,6 +57,10 @@ const publicRoutes = [
     { path: 'page-register', element: Registration },
     { path: 'page-register-success-next', element: RegisterSuccessNext },
     { path: 'page-forgot-password', element: ForgotPassword },
+    { path: 'page-user-reset-password', element: ResetPassword },
+    { path: 'page-password-mailsend-status', element: PasswordMailsendStatus },
+    { path: 'page-password-update-status', element: PassordUpdateStatus },
+    
     // { path: '*', element: Error404 }
     
     // general
