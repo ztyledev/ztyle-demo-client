@@ -3750,10 +3750,10 @@ textarea.form-control-lg {
   .breadcrumb-item + .breadcrumb-item::before {
     float: left;
     padding-right: 0.5rem;
-    color: #6c757d;
+    color: #20c997;
     content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */; }
 .breadcrumb-item.active {
-  color: #6c757d; }
+  color: #20c997; }
 
 .pagination {
   display: flex;
@@ -9313,7 +9313,7 @@ label {
       margin: 0;
       color: #000; }
     .footer .copyright a {
-      color: var(--primary); 
+      color: var(--secondary); 
     }
 
 .footer .footer-link a{
@@ -11611,7 +11611,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
       justify-content: center;
       padding: 0 1rem; }
     [data-sidebar-style="modern"] .nav-header .hamburger .line {
-      background: #dc3545; }
+      background: #000; }
   [data-sidebar-style="modern"] .deznav .header-profile {
     margin-bottom: 0.3125rem; }
     [data-sidebar-style="modern"] .deznav .header-profile > a.nav-link {
@@ -12984,13 +12984,13 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     fill: #fff; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"] .hamburger .line,
   [data-nav-headerbg="color_13"] .hamburger .line {
-    background: #fff; }
+    background: #555; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line,
   [data-nav-headerbg="color_13"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line {
     background-color: #2a2a2a; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"][data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line,
   [data-nav-headerbg="color_13"][data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line {
-    background-color: #fff; }
+    background-color: #555; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"][data-nav-headerbg="color_8"] .brand-title path,
   [data-nav-headerbg="color_13"][data-nav-headerbg="color_8"] .brand-title path {
     fill: #000; }
@@ -18355,6 +18355,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     color: #464a53 !important; }
   .profile-info h4.text-primary, .profile-info .text-primary.h4 {
     color: var(--primary) !important; }
+  .profile-info h4.text-secondary, .profile-info .text-secondary.h4 {
+    color: var(--secondary) !important; }
   .profile-info p {
     color: #828690; }
   .profile-info .prf-col {
@@ -21414,16 +21416,16 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
       .page-titles .breadcrumb li a {
         color: #828690; }
       .page-titles .breadcrumb li.active {
-        color: var(--primary);
+        color: var(--secondary);
         font-weight: 600; }
         .page-titles .breadcrumb li.active a {
-          color: #627EEA; }
+          color: #20c997; }
     .page-titles .breadcrumb .breadcrumb-item + .breadcrumb-item:before {
                 /* font-family: 'simple-line-icons';
                 font-weight: 400;
 				position:absolute;
                 font-size: 10px; */
-      color: #627EEA; }
+      color: #6610f2;; }
     .page-titles .breadcrumb-datepicker {
       font-size: 0.75rem;
       color: #89879f; }

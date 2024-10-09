@@ -23,8 +23,8 @@ import Home from "../pages/Dashboard/Home";
 
 /// forms
 
-import FormBasicProfileAdd from "../pages/Forms/formBasicProfileAdd";
-import FormBasicProfileEdit from '../pages/Forms/formBasicProfileEdit';
+import FormProfileAdd from "../pages/Forms/formProfileAdd";
+import FormProfileEdit from '../pages/Forms/formProfileEdit';
 import FormAdvanceProfileAdd from "../pages/Forms/formAdvanceProfileAdd";
 import FormAdvanceProfileEdit from "../pages/Forms/formAdvanceProfileEdit";
 
@@ -75,8 +75,8 @@ const authProtectedRoutes = [
     { path: '/', element: () => <Navigate to='/dashboard' /> },
     { path: 'dashboard', element: Home },
     ///form
-    { path: 'form-add-basic-profile', element: FormBasicProfileAdd },
-    { path: 'form-edit-basic-profile', element: FormBasicProfileEdit },
+    { path: 'form-add-profile', element: FormProfileAdd },
+    { path: 'form-edit-profile', element: FormProfileEdit },
     { path: 'form-add-advance-info', element: FormAdvanceProfileAdd },
     { path: 'form-edit-advance-info', element: FormAdvanceProfileEdit },
     

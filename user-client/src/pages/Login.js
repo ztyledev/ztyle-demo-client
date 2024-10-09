@@ -17,6 +17,10 @@ import Spinner from '../components/Spinner/Spinner';
 const Login = () => {
 	
 	const dispatch = useDispatch();
+
+	const body = document.querySelector("body");
+    body.setAttribute("data-layout", "vertical");
+	body.setAttribute("data-nav-headerbg", "color_13");
 	
 	const { loading, error } = useSelector(state => state.auth)
 	

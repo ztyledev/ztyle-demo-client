@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="copyright">
         <p>
           Copyright © Designed &amp; Developed by{" "}
-          <a href="http://exianttech.com/" target="_blank" rel="noreferrer">
+          <a href="https://exianttech.com/" target="_blank" rel="noreferrer">
             Exiant Tech Private Limited
           </a>{" "}
           {d.getFullYear()}

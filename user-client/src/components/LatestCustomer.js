@@ -4,10 +4,10 @@ import  {Dropdown} from 'react-bootstrap';
 import PerfectScrollbar from "react-perfect-scrollbar";
 
 ///Images
-import  avt1 from '../../../images/avatar/1.jpg';
-import  avt2 from '../../../images/avatar/2.jpg';
-import  avt3 from '../../../images/avatar/3.jpg';
-import  avt4 from '../../../images/avatar/4.jpg';
+import  avt1 from '../images/avatar/1.jpg';
+import  avt2 from '../images/avatar/2.jpg';
+import  avt3 from '../images/avatar/3.jpg';
+import  avt4 from '../images/avatar/4.jpg';
 
 const ReviewBlog = [
 	{ image: avt1, title: 'Ali Muzair',},
