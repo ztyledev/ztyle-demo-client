@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 
 // logo
-import logo from '../../images/logo.jpg';
+import logo from '../../images/logo_header.png';
 
 const NavHader = () => {
   const [toggle, setToggle] = useState(false);
@@ -22,7 +22,7 @@ const NavHader = () => {
         (
             <Fragment>
               
-              <img src={logo} alt="logo" width="80" height="80" className="m-5" />
+              <img src={logo} alt="logo" width="150" height="70" className="m-5" />
               {/* <h3 className="text-primary">SRS</h3> */}
               
 		 

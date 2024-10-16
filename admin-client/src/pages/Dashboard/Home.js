@@ -13,14 +13,16 @@ import pic1 from '../../images/avatar/1.jpg';
 import pic2 from '../../images/avatar/2.jpg';
 import pic3 from '../../images/avatar/3.jpg';
 import pic4 from '../../images/avatar/4.jpg';
+import storPic from '../../images/store.png';
+
 
 
 //Import
 import { ThemeContext } from "../../context/ThemeContext";
-import RadialDonut from './DashboardAcc/RadialDonut'; 
+// import RadialDonut from './DashboardAcc/RadialDonut'; 
 // import ReservationChart from './Dashboard/ReservationChart'; 
-import LatestCustomer from './DashboardAcc/LatestCustomer'; 
-
+import LatestCustomer from '../../components/LatestCustomer';
+ 
 // const AnalyticsDonut = loadable(() =>
 // 	pMinDelay(import("./DashboardAcc/AnalyticsDonut"), 1000)
 // );
@@ -103,12 +105,14 @@ const Home = () => {
 							<div className="card text-center">
 								<div className="card-body">
 									<div id="radialChart" className="radialChart">
-										{ <RadialDonut profileCompletion="10"/>}
+										<img src={storPic} alt="store-pic" width="150" />
+										
+										{/* { <RadialDonut profileCompletion="10"/>} */}
 									</div>
-									<h2> 10 %</h2>
-									<span className="fs-16 text-black">Profile Completion</span>
+									{/* <h2> Beauty Shops</h2> */}
+									{/* <span className="fs-16 text-black">Add Shop</span> */}
 									<div style={{marginTop:"20px"}}>
-										{ <div><h4 className="text-danger">Your Profile is empty</h4><Link to="/form-add-basic-profile" > Click Here to Fill up Your Profile </Link> </div>}
+										{ <div><h4 className="text-secondary">Add A Shop</h4><Link to="/form-add-basic-shop" > Click Here to Add A New Shop </Link> </div>}
 										
 									</div>
 									

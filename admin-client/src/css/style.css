@@ -75,7 +75,7 @@
 @import url(./../vendor/metismenu/css/metisMenu.min.css);
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -249,7 +249,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   --bs-gray: #6c757d;
   --bs-gray-dark: #343a40;
   --bs-primary: #1362FC;
-  --bs-secondary: #627EEA;
+  --bs-secondary: #fd7e14;
   --bs-success: #37D159;
   --bs-info: #b48dd3;
   --bs-warning: #FFC368;
@@ -2542,17 +2542,17 @@ textarea.form-control-lg {
   border-color: #fd7e14; }
   .btn-secondary:hover {
     color: #000;
-    background-color: #7a91ed;
-    border-color: #728bec; }
+    background-color: #dc6502;
+    border-color: #dc6502; }
   .btn-check:focus + .btn-secondary, .btn-secondary:focus {
     color: #000;
-    background-color: #7a91ed;
-    border-color: #728bec;
+    background-color: #fd7e14;
+    border-color: #fd7e14;
     box-shadow: 0 0 0 0.25rem rgba(83, 107, 199, 0.5); }
   .btn-check:checked + .btn-secondary, .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
     color: #000;
-    background-color: #8198ee;
-    border-color: #728bec; }
+    background-color: #fd7e14;
+    border-color: #fd7e14; }
     .btn-check:checked + .btn-secondary:focus, .btn-check:active + .btn-secondary:focus, .btn-secondary:active:focus, .btn-secondary.active:focus, .show > .btn-secondary.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.25rem rgba(83, 107, 199, 0.5); }
   .btn-secondary:disabled, .btn-secondary.disabled {
@@ -2724,18 +2724,18 @@ textarea.form-control-lg {
     background-color: transparent; }
 
 .btn-outline-secondary {
-  color: #627EEA;
-  border-color: #627EEA; }
+  color: #fd7e14;
+  border-color: #fd7e14; }
   .btn-outline-secondary:hover {
     color: #000;
-    background-color: #627EEA;
-    border-color: #627EEA; }
+    background-color: #fd7e14;
+    border-color: #fd7e14; }
   .btn-check:focus + .btn-outline-secondary, .btn-outline-secondary:focus {
     box-shadow: 0 0 0 0.25rem rgba(98, 126, 234, 0.5); }
   .btn-check:checked + .btn-outline-secondary, .btn-check:active + .btn-outline-secondary, .btn-outline-secondary:active, .btn-outline-secondary.active, .btn-outline-secondary.dropdown-toggle.show {
     color: #000;
-    background-color: #627EEA;
-    border-color: #627EEA; }
+    background-color: #fd7e14;
+    border-color: #fd7e14; }
     .btn-check:checked + .btn-outline-secondary:focus, .btn-check:active + .btn-outline-secondary:focus, .btn-outline-secondary:active:focus, .btn-outline-secondary.active:focus, .btn-outline-secondary.dropdown-toggle.show:focus {
       box-shadow: 0 0 0 0.25rem rgba(98, 126, 234, 0.5); }
   .btn-outline-secondary:disabled, .btn-outline-secondary.disabled {
@@ -5223,7 +5223,7 @@ textarea.form-control-lg {
   border-color: #1362FC !important; }
 
 .border-secondary {
-  border-color: #627EEA !important; }
+  border-color: #fd7e14 !important; }
 
 .border-success {
   border-color: #37D159 !important; }
@@ -5873,7 +5873,7 @@ textarea.form-control-lg {
   background-color: #1362FC !important; }
 
 .bg-secondary {
-  background-color: #627EEA !important; }
+  background-color: #fd7e14 !important; }
 
 .bg-success {
   background-color: #37D159 !important; }
@@ -10585,7 +10585,7 @@ svg.pulse-svg {
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -10781,7 +10781,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 */
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -11014,7 +11014,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     transform: rotate(-45deg) translateY(-50%); } }
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -11611,7 +11611,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
       justify-content: center;
       padding: 0 1rem; }
     [data-sidebar-style="modern"] .nav-header .hamburger .line {
-      background: #dc3545; }
+      background: #000; }
   [data-sidebar-style="modern"] .deznav .header-profile {
     margin-bottom: 0.3125rem; }
     [data-sidebar-style="modern"] .deznav .header-profile > a.nav-link {
@@ -12984,13 +12984,13 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     fill: #fff; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"] .hamburger .line,
   [data-nav-headerbg="color_13"] .hamburger .line {
-    background: #fff; }
+    background: #555; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line,
   [data-nav-headerbg="color_13"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line {
     background-color: #2a2a2a; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"][data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line,
   [data-nav-headerbg="color_13"][data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line {
-    background-color: #fff; }
+    background-color: #555; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"][data-nav-headerbg="color_8"] .brand-title path,
   [data-nav-headerbg="color_13"][data-nav-headerbg="color_8"] .brand-title path {
     fill: #000; }
@@ -17003,7 +17003,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_6"] {
   --primary: #fd7e14;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #dc6502;
   --primary-dark: #773701;
   --rgba-primary-1: rgba(253, 126, 20, 0.1);
@@ -17168,7 +17168,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -17295,7 +17295,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -17996,7 +17996,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 #external-events [data-class="bg-pink"]::before {
   background: #e83e8c; }
 #external-events [data-class="bg-secondary"]::before {
-  background: #627EEA; }
+  background: #fd7e14; }
 
 .fc .fc-row .fc-content-skeleton table, .fc .fc-row .fc-content-skeleton td, .fc .fc-row .fc-helper-skeleton td {
   border-color: #F2F2F2; }
@@ -19226,7 +19226,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -19434,12 +19434,12 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     background-color: rgba(255, 195, 104, 0.1);
     border-color: transparent; }
 .checkbox-secondary .form-check-input:focus {
-  border-color: #627EEA;
+  border-color: #fd7e14;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(98, 126, 234, 0.25); }
 .checkbox-secondary .form-check-input:checked {
-  background-color: #627EEA;
-  border-color: #627EEA; }
+  background-color: #fd7e14;
+  border-color: #fd7e14; }
   [data-theme-version="dark"] .checkbox-secondary .form-check-input:checked {
     background-color: rgba(98, 126, 234, 0.5);
     border-color: transparent; }
@@ -19723,7 +19723,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -19973,7 +19973,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -20019,7 +20019,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -20052,7 +20052,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -20105,7 +20105,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #fd7e14;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -21038,7 +21038,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   border-left: 0.25rem solid var(--primary); }
 
 .alert-alt.alert-secondary {
-  border-left: 0.25rem solid #627EEA; }
+  border-left: 0.25rem solid #fd7e14; }
 
 .alert-alt.alert-success {
   border-left: 0.25rem solid #37D159; }
@@ -21062,7 +21062,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   border-left: 0.25rem solid var(--primary-dark) !important; }
 
 .alert-alt.alert-secondary.solid {
-  border-left: 0.25rem solid #1838b4 !important; }
+  border-left: 0.25rem solid #fd7e14 !important; }
 
 .alert-alt.alert-success.solid {
   border-left: 0.25rem solid #1a6f2c !important; }
@@ -21092,9 +21092,9 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   border-color: var(--primary); }
 
 .alert.alert-secondary.solid {
-  background: #627EEA;
+  background: #fd7e14;
   color: #fff;
-  border-color: #627EEA; }
+  border-color: #fd7e14; }
 
 .alert.alert-success.solid {
   background: #37D159;
@@ -21140,7 +21140,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .alert.alert-outline-secondary {
   background: transparent;
   color: #969ba0;
-  border-color: #627EEA; }
+  border-color: #fd7e14; }
 
 .alert.alert-outline-success {
   background: transparent;
@@ -21414,10 +21414,10 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
       .page-titles .breadcrumb li a {
         color: #828690; }
       .page-titles .breadcrumb li.active {
-        color: var(--primary);
+        color: var(--secondary);
         font-weight: 600; }
         .page-titles .breadcrumb li.active a {
-          color: #627EEA; }
+          color: #fd7e14; }
     .page-titles .breadcrumb .breadcrumb-item + .breadcrumb-item:before {
                 /* font-family: 'simple-line-icons';
                 font-weight: 400;

@@ -1,12 +1,13 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
-import { Row, Card, Col, Alert ,Button,Modal } from "react-bootstrap";
-import { Link ,useHistory } from "react-router-dom";
+import { Row, Card, Col, Alert ,Button} from "react-bootstrap";
+import { Link  } from "react-router-dom";
 
 
 import { ThemeContext } from "../../../context/ThemeContext";
 import PageTitle from "../../../components/PageTitle";
 
-import logo from '../../../images/logo.jpg';
+import logo from '../../../images/logo.png';
+
 
 const ActivateAccount = () => {
   
@@ -31,7 +32,6 @@ const ActivateAccount = () => {
 		changeSideBarStyle({ value: "modern", label: "Modern" });
 	},[]);
 
-  const [basicModal, setbeviewModal] = useState(false);
   const handleScript=(src)=>{
     return new Promise(resolve => {
       const script= document.createElement('script');

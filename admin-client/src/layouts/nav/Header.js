@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
+
 /// Scroll
 import PerfectScrollbar from "react-perfect-scrollbar";
 /// conncect 
@@ -8,19 +10,22 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 /// Image
 import defaultProfilePic from "../../images/avatar/defaultProfilePic.png";
 import avatar from "../../images/avatar/1.jpg";
+
+// components
 import { Dropdown } from "react-bootstrap";
 import LogoutPage from '../../pages/Logout';
 
 const Header = (props) => {
 	const onNote = props.onNote;
 
+	const [userName, setuserName] = useState('');
+	const [userEmail, setuserEmail] = useState('');
 
-
-  var path = window.location.pathname.split("/");
-  var name = path[path.length - 1].split("-");
+	var path = window.location.pathname.split("/");
+	var name = path[path.length - 1].split("-");
  
-  var filterName = name.length >= 3 ? name.filter((n, i) => i > 0) : name;
-  
+	var filterName = name.length >= 3 ? name.filter((n, i) => i > 0) : name;
+	
   var finalName = filterName.includes("app")
     ? filterName.filter((f) => f !== "app")
     : filterName.includes("ui")
@@ -47,7 +52,16 @@ const Header = (props) => {
 
 	var c = finalName[0];
 
-	var headerName = isNaN(c[0]) ? finalName : ["User Profile"];
+	var headerName = isNaN(c[0]) ? finalName : ["Profile"];
+
+	const adminInfo = useSelector(state => state.auth.adminInfo);
+	
+	useEffect(() => {
+		if (adminInfo) {
+			setuserName(adminInfo.fullName);
+			setuserEmail(adminInfo.email);
+		}
+	}, [adminInfo]);
 
 	
   return (
@@ -262,8 +276,8 @@ const Header = (props) => {
 					<Dropdown.Toggle variant="" as="a" className="nav-link i-false c-pointer">
 						<img src={defaultProfilePic} width={20} alt="" />
 						<div className="header-info ms-3">
-							<span>user@mail.com</span>
-							<small>Basic User</small>
+							<span>{userName||"User Name" }</span>
+							<small>{userEmail||"user email" }</small>
 						</div> 
 					</Dropdown.Toggle>
 

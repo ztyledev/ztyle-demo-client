@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// config
 import Constants from '../../config/constants';
 
 export const getUserProfile = createAsyncThunk(

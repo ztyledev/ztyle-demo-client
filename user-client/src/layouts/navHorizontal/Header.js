@@ -6,10 +6,8 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 /// conncect 
 
 /// Image
-import defaultProfilePic from "../../images/avatar/defaultProfilePic.png";
-import avatar from "../../images/avatar/1.jpg";
+
 import { Dropdown } from "react-bootstrap";
-import LogoutPage from '../../pages/Logout';
 
 const Header = (props) => {
 	const onNote = props.onNote;

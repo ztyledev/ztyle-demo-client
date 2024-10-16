@@ -136,10 +136,9 @@ const Login = () => {
 												  className="form-control"
 												  value={password}
 												  placeholder="Type Your Password"
-												  onChange={(e) =>
-													  setPassword(e.target.value)
-												}   
+												  onChange={(e) => setPassword(e.target.value)}
 											  />
+											  
 										  <span className="input-group-text" style={{ background: "white" }} onClick={handleToggle}>
 											  <i className={icon}></i>
 											  </span>

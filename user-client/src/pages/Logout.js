@@ -48,8 +48,8 @@ function LogoutPage(props){
             Logout 
             </Button>
             
-                  </Modal.Footer>
-            </Modal>
+          </Modal.Footer>
+        </Modal>
             <Link  className="dropdown-item ai-icon" onClick={()=> setbasicModal(true)}>
                 <svg
                   id="icon-logout" xmlns="http://www.w3.org/2000/svg"

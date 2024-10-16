@@ -54,7 +54,7 @@ const Header = (props) => {
     : filterName; 
 
 	var c = finalName[0];
-	var headerName = isNaN(c[0]) ? finalName : ["Current Shop/Beautician"];
+	var headerName = isNaN(c[0]) ? finalName : ["Profile"];
 	
 	const userInfo = useSelector(state => state.auth.userInfo);
 

@@ -7,7 +7,6 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 import { Link } from "react-router-dom";
 import { useScrollPosition } from "react-use-scroll-position";
 import { ThemeContext } from "../../context/ThemeContext";
-import LogoutPage from '../../pages/Logout'
 
 /// Image
 //import profile from "../../../images/profile/pic1.jpg";
@@ -71,22 +70,6 @@ const SideBar = () => {
     "task",
     "srs-matrimony",
   ],
-    app = [
-      "app-profile",
-      "post-details",
-      "app-calender",
-      "email-compose",
-      "email-inbox",
-      "email-read",
-      "ecom-product-grid",
-      "ecom-product-list",
-      "ecom-product-order",
-      "ecom-checkout",
-      "ecom-invoice",
-      "ecom-customers",
-      "post-details",
-      "ecom-product-detail",
-    ],
     profiles = [
       "profiles-matching",
       "profiles-fresh",
@@ -113,19 +96,19 @@ const SideBar = () => {
       <PerfectScrollbar className="deznav-scroll">
         <MM className="metismenu" id="menu">
           <li className={`${deshBoard.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+            <Link className="has-arrow ai-icon" to="/page-ztyle-admin" >
               <i className="fa fa-home"></i>
               <span className="nav-text">Home</span>
             </Link>
      
           </li>
           <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
-				    <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+				    <Link className="has-arrow ai-icon" to="/page-about-us" >
 					    <i className="fa fa-users"></i><span className="nav-text">About Us</span>
 				    </Link>
           </li>
           <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+            <Link className="has-arrow ai-icon" to="/page-services" >
               <i className="fa fa-wrench"></i>
               <span className="nav-text">Our Services</span>
             </Link>
@@ -165,7 +148,7 @@ const SideBar = () => {
             </Link>
           </li>
           <li className={`${account.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+            <Link className="has-arrow ai-icon" to="/page-contact" >
               <i className="fa fa-tty"></i>
               <span className="nav-text">Contact Us</span>
             </Link>

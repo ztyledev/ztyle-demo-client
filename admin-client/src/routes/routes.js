@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom';
 /// pages
 
 import LandingPage from "../pages/LandingPage";
@@ -5,7 +6,17 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import RegisterSuccessNext from "../pages/RegisterSuccessNext";
 import ForgotPassword from "../pages/ForgotPassword";
+import ResetPassword from "../pages/ResetPassword";
+import PasswordMailsendStatus from "../pages/PasswordMailsendStatus";
+import PasswordUpdateStatus from "../pages/PasswordUpdateStatus";
 // import Error404 from "../pages/Error404";
+
+// general
+
+import AboutUs from '../pages/AboutUs';
+import Services from '../pages/Services';
+import Contact from "../pages/Contact";
+
 
 /// dashboard
 
@@ -13,14 +24,16 @@ import Home from "../pages/Dashboard/Home";
 
 /// forms
 
-import FormBasicProfileAdd from "../pages/Forms/formBasicProfileAdd";
-import FormBasicProfileEdit from '../pages/Forms/formBasicProfileEdit';
-import FormAdvanceProfileAdd from "../pages/Forms/formAdvanceProfileAdd";
-import FormAdvanceProfileEdit from "../pages/Forms/formAdvanceProfileEdit";
+import FormBasicShopAdd from "../pages/Forms/formBasicShopAdd";
+import FormBasicShopEdit from '../pages/Forms/formBasicShopEdit';
+import FormAdvanceShopAdd from "../pages/Forms/formAdvanceShopAdd";
+import FormAdvanceShopEdit from "../pages/Forms/formAdvanceShopEdit";
 
 /// apps menu
-
 import AppProfile from "../pages/AppsMenu/AppProfile/AppProfile";
+
+/// shops
+import ShopDetail from '../pages/Shops/ShopDetail';
 
 /// profiles
 
@@ -46,20 +59,33 @@ const publicRoutes = [
     { path: 'page-login', element: Login },
     { path: 'page-register', element: Registration },
     { path: 'page-register-success-next', element: RegisterSuccessNext },
-    { path: 'page-forgot-password', element: ForgotPassword }
+    { path: 'page-forgot-password', element: ForgotPassword },
+    { path: 'page-admin-reset-password', element: ResetPassword },
+    { path: 'page-password-mailsend-status', element: PasswordMailsendStatus },
+    { path: 'page-password-update-status', element: PasswordUpdateStatus },
     // { path: '*', element: Error404 }
+
+    // general
+    { path: 'page-about-us', element: AboutUs },
+    { path: 'page-services', element: Services },
+    { path: 'page-contact', element: Contact }
+    
     
 ]
 
 const authProtectedRoutes = [
     /// dashboard
+    { path: '/', element: () => <Navigate to='/dashboard' /> },
     { path: 'dashboard', element: Home },
     
     ///form
-    { path: 'form-add-basic-profile', element: FormBasicProfileAdd },
-    { path: 'form-edit-basic-profile', element: FormBasicProfileEdit },
-    { path: 'form-add-advance-info', element: FormAdvanceProfileAdd },
-    { path: 'form-edit-advance-info', element: FormAdvanceProfileEdit },
+    { path: 'form-add-basic-shop', element: FormBasicShopAdd },
+    { path: 'form-edit-basic-shop/:id', element: FormBasicShopEdit },
+    { path: 'form-add-advance-info/:id', element: FormAdvanceShopAdd },
+    { path: 'form-edit-advance-info/:id', element: FormAdvanceShopEdit },
+
+    /// shops
+    { path: 'shop-detail/:id', element: ShopDetail },
     
     /// user profile
     { path: 'app-profile', element: AppProfile },
