@@ -341,3 +341,31 @@ export const deleteImage2 = createAsyncThunk(
     }
     
 )
+
+export const deleteCurrentShop = createAsyncThunk (
+    
+    'shop/deleteCurrentShop',
+    async ({ id, token }, { rejectWithValue }) => {
+        const config = {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }
+        
+        try {
+
+            const { data } = await axios.delete(`${Constants.url_shops}/${id}`, config);
+            return data;
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+    }
+)

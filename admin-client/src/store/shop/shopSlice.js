@@ -10,7 +10,8 @@ import {
     updateImage1,
     deleteImage1,
     updateImage2,
-    deleteImage2
+    deleteImage2,
+    deleteCurrentShop
 } from './shopActions'
 
 const initialState = {
@@ -175,6 +176,24 @@ const shopSlice = createSlice({
             state.error = payload
             state.success =false
         },
+        //Delete Current Shop
+
+        [deleteCurrentShop.pending]: (state) => {
+            state.loadingShop = true
+            state.error = null
+            state.success=false
+        },
+        [deleteCurrentShop.fulfilled]: (state) => {
+            state.loadingShop = false
+            state.currentShop = null
+            state.error = null
+        },
+        [deleteCurrentShop.rejected]: (state, { payload }) => {
+            state.loadingShop = false
+            state.error = payload
+            state.success =false
+        },
+
     }
 })
 

@@ -24,7 +24,8 @@ import {
 	updateImage1,
 	deleteImage1,
 	updateImage2,
-	deleteImage2
+	deleteImage2,
+	deleteCurrentShop
 } from '../../store/shop/shopActions';
 
 // reset actions
@@ -287,7 +288,10 @@ const ProfileDetail = () => {
 
 	/// Delete Section
 	const handleDelete = () => {
-		console.log("delete clicked");
+
+		setBasicModal(false);
+		const id = currentShop._id;
+		dispatch(deleteCurrentShop({id,token}));
 
 	}
 
@@ -435,6 +439,9 @@ const ProfileDetail = () => {
 															</li>														
 															<li className="nav-item" onClick={() => setActiveToggle("photos")}>
 																<Link to="#my-posts" data-toggle="tab" className={`nav-link ${activeToggle === "photos" ? "active show" : ""}`}>Photos </Link>
+															</li>
+															<li className="nav-item" onClick={() => setActiveToggle("certificate")}>
+																<Link to="#certificate" data-toggle="tab" className={`nav-link ${activeToggle === "certificate" ? "active show" : ""}`}>Shop Certificate </Link>
 															</li>
 						
 						
@@ -724,7 +731,7 @@ const ProfileDetail = () => {
 																					className="col-lg-4 col-form-label"																					
 																					htmlFor="val-image"																					
 																				>
-																				Select Your Profile Pic
+																				Select Main Shop Image
 																					<span className="text-danger">*</span>																					
 																				</label>																				
 																				<div 
@@ -802,7 +809,7 @@ const ProfileDetail = () => {
 																						className="col-lg-4 col-form-label"																						
 																						htmlFor="val-image"																						
 																					>																						
-																						Select a Photo of Your's 																						
+																						Select a Photo of Shop																						
 																						<span className="text-danger">*</span>																						
 																					</label>																					
 																					<div 																						
@@ -879,7 +886,7 @@ const ProfileDetail = () => {
 																						className="col-lg-4 col-form-label"																						
 																						htmlFor="val-image"																						
 																					>																						
-																						Select a Photo of Your's																						
+																						Select a Photo of Shop																						
 																						<span className="text-danger">*</span>																						
 																					</label>																					
 																					<div																						
@@ -937,6 +944,112 @@ const ProfileDetail = () => {
 																		</Modal>
 																	</div>
 																	
+																	{/* Modal */}
+																	
+																	<Modal   show={replayModal}onHide={() => setReplayModal(false)} className="modal fade" id="replyModal">										
+																		<div className="modal-content">
+																			<div className="modal-header">
+																				<h5 className="modal-title">Post Reply</h5>
+																				<button type="button" className="btn-close" data-dismiss="modal" onClick={() => setReplayModal(false)}></button>
+																			</div>
+																			<div className="modal-body">
+																				<form>
+																					<textarea className="form-control" rows="4">Message</textarea>
+																				</form>
+																			</div>
+																			<div className="modal-footer">
+																				<button type="button" className="btn btn-danger light" data-dismiss="modal" onClick={() => setReplayModal(false)}>Close</button>
+																				<button type="button" className="btn btn-primary">Reply</button>
+																			</div>
+																		</div>
+																	</Modal>
+																</div>																																																															
+															</div>
+															<div id="certificate" className={`tab-pane fade ${activeToggle === "certificate" ? "active show" : ""}`} >
+																<div className="my-post-content pt-3">
+																	<div className="profile-uoloaded-post border-bottom-1 pb-5">												
+																		<img src={shopImage || storePic} alt="" className="img-fluid w-80 rounded" />																														  
+																		<Link className="post-title" to="/post-details">																		
+																			<h3 className="text-black">Shop Certificate</h3>																			
+																		</Link>
+																		
+																		<p>
+
+																		Here you can update your Shop Certificate which appears for this shop. Select an image file from your device and click 'Upload.' Your new shop image will be displayed once the upload is complete.
+																						
+																		</p>
+
+																		{
+																			isShopImageEdit ?																			
+														
+																			<div className="form-group mb-3 row">											
+																				<label
+																					className="col-lg-4 col-form-label"																					
+																					htmlFor="val-image"																					
+																				>
+																				Select Certificate
+																					<span className="text-danger">*</span>																					
+																				</label>																				
+																				<div 
+																				// className="col-lg-1"
+																				>
+                          
+																					<input type="file" name="profile-pic1" id="profile-pic1" onChange={onFileResizeShopImage} />
+																					
+																					<button type="submit" className="btn btn-secondary mb-1 ms-1" onClick={handleShopImage}>
+																						<span className="me-2"> <i className="fa fa-upload" /></span> Upload
+																					</button>																					
+																					<button className="btn btn-primary mb-1 ms-1" onClick={() => setisShopImageEdit(false)}>																						
+																						<span className="me-2"> <i className="fa fa-times" /></span>Cancel																						
+																					</button>																					
+																				</div>
+																				
+							  
+																				{errors.currentShopImage && <div className="text-danger fs-12">{errors.currentShopImage}</div>}																				
+																			</div> : ""
+																			
+				
+																		}	
+																		
+										
+																		<button className="btn btn-secondary me-2" onClick={() => setisShopImageEdit(true)}>
+																			<span className="me-2"> <i className="fa fa-user" /> </span> {shopImage?"Edit":"Add Certificate"} 
+																		</button>
+																		{
+																			shopImage ?
+																				<button className="btn btn-primary" onClick={() => setdeleteShopImageModal(true)}>																			
+																					<span className="me-2"> <i className="fa fa-trash" /></span>Delete																						
+																				</button>
+																				: ""
+																		}
+																		<Modal className="fade" show={deleteShopImageModal}>																			
+																			<Modal.Header>
+																				<Modal.Title>Are You Sure You want to delete This certificate</Modal.Title>
+																				<Button
+																				variant=""
+																				className="btn-close"
+																				onClick={() => setdeleteShopImageModal(false)}						  
+																				>
+																				
+																				</Button>
+																			</Modal.Header>
+																			<Modal.Body> Click Delete if you still want to delete your certificate .. . otherwise click close</Modal.Body>
+																			<Modal.Footer>
+																				<Button
+																				onClick={() => setdeleteShopImageModal(false)}
+																				variant="danger light"
+																				>
+																				Close
+																				</Button>
+																				<Button variant="primary"
+																					onClick={handleDeleteShopImage}
+																				>
+																					Delete 
+																				</Button>
+																			</Modal.Footer>																			
+																		</Modal>											
+																	</div>
+																																		
 																	{/* Modal */}
 																	
 																	<Modal   show={replayModal}onHide={() => setReplayModal(false)} className="modal fade" id="replyModal">										
