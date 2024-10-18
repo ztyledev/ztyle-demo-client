@@ -137,8 +137,12 @@ const FormBasicShopAdd = () => {
 
           if(error){
             return
-          }
-    const shopData = { shopName, shopId, ownerFullName, mobile, state, district, workingDays, openingTime, closingTime, profileCompletion: "50" }
+    }
+    
+    const exactShopId = shopId.toLocaleLowerCase();
+
+    
+    const shopData = { shopName, shopId:exactShopId, ownerFullName, mobile, state, district, workingDays, openingTime, closingTime, profileCompletion: "50" }
     dispatch(addShop({ shopData, token }));
          
   }

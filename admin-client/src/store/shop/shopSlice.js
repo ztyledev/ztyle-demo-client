@@ -11,12 +11,16 @@ import {
     deleteImage1,
     updateImage2,
     deleteImage2,
-    deleteCurrentShop
+    updateShopCertificate,
+    deleteShopCertificate,
+    deleteCurrentShop,
+
 } from './shopActions'
 
 const initialState = {
     loadingShop: false,
     currentShop: null,
+    pendingShop:null,
     error: null,
     success:false
 }
@@ -78,6 +82,7 @@ const shopSlice = createSlice({
             state.error = payload
             state.success =false
         },
+       
         // update shop image
         [updateShopImage.pending]: (state) => {
             state.loadingShop = true
@@ -176,8 +181,40 @@ const shopSlice = createSlice({
             state.error = payload
             state.success =false
         },
-        //Delete Current Shop
 
+        // update image2
+        [updateShopCertificate.pending]: (state) => {
+            state.loadingShop = true
+            state.error = null
+            state.success=false
+        },
+        [updateShopCertificate.fulfilled]: (state, { payload }) => {
+            state.loadingShop = false
+            state.currentShop = payload
+            state.error = null
+        },
+        [updateShopCertificate.rejected]: (state, { payload }) => {
+            state.loadingShop = false
+            state.error = payload
+            state.success =false
+        },
+        // delete shop certificate
+        [deleteShopCertificate.pending]: (state) => {
+            state.loadingShop = true
+            state.error = null
+            state.success=false
+        },
+        [deleteShopCertificate.fulfilled]: (state, { payload }) => {
+            state.loadingShop = false
+            state.currentShop = payload
+            state.error = null
+        },
+        [deleteShopCertificate.rejected]: (state, { payload }) => {
+            state.loadingShop = false
+            state.error = payload
+            state.success =false
+        },
+        //Delete Current Shop
         [deleteCurrentShop.pending]: (state) => {
             state.loadingShop = true
             state.error = null
@@ -193,6 +230,7 @@ const shopSlice = createSlice({
             state.error = payload
             state.success =false
         },
+        
 
     }
 })

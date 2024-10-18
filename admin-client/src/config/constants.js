@@ -13,7 +13,8 @@ const Constants = {
   url_shops: baseurl + '/api/admin/shops',
   url_shops_shop_image: baseurl + '/api/admin/shops/shop-image',
   url_shops_image1: baseurl + '/api/admin/shops/image1',
-  url_shops_image2: baseurl + '/api/admin/shops/image2'
+  url_shops_image2: baseurl + '/api/admin/shops/image2',
+  url_shop_certificate: baseurl + '/api/admin/shops/certificate'
   
 };
 

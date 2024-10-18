@@ -117,20 +117,16 @@ export const editShopById = createAsyncThunk(
 )
 
 /// files
-
 export const updateShopImage = createAsyncThunk(
     'shop/updateShopImage',
     async ({ shopData, id, token }, { rejectWithValue }) => {
-            
-
-        // config for files
         const customConfig = {
             headers: {
                 'authorization': `Bearer ${token}`,
                 "Content-type": "multipart/form-data"
             }
         }
-        // general config
+
         const config = {
                 headers: {
                     'authorization': `Bearer ${token}`
@@ -142,79 +138,7 @@ export const updateShopImage = createAsyncThunk(
                 `${Constants.url_shops_shop_image}/${id}`,
                 shopData,
                 customConfig
-            )
-
-
-            if (data) {
-                return data
-            }
-            else {
-                const response = await axios.get(`${Constants.url_shops}/${id}`, config);
-                response.data.message = data.message;
-                return (response.data);
-            }
-        }
-        catch (err) {
-            if (err.response && err.response.data.message) {
-                
-                return rejectWithValue(err.response.data.message);
-            }
-            else {
-                return rejectWithValue(err.message);
-            }
-        }
-    }
-)
-
-export const deleteShopImage = createAsyncThunk(
-    'shop/deleteShopImage',
-    async ({ id, token }, { rejectWithValue }) => {
-        // token in header
-        const config = {
-                headers: {
-                    'authorization': `Bearer ${token}`
-                }
-        }
-
-        try {
-            const { data } = await axios.delete(
-                `${Constants.url_shops_shop_image}/${id}`,
-                config
-            )
-            return data
-        }
-
-        catch (err) {
-            if (err.response && err.response.data.message) {
-                
-                return rejectWithValue(err.response.data.message);
-            }
-            else {
-                return rejectWithValue(err.message);
-            }
-        }
-    }
-)
-
-export const updateImage1 = createAsyncThunk(
-    'shop/updateImage1',
-    async ({ shopData, id, token }, { rejectWithValue }) => {
-        const config = {
-            headers: {
-                'authorization': `Bearer ${token}`
-            }
-        }
-        
-        try {
-            const customConfig = {
-                 headers: {
-                    'authorization': `Bearer ${token}`,
-                     "Content-type": "multipart/form-data"
-                }
-            }
-            
-
-            const { data } = await axios.patch(`${Constants.url_shops_image1}/${id}`, shopData, customConfig);
+            );
 
             if (data) {
                 return data;
@@ -224,8 +148,7 @@ export const updateImage1 = createAsyncThunk(
                 response.data.message = data.message;
                 return (response.data);
             }
-
-
+            
         }
         catch (err) {
             if (err.response && err.response.data.message) {
@@ -235,24 +158,22 @@ export const updateImage1 = createAsyncThunk(
             else {
                 return rejectWithValue(err.message);
             }
-
         }
-    }
-)
 
-export const deleteImage1 = createAsyncThunk(
- 
-    'shop/deleteImage1',
+    }
+) 
+
+export const deleteShopImage = createAsyncThunk(
+    'shop/deleteShopImage',
     async ({ id, token }, { rejectWithValue }) => {
         const config = {
-            headers: {
-                'authorization': `Bearer ${token}`
-            }
+                headers: {
+                    'authorization': `Bearer ${token}`
+                }
         }
 
         try {
-
-            const { data } = await axios.delete(`${Constants.url_shops_image1}/${id}`, config);
+            const { data } = await axios.delete(`${Constants.url_shops_shop_image}/${id}`, config);
             return data;
             
         }
@@ -265,8 +186,84 @@ export const deleteImage1 = createAsyncThunk(
                 return rejectWithValue(err.message);
             }
         }
+    }    
+)
+
+export const updateImage1 = createAsyncThunk(
+    'shop/updateImage1',
+    async ({ shopData, id, token }, { rejectWithValue }) => {
+         const config = {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }
+
+        const customConfig = {
+            headers: {
+                'authorization': `Bearer ${token}`,
+                "Content-type": "multipart/form-data"
+            }
+        }
+
+        try {
+            const { data } = await axios.patch(
+                `${Constants.url_shops_image1}/${id}`,
+                shopData,
+                customConfig
+            )
+
+            if (data) {
+                return data;
+            }
+            else {
+                const response = await axios.get(`${Constants.url_shops}/${id}`, config);
+                response.data.message = data.message;
+                return (response.data);
+            }
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+
+        }
+        
+
     }
-    
+)
+
+export const deleteImage1 = createAsyncThunk(
+    'shop/deleteImage1',
+    async ({ id, token }, { rejectWithValue }) => {
+        
+        const config = {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }
+
+        try {
+            const { data } = await axios.delete(`${Constants.url_shops_image1}/${id}`, config);
+            return data;
+            
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+
+        }
+    }
+
 )
 
 export const updateImage2 = createAsyncThunk(
@@ -288,7 +285,7 @@ export const updateImage2 = createAsyncThunk(
             
 
             const { data } = await axios.patch(`${Constants.url_shops_image2}/${id}`, shopData, customConfig);
-            
+
             if (data) {
                 return data;
             }
@@ -342,6 +339,81 @@ export const deleteImage2 = createAsyncThunk(
     
 )
 
+export const updateShopCertificate = createAsyncThunk(
+    'shop/updateShopCertificate',
+    async ({ shopData, id, token }, { rejectWithValue }) => {
+        const config = {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }
+
+        const customConfig = {
+            headers: {
+                'authorization': `Bearer ${token}`,
+                "Content-type": "multipart/form-data"
+            }
+        }
+
+        try {
+            const { data } = await axios.patch(
+                `${Constants.url_shop_certificate}/${id}`,
+                shopData,
+                customConfig
+            )
+
+            if (data) {
+                return data;
+            }
+            else {
+                const response = await axios.get(`${Constants.url_shops}/${id}`, config);
+                response.data.message = data.message;
+                return (response.data);
+            }
+
+        }
+
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+        
+        
+    }
+)
+
+export const deleteShopCertificate = createAsyncThunk(
+    'shop/deleteShopCertificate',
+    async ({ id, token }, { rejectWithValue }) => {
+        const config = {
+                headers: {
+                    'authorization': `Bearer ${token}`
+                }
+        }
+
+        try {
+            const { data } = await axios.delete(`${Constants.url_shop_certificate}/${id}`, config);
+            return data;
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+    }    
+)
+
+// delete entire shop profile
 export const deleteCurrentShop = createAsyncThunk (
     
     'shop/deleteCurrentShop',
@@ -356,6 +428,32 @@ export const deleteCurrentShop = createAsyncThunk (
 
             const { data } = await axios.delete(`${Constants.url_shops}/${id}`, config);
             return data;
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+    }
+)
+
+
+// Shop actions by admin
+
+export const getPendingShops = createAsyncThunk(
+    'shops/getPendingShops',
+    async ({ token }, { rejectWithValue }) => {
+         const config = {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }
+        try {
             
         }
         catch (err) {

@@ -4,8 +4,9 @@ import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import Compress from 'react-image-file-resizer';
 
-// images
+// images/docs
 import storePic from '../../images/store.png';
+import defaultCertificate from '../../pdfs/The Shop Registration Certificate.pdf';
 
 
 //components
@@ -25,6 +26,8 @@ import {
 	deleteImage1,
 	updateImage2,
 	deleteImage2,
+	updateShopCertificate,
+	deleteShopCertificate,
 	deleteCurrentShop
 } from '../../store/shop/shopActions';
 
@@ -77,16 +80,19 @@ const ProfileDetail = () => {
 	const [activeToggle, setActiveToggle] = useState("basicProfile");
 
 	// file/image fields
-
-	const [currentShopImage, setcurrentShopImage] = useState('');
+	const [currentProfilePic, setcurrentProfilePic] = useState('');
 	const [currentImage1, setcurrentImage1] = useState('');
 	const [currentImage2, setcurrentImage2] = useState('');
+	const [currentShopCertificate, setcurrentShopCertificate] = useState('');
+	
 	
 	// for modals 
 	const [basicModal, setBasicModal] = useState(false);
 	const [deleteShopImageModal, setdeleteShopImageModal] = useState(false);
 	const [deleteImage1Modal, setdeleteImage1Modal] = useState(false);
 	const [deleteImage2Modal, setdeleteImage2Modal] = useState(false);
+	const [deleteShopCertificateModal, setdeleteShopCertificateModal] = useState(false);
+	
 	
 	// display error
 	useEffect(() => {
@@ -95,34 +101,78 @@ const ProfileDetail = () => {
 		}
 	}, [error]);
 
-	// error object for file validation
-	let errorsObj = { currentShopImage: '', currentImage1: '', currentImage2: '' };
-	const [errors, seterrors] = useState({ errorsObj });
 	
-	// boolean state for image edits
+
+
+	/// Delete Section
+	const handleDelete = () => {
+
+		setBasicModal(false);
+		const id = currentShop._id;
+		dispatch(deleteCurrentShop({id,token}));
+
+	}
+
+	const handleDeleteShopImage = () => {
+		
+		const id = currentShop._id;
+		setdeleteShopImageModal(false);
+		dispatch(deleteShopImage({ id, token }));
+
+	}
+
+	const handleDeleteImage1 = () => {
+		
+		const id = currentShop._id;
+		setdeleteImage1Modal(false);
+		dispatch(deleteImage1({ id, token }));
+
+	}
+	const handleDeleteImage2 = () => {
+		
+		const id = currentShop._id;
+		setdeleteImage2Modal(false);
+		dispatch(deleteImage2({ id, token }));
+
+	}
+
+	const handleDeleteShopCertificate = () => {
+		
+		const id = currentShop._id;
+		setdeleteShopCertificateModal(false);
+		dispatch(deleteShopCertificate({ id, token }));
+		swal('Shop Certificate Deleted', 'success');
+		
+
+	}
+	
+	// error handling states
+	let errorsObj = { currentProfilePic: '' };
+	const [errors, seterrors] = useState({ errorsObj });
+
+	// boolean state for file edit
 	const [isShopImageEdit, setisShopImageEdit] = useState(false);
 	const [isImage1Edit, setisImage1Edit] = useState(false);
 	const [isImage2Edit, setisImage2Edit] = useState(false);
+	const [isShopCertificateEdit, setisShopCertificateEdit] = useState(false);
 
-
-	// make the file outof url 
+	
+	// convert the resized data to file
 	function dataUrlToFile(dataUrl, fileName) {
     
-    var arr = dataUrl.split(','),
-      mime = arr[0].match(/:(.*?);/)[1],
-      bstr = atob(arr[arr.length - 1]),
-      n = bstr.length,
-      u8arr = new Uint8Array(n);
-    
-    while (n--) {
-      u8arr[n] = bstr.charCodeAt(n);
-    }
-
-    return new File([u8arr], fileName, { type: mime })
-    
-    
+		var arr = dataUrl.split(','),
+			mime = arr[0].match(/:(.*?);/)[1],
+			bstr = atob(arr[arr.length - 1]),
+			n = bstr.length,
+			u8arr = new Uint8Array(n);
+		
+		while (n--) {
+			u8arr[n] = bstr.charCodeAt(n);
+		}
+		return new File([u8arr], fileName, { type: mime })
+		
 	}
-	
+
 	// resize shop image
 	const onFileResizeShopImage = (e) => {
 
@@ -139,7 +189,7 @@ const ProfileDetail = () => {
         
         const newFile = dataUrlToFile(uri,file.name);
         
-        setcurrentShopImage(newFile);
+        setcurrentProfilePic(newFile);
 
       },
       "base64"
@@ -147,17 +197,18 @@ const ProfileDetail = () => {
 
 	}
 	
-	// shop image add/update
+	// udpate shop image
 	const handleShopImage = (e) => {
 		e.preventDefault();
 
-	  let error = false;
-
+		let error = false;
 		const errorObj = { ...errorsObj };
+
 		
-	  if (currentShopImage === '' || currentShopImage === null || currentShopImage === undefined) {
-		  errorObj.currentShopImage = 'Please Select a File';
-		  error = true
+		if (currentProfilePic === '' || currentProfilePic === null || currentProfilePic === undefined) {
+			errorObj.currentProfilePic = 'Please Select a File';
+			error = true
+
 		}
 		
 		seterrors(errorObj);
@@ -168,15 +219,15 @@ const ProfileDetail = () => {
 		}
 
 		const shopData = new FormData();
-		shopData.append('shopImage', currentShopImage);
-		console.log(shopData);
-		setcurrentShopImage('');
+		shopData.append('shopImage', currentProfilePic);
+		setcurrentProfilePic('');
 		const id = currentShop._id;
 		setisShopImageEdit(false);
 		dispatch(updateShopImage({ shopData, id, token }));
-	
+
 	}
 
+	// resize image 1
 	const onFileResizeImage1 = (e) => {
 
     const file = e.target.files[0];
@@ -199,8 +250,8 @@ const ProfileDetail = () => {
     )
 
 	}
-	
 
+	// update image1
 	const handleImage1 = (e) => {
 		e.preventDefault();
 
@@ -225,13 +276,12 @@ const ProfileDetail = () => {
 		setcurrentImage1('');
 		const id = currentShop._id;
 		setisImage1Edit(false);
-		
 		dispatch(updateImage1({ shopData, id, token }));
-		
+
 	
 	}
 
-	// resize image 2
+// resize image 2
 	const onFileResizeImage2 = (e) => {
 
     const file = e.target.files[0];
@@ -254,8 +304,8 @@ const ProfileDetail = () => {
     )
 
 	}
-	
-	// image2 add/update
+
+	// update image1
 	const handleImage2 = (e) => {
 		e.preventDefault();
 
@@ -280,47 +330,49 @@ const ProfileDetail = () => {
 		setcurrentImage2('');
 		const id = currentShop._id;
 		setisImage2Edit(false);
-		
 		dispatch(updateImage2({ shopData, id, token }));
+		
 		
 	
 	}
 
-	/// Delete Section
-	const handleDelete = () => {
+	// set file as shop certificate
+	const onFileResizeShopCertificate = (e) => {
 
-		setBasicModal(false);
-		const id = currentShop._id;
-		dispatch(deleteCurrentShop({id,token}));
+    const file = e.target.files[0];
+		setcurrentShopCertificate(file);
 
 	}
 
-	const handleDeleteShopImage = () => {
+	// update shop certificate
+	const handleShopCertificate = (e) => {
+		e.preventDefault();
+
+	  let error = false;
+
+		const errorObj = { ...errorsObj };
 		
+	  if (currentShopCertificate === '' || currentShopCertificate === null || currentShopCertificate === undefined) {
+		  errorObj.currentShopCertificate = 'Please Select a File';
+		  error = true
+		}
+		
+		seterrors(errorObj);
+
+		if (error) {
+			return
+
+		}
+
+		const shopData = new FormData();
+		shopData.append('shopCertificate', currentShopCertificate);
+		setcurrentShopCertificate('');
 		const id = currentShop._id;
-		setdeleteShopImageModal(false);
+		setisShopCertificateEdit(false);
+		dispatch(updateShopCertificate({ shopData, id, token }));
+		swal("Certificate Updated Successfully", "success");
 
-		dispatch(deleteShopImage({ id, token }));
 	}
-
-
-	const handleDeleteImage1 = () => {		
-		const id = currentShop._id;
-		setdeleteImage1Modal(false);
-
-		dispatch(deleteImage1({ id, token }));
-		
-	}
-
-   const handleDeleteImage2 = () => {
-		
-		const id = currentShop._id;
-		setdeleteImage2Modal(false);
-
-	   dispatch(deleteImage2({ id, token }));
-		
-	}
-
 
 	useEffect(() => {
 		return (
@@ -346,7 +398,7 @@ const ProfileDetail = () => {
         const { shopName, shopId, ownerFullName,
             mobile, state, district, workingDays,
 			openingTime, closingTime, profileCompletion,
-			advanceProfileStatus,status,shopImage,image1,image2 } = currentShop;
+			advanceProfileStatus, status, shopImage, image1, image2,shopCertificate } = currentShop;
         
 		const stdOpeningTime = getStandardTime(openingTime);
 		const stdClosingTime = getStandardTime(closingTime);
@@ -377,11 +429,11 @@ const ProfileDetail = () => {
                                                                         The Shop Activation pending You can activate the shop or delete . 
                                                                     </p>
                                                                         
-																	 <button className="btn btn-success me-2" onClick={''}>
+																	 <button className="btn btn-success me-2">
                                                                     
                                                                         <span className="me-2"> <i className="fa fa-toggle-on" /> </span> {loadingShop ? <Spinner /> : "Activate"}
 																	</button>
-                                                                    <button className="btn btn-primary me-2" onClick={''}>
+                                                                    <button className="btn btn-primary me-2">
                                                                     
                                                                         <span className="me-2"> <i className="fa fa-trash" /> </span> {loadingShop ? <Spinner /> : "Delete"}
                                                                     </button>
@@ -711,73 +763,64 @@ const ProfileDetail = () => {
 															</div>
 															<div id="my-posts" className={`tab-pane fade ${activeToggle === "photos" ? "active show" : ""}`} >
 																<div className="my-post-content pt-3">
-																	<div className="profile-uoloaded-post border-bottom-1 pb-5">												
+																	<div className="profile-uoloaded-post border-bottom-1 pb-5">
 																		<img src={shopImage || storePic} alt="" className="img-fluid w-80 rounded" />																														  
-																		<Link className="post-title" to="/post-details">																		
-																			<h3 className="text-black">Main Shop Image</h3>																			
+																		<Link className="post-title" to="/post-details">
+																			<h3 className="text-black">This is the main shop image</h3>
 																		</Link>
-																		
 																		<p>
-
-																		Here you can update your Shop Image which appears for this shop. Select an image file from your device and click 'Upload.' Your new shop image will be displayed once the upload is complete.
-																						
+																			Here you can update shop image which appears in your profile. Select an image file from your device and click 'Upload.' Your new profile picture will be displayed once the upload is complete.																			
 																		</p>
-
 																		{
-																			isShopImageEdit ?																			
-														
-																			<div className="form-group mb-3 row">											
-																				<label
-																					className="col-lg-4 col-form-label"																					
-																					htmlFor="val-image"																					
-																				>
-																				Select Main Shop Image
-																					<span className="text-danger">*</span>																					
-																				</label>																				
-																				<div 
-																				// className="col-lg-1"
-																				>
-                          
-																					<input type="file" name="profile-pic1" id="profile-pic1" onChange={onFileResizeShopImage} />
-																					
-																					<button type="submit" className="btn btn-secondary mb-1 ms-1" onClick={handleShopImage}>
-																						<span className="me-2"> <i className="fa fa-upload" /></span> Upload
-																					</button>																					
-																					<button className="btn btn-primary mb-1 ms-1" onClick={() => setisShopImageEdit(false)}>																						
-																						<span className="me-2"> <i className="fa fa-times" /></span>Cancel																						
-																					</button>																					
-																				</div>
-																				
-							  
-																				{errors.currentShopImage && <div className="text-danger fs-12">{errors.currentShopImage}</div>}																				
-																			</div> : ""
-																			
-				
-																		}	
+																			isShopImageEdit ?	
+																				<div className="form-group mb-3 row">																
+																					<label																						
+																						className="col-lg-4 col-form-label"																						
+																						htmlFor="val-image"																						
+																					>																						
+																						Select Main Shop Image																						
+																						<span className="text-danger">*</span>																						
+																					</label>																					
+																					<div																						
+																						
+																					// className="col-lg-1"																					
+																					>
+																						
+																						<input type="file" name="shop-i,age" id="shopImage" onChange={onFileResizeShopImage} />																																					  
+																						<button type="submit" className="btn btn-secondary mb-1 ms-1" onClick={handleShopImage}>
+																							<span className="me-2"> <i className="fa fa-upload" /></span> Upload
+																						</button>
+																						<button className="btn btn-primary mb-1 ms-1" onClick={()=>setisShopImageEdit(false)}>
+																								<span className="me-2"> <i className="fa fa-times" /></span>Cancel
+																						</button>						  
+																					</div>																					
+																					{errors.currentProfilePic && <div className="text-danger fs-12">{errors.currentProfilePic}</div>}																					
+																				</div>																				
+																				: ""																			
+																		}
 																		
-										
-																		<button className="btn btn-secondary me-2" onClick={() => setisShopImageEdit(true)}>
+												  
+																		<button className="btn btn-secondary me-2" onClick={() => setisShopImageEdit(true)}>													
 																			<span className="me-2"> <i className="fa fa-user" /> </span> {shopImage?"Edit":"Add Photo"} 
 																		</button>
 																		{
 																			shopImage ?
-																				<button className="btn btn-primary" onClick={() => setdeleteShopImageModal(true)}>																			
-																					<span className="me-2"> <i className="fa fa-trash" /></span>Delete																						
+																				<button className="btn btn-primary" onClick={() => setdeleteShopImageModal(true)}>													
+																					<span className="me-2"> <i className="fa fa-trash" /></span>Delete
 																				</button>
 																				: ""
 																		}
-																		<Modal className="fade" show={deleteShopImageModal}>																			
-																			<Modal.Header>
-																				<Modal.Title>Are You Sure You want to delete This photo</Modal.Title>
-																				<Button
-																				variant=""
-																				className="btn-close"
-																				onClick={() => setdeleteShopImageModal(false)}						  
-																				>
-																				
-																				</Button>
-																			</Modal.Header>
-																			<Modal.Body> Click Delete if you still want to delete your photo .. . otherwise click close</Modal.Body>
+																		<Modal className="fade" show={deleteShopImageModal}>
+																			<Modal.Header>																		
+																				<Modal.Title>Are You Sure You want to delete </Modal.Title>																				
+																				<Button																					
+																					variant=""																					
+																					className="btn-close"																					
+																					onClick={() => setdeleteShopImageModal(false)}																					
+																				>																														
+																				</Button>																				
+																			</Modal.Header>																			
+																			<Modal.Body> Click Delete if you still want to delete this pic .. . otherwise click close</Modal.Body>
 																			<Modal.Footer>
 																				<Button
 																				onClick={() => setdeleteShopImageModal(false)}
@@ -790,288 +833,254 @@ const ProfileDetail = () => {
 																				>
 																					Delete 
 																				</Button>
-																			</Modal.Footer>																			
-																		</Modal>											
+																			</Modal.Footer>
+																		</Modal>																		
 																	</div>
 																	<div className="profile-uoloaded-post border-bottom-1 pb-5">
 																		<img src={image1 || storePic} alt="" className="img-fluid w-80 rounded" />																		
-																		<Link className="post-title" to="/post-details">																		
-																			<h3 className="text-black">Add second picture to this shop</h3>																			
-																		</Link>
-																		
+																		<Link className="post-title" to="/post-details">																			
+																			<h3 className="text-black">Add second picture of shop</h3>																			
+																		</Link>																		
 																		<p>
-																			Here you can add one picture of you which appears in shop profile. Select an image file from your device and click 'Upload.' Your new  picture will be displayed once the upload is complete.																			
+																			Here you can add one picture of the shop which appears in your profile. Select an image file from your device and click 'Upload.' Your new  picture will be displayed once the upload is complete.																			
 																		</p>
+
+
 																		{
-																			isImage1Edit ?																			
-																				<div className="form-group mb-3 row">																					
-																					<label																						
+																			isImage1Edit ?
+																				<div className="form-group mb-3 row">																																		
+																					<label
 																						className="col-lg-4 col-form-label"																						
 																						htmlFor="val-image"																						
 																					>																						
-																						Select a Photo of Shop																						
+																						Select A Photo Of Shop 																						
 																						<span className="text-danger">*</span>																						
 																					</label>																					
 																					<div 																						
 																						// className="col-lg-1"																						
-																					>																						
-													
-																						<input type="file" name="image1" id="image1" onChange={onFileResizeImage1} />																													  															
-																						<button type="submit" className="btn btn-secondary mb-1 ms-1" onClick={handleImage1}>																							
-																							<span className="me-2"> <i className="fa fa-upload" /></span> Upload																							
-																						</button>																						
+																					>																																			
+																						<input type="file" name="image1" id="image1" onChange={onFileResizeImage1} />																														  															
+																						<button type="submit" className="btn btn-secondary mb-1 ms-1" onClick={handleImage1}>
+																							<span className="me-2"> <i className="fa fa-upload" /></span> Upload
+																						</button>
 																						<button className="btn btn-primary mb-1 ms-1" onClick={()=>setisImage1Edit(false)}>
 																								<span className="me-2"> <i className="fa fa-times" /></span>Cancel
 																						</button>													
 																					</div>																																			
-																					{errors.currentImage1 && <div className="text-danger fs-12">{errors.currentImage1}</div>}
-																																			  
+																					{errors.currentImage1 && <div className="text-danger fs-12">{errors.currentImage1}</div>}																																			  
 																				</div>
-																				: ""																							
+																				: ""				
 																		}
-																		
-												  
-												  
-																		<button className="btn btn-secondary me-2" onClick={() => setisImage1Edit(true)}>																																									
+																														  												  
+																		<button className="btn btn-secondary me-2" onClick={()=>setisImage1Edit(true)}>
+																						
 																			<span className="me-2"> <i className="fa fa-user" /> </span> {image1?"Edit":"Add Photo"} 
 																		</button>
 																		{
 																			image1 ?
-																				<button className="btn btn-primary" onClick={() => setdeleteImage1Modal(true)}>																					
-																					<span className="me-2"> <i className="fa fa-trash" /></span>Delete																					
-																				</button>
+																				<button className="btn btn-primary" onClick={() => setdeleteImage1Modal(true)}>
+																					<span className="me-2"> <i className="fa fa-trash" /></span>Delete																															
+																				</button>																				
 																				: ""
-																			
-																		}
-												  
+																		}												  
 																		<Modal className="fade" show={deleteImage1Modal}>																			
-																			<Modal.Header>
-																				<Modal.Title>Are You Sure You want to delete This photo</Modal.Title>
-																				<Button
-																				variant=""
-																				className="btn-close"
-																				onClick={() => setdeleteImage1Modal(false)}						  
+																			<Modal.Header>																				
+																				<Modal.Title>Are You Sure You want to delete This photo</Modal.Title>																				
+																				<Button																					
+																					variant=""																					
+																					className="btn-close"																					
+																					onClick={() => setdeleteImage1Modal(false)}																					
 																				>
-																				
-																				</Button>
-																			</Modal.Header>
-																			<Modal.Body> Click Delete if you still want to delete your photo .. . otherwise click close</Modal.Body>
-																			<Modal.Footer>
-																				<Button
-																				onClick={() => setdeleteImage1Modal(false)}
-																				variant="danger light"
-																				>
-																				Close
-																				</Button>
-																				<Button variant="primary"
-																					onClick={handleDeleteImage1}
-																				>
-																					Delete 
-																				</Button>
+																			
+																				</Button>																				
+																			</Modal.Header>																			
+																			<Modal.Body> Click Delete if you still want to delete your photo .. . otherwise click close</Modal.Body>																			
+																			<Modal.Footer>																				
+																				<Button																					
+																					onClick={() => setdeleteImage1Modal(false)}																					
+																					variant="danger light"																					
+																				>																					
+																					Close																					
+																				</Button>																				
+																				<Button variant="primary"																					
+																					onClick={handleDeleteImage1}																					
+																				>																					
+																					Delete 																					
+																				</Button>																				
 																			</Modal.Footer>																			
-																		</Modal>												  
-																	</div>																	
-																	<div className="profile-uoloaded-post pb-3">																		
-																		<img src={image2 || storePic} alt="" className="img-fluid  w-80 rounded" />																		
-																		<Link className="post-title" to="/post-details">																		
-																			<h3 className="text-black">Add one last picture</h3>																			
+																		</Modal>																														  
+																	</div>
+																	<div className="profile-uoloaded-post border-bottom-1 pb-5">
+																		<img src={image2 || storePic} alt="" className="img-fluid w-80 rounded" />																		
+																		<Link className="post-title" to="/post-details">																			
+																			<h3 className="text-black">Add one final pic</h3>																			
 																		</Link>																		
 																		<p>
-																			Here you can add your picture which appears in shop profile. Select an image file from your device and click 'Upload.' Your new profile picture will be displayed once the upload is complete.																			
+																			Here you can add one picture of the shop which appears in your profile. Select an image file from your device and click 'Upload.' Your new  picture will be displayed once the upload is complete.																			
 																		</p>
+
+
 																		{
-																			isImage2Edit ?																																						
-																				<div className="form-group mb-3 row">																					
-																					<label																						
+																			isImage2Edit ?
+																				<div className="form-group mb-3 row">																																		
+																					<label
 																						className="col-lg-4 col-form-label"																						
 																						htmlFor="val-image"																						
 																					>																						
-																						Select a Photo of Shop																						
+																						Select A Photo Of Shop 																						
 																						<span className="text-danger">*</span>																						
 																					</label>																					
-																					<div																						
+																					<div 																						
 																						// className="col-lg-1"																						
 																					>																																			
-																						<input type="file" name="image1" id="image1" onChange={onFileResizeImage2} />																													  															
+																						<input type="file" name="image2" id="image2" onChange={onFileResizeImage2} />																														  															
 																						<button type="submit" className="btn btn-secondary mb-1 ms-1" onClick={handleImage2}>
 																							<span className="me-2"> <i className="fa fa-upload" /></span> Upload
-																						</button>																						
+																						</button>
 																						<button className="btn btn-primary mb-1 ms-1" onClick={()=>setisImage2Edit(false)}>
 																								<span className="me-2"> <i className="fa fa-times" /></span>Cancel
 																						</button>													
 																					</div>																																			
 																					{errors.currentImage2 && <div className="text-danger fs-12">{errors.currentImage2}</div>}																																			  
 																				</div>
-																				: ""
-				
-																		}																																										  
+																				: ""				
+																		}
+																														  												  
 																		<button className="btn btn-secondary me-2" onClick={()=>setisImage2Edit(true)}>
+																						
 																			<span className="me-2"> <i className="fa fa-user" /> </span> {image2?"Edit":"Add Photo"} 
 																		</button>
-
 																		{
 																			image2 ?
-																				<button className="btn btn-primary" onClick={() => setdeleteImage2Modal(true)}>													  
-																					<span className="me-2"> <i className="fa fa-trash" /></span>Delete																				
+																				<button className="btn btn-primary" onClick={() => setdeleteImage2Modal(true)}>
+																					<span className="me-2"> <i className="fa fa-trash" /></span>Delete																															
+																				</button>																				
+																				: ""
+																		}												  
+																		<Modal className="fade" show={deleteImage2Modal}>																			
+																			<Modal.Header>																				
+																				<Modal.Title>Are You Sure You want to delete This photo</Modal.Title>																				
+																				<Button																					
+																					variant=""																					
+																					className="btn-close"																					
+																					onClick={() => setdeleteImage2Modal(false)}																					
+																				>
+																			
+																				</Button>																				
+																			</Modal.Header>																			
+																			<Modal.Body> Click Delete if you still want to delete your photo .. . otherwise click close</Modal.Body>																			
+																			<Modal.Footer>																				
+																				<Button																					
+																					onClick={() => setdeleteImage2Modal(false)}																					
+																					variant="danger light"																					
+																				>																					
+																					Close																					
+																				</Button>																				
+																				<Button variant="primary"																					
+																					onClick={handleDeleteImage2}																					
+																				>																					
+																					Delete 																					
+																				</Button>																				
+																			</Modal.Footer>																			
+																		</Modal>																														  
+																	</div>
+																	
+																	{/* end of the section */}															 
+																</div>																																																																										
+															</div>
+															<div id="certificate" className={`tab-pane fade ${activeToggle === "certificate" ? "active show" : ""}`} >
+																<div className="my-post-content pt-3">
+																	<div className="profile-uoloaded-post border-bottom-1 pb-5">
+																		<Card>
+																			<Card.Body>
+																				<Alert									
+																					variant="success"																					
+																					className="alert-dismissible solid fade show"																					
+																				>																					
+																					<strong> Registration Certificate Of The Shop</strong>{" "} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																					<a href={shopCertificate || defaultCertificate} target="_blank" style={{color:'white'}}> See Your file</a>																																																							
+																				</Alert>
+
+																				
+																			</Card.Body>
+																			
+																		</Card>
+																		
+
+							
+																		<Link className="post-title" to="/post-details">
+																			<h3 className="text-black">Shop Registration Certificate</h3>
+																		</Link>
+																		<p>
+																			Here you can provide the registration certificate of shop. Select a pdf file from your device and click 'Upload.' Your certificate will be displayed once the upload is complete.																			
+																		</p>
+																		{
+																			isShopCertificateEdit ?	
+																				<div className="form-group mb-3 row">																
+																					<label																						
+																						className="col-lg-4 col-form-label"																						
+																						htmlFor="val-pdf"																						
+																					>																						
+																						Select Shop Certificate																						
+																						<span className="text-danger">*</span>																						
+																					</label>																					
+																					<div																						
+																						
+																					// className="col-lg-1"																					
+																					>
+																						
+																						<input type="file" name="val-pdf" id="val-pdf" onChange={onFileResizeShopCertificate} />																																					  
+																						<button type="submit" className="btn btn-secondary mb-1 ms-1" onClick={handleShopCertificate}>
+																							<span className="me-2"> <i className="fa fa-upload" /></span> Upload
+																						</button>
+																						<button className="btn btn-primary mb-1 ms-1" onClick={()=>setisShopCertificateEdit(false)}>
+																								<span className="me-2"> <i className="fa fa-times" /></span>Cancel
+																						</button>						  
+																					</div>																					
+																					{errors.currentShopCertificate && <div className="text-danger fs-12">{errors.currentShopCertificate}</div>}																					
+																				</div>																				
+																				: ""																			
+																		}
+																		
+												  
+																		<button className="btn btn-secondary me-2" onClick={() => setisShopCertificateEdit(true)}>													
+																			<span className="me-2"> <i className="fa fa-user" /> </span> {shopCertificate?"Edit":"Add Certificate"} 
+																		</button>
+																		{
+																			shopCertificate ?
+																				<button className="btn btn-primary" onClick={() => setdeleteShopCertificateModal(true)}>													
+																					<span className="me-2"> <i className="fa fa-trash" /></span>Delete
 																				</button>
 																				: ""
 																		}
-																		<Modal className="fade" show={deleteImage2Modal}>																			
-																			<Modal.Header>
-																				<Modal.Title>Are You Sure You want to delete This photo</Modal.Title>
-																				<Button
-																				variant=""
-																				className="btn-close"
-																				onClick={() => setdeleteImage2Modal(false)}						  
-																				>
-																				
-																				</Button>
-																			</Modal.Header>
-																			<Modal.Body> Click Delete if you still want to delete your photo .. . otherwise click close</Modal.Body>
+																		<Modal className="fade" show={deleteShopCertificateModal}>
+																			<Modal.Header>																		
+																				<Modal.Title>Are You Sure You want to delete </Modal.Title>																				
+																				<Button																					
+																					variant=""																					
+																					className="btn-close"																					
+																					onClick={() => setdeleteShopImageModal(false)}																					
+																				>																														
+																				</Button>																				
+																			</Modal.Header>																			
+																			<Modal.Body> Click Delete if you still want to delete the certificate .. . otherwise click close</Modal.Body>
 																			<Modal.Footer>
 																				<Button
-																				onClick={() => setdeleteImage2Modal(false)}
+																				onClick={() => setdeleteShopCertificateModal(false)}
 																				variant="danger light"
 																				>
 																				Close
 																				</Button>
 																				<Button variant="primary"
-																					onClick={handleDeleteImage2}
+																					onClick={handleDeleteShopCertificate}
 																				>
 																					Delete 
 																				</Button>
 																			</Modal.Footer>
-																		</Modal>
+																		</Modal>																		
 																	</div>
-																	
-																	{/* Modal */}
-																	
-																	<Modal   show={replayModal}onHide={() => setReplayModal(false)} className="modal fade" id="replyModal">										
-																		<div className="modal-content">
-																			<div className="modal-header">
-																				<h5 className="modal-title">Post Reply</h5>
-																				<button type="button" className="btn-close" data-dismiss="modal" onClick={() => setReplayModal(false)}></button>
-																			</div>
-																			<div className="modal-body">
-																				<form>
-																					<textarea className="form-control" rows="4">Message</textarea>
-																				</form>
-																			</div>
-																			<div className="modal-footer">
-																				<button type="button" className="btn btn-danger light" data-dismiss="modal" onClick={() => setReplayModal(false)}>Close</button>
-																				<button type="button" className="btn btn-primary">Reply</button>
-																			</div>
-																		</div>
-																	</Modal>
-																</div>																																																															
-															</div>
-															<div id="certificate" className={`tab-pane fade ${activeToggle === "certificate" ? "active show" : ""}`} >
-																<div className="my-post-content pt-3">
-																	<div className="profile-uoloaded-post border-bottom-1 pb-5">												
-																		<img src={shopImage || storePic} alt="" className="img-fluid w-80 rounded" />																														  
-																		<Link className="post-title" to="/post-details">																		
-																			<h3 className="text-black">Shop Certificate</h3>																			
-																		</Link>
-																		
-																		<p>
-
-																		Here you can update your Shop Certificate which appears for this shop. Select an image file from your device and click 'Upload.' Your new shop image will be displayed once the upload is complete.
-																						
-																		</p>
-
-																		{
-																			isShopImageEdit ?																			
-														
-																			<div className="form-group mb-3 row">											
-																				<label
-																					className="col-lg-4 col-form-label"																					
-																					htmlFor="val-image"																					
-																				>
-																				Select Certificate
-																					<span className="text-danger">*</span>																					
-																				</label>																				
-																				<div 
-																				// className="col-lg-1"
-																				>
-                          
-																					<input type="file" name="profile-pic1" id="profile-pic1" onChange={onFileResizeShopImage} />
-																					
-																					<button type="submit" className="btn btn-secondary mb-1 ms-1" onClick={handleShopImage}>
-																						<span className="me-2"> <i className="fa fa-upload" /></span> Upload
-																					</button>																					
-																					<button className="btn btn-primary mb-1 ms-1" onClick={() => setisShopImageEdit(false)}>																						
-																						<span className="me-2"> <i className="fa fa-times" /></span>Cancel																						
-																					</button>																					
-																				</div>
-																				
-							  
-																				{errors.currentShopImage && <div className="text-danger fs-12">{errors.currentShopImage}</div>}																				
-																			</div> : ""
-																			
-				
-																		}	
-																		
-										
-																		<button className="btn btn-secondary me-2" onClick={() => setisShopImageEdit(true)}>
-																			<span className="me-2"> <i className="fa fa-user" /> </span> {shopImage?"Edit":"Add Certificate"} 
-																		</button>
-																		{
-																			shopImage ?
-																				<button className="btn btn-primary" onClick={() => setdeleteShopImageModal(true)}>																			
-																					<span className="me-2"> <i className="fa fa-trash" /></span>Delete																						
-																				</button>
-																				: ""
-																		}
-																		<Modal className="fade" show={deleteShopImageModal}>																			
-																			<Modal.Header>
-																				<Modal.Title>Are You Sure You want to delete This certificate</Modal.Title>
-																				<Button
-																				variant=""
-																				className="btn-close"
-																				onClick={() => setdeleteShopImageModal(false)}						  
-																				>
-																				
-																				</Button>
-																			</Modal.Header>
-																			<Modal.Body> Click Delete if you still want to delete your certificate .. . otherwise click close</Modal.Body>
-																			<Modal.Footer>
-																				<Button
-																				onClick={() => setdeleteShopImageModal(false)}
-																				variant="danger light"
-																				>
-																				Close
-																				</Button>
-																				<Button variant="primary"
-																					onClick={handleDeleteShopImage}
-																				>
-																					Delete 
-																				</Button>
-																			</Modal.Footer>																			
-																		</Modal>											
-																	</div>
-																																		
-																	{/* Modal */}
-																	
-																	<Modal   show={replayModal}onHide={() => setReplayModal(false)} className="modal fade" id="replyModal">										
-																		<div className="modal-content">
-																			<div className="modal-header">
-																				<h5 className="modal-title">Post Reply</h5>
-																				<button type="button" className="btn-close" data-dismiss="modal" onClick={() => setReplayModal(false)}></button>
-																			</div>
-																			<div className="modal-body">
-																				<form>
-																					<textarea className="form-control" rows="4">Message</textarea>
-																				</form>
-																			</div>
-																			<div className="modal-footer">
-																				<button type="button" className="btn btn-danger light" data-dismiss="modal" onClick={() => setReplayModal(false)}>Close</button>
-																				<button type="button" className="btn btn-primary">Reply</button>
-																			</div>
-																		</div>
-																	</Modal>
-																</div>																																																															
-															</div>
-					
+																</div>
+															</div>					
 														</div>
 													</div>
 												</div>
