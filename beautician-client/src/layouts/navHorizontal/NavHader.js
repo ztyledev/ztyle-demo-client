@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 
 // logo
-import logo from '../../images/logo.jpg';
+import logo from '../../images/logo_header.png';
 
 const NavHader = () => {
   const [toggle, setToggle] = useState(false);
@@ -17,7 +17,7 @@ const NavHader = () => {
 
   return (
     <div className="nav-header">
-      <Link to="/page-srs-matrimony" className="brand-logo">
+      <Link to="/page-ztyle-beautician" className="brand-logo">
         {background.value === "dark" || navigationHader !== "color_1" ? 
         (
             <Fragment>

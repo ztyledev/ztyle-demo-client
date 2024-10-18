@@ -75,7 +75,7 @@
 @import url(./../vendor/metismenu/css/metisMenu.min.css);
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -249,7 +249,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   --bs-gray: #6c757d;
   --bs-gray-dark: #343a40;
   --bs-primary: #1362FC;
-  --bs-secondary: #627EEA;
+  --bs-secondary: #17a2b8;
   --bs-success: #37D159;
   --bs-info: #b48dd3;
   --bs-warning: #FFC368;
@@ -2538,21 +2538,21 @@ textarea.form-control-lg {
 
 .btn-secondary {
   color: #000;
-  background-color: #627EEA;
-  border-color: #627EEA; }
+  background-color: #17a2b8;
+  border-color: #17a2b8; }
   .btn-secondary:hover {
     color: #000;
-    background-color: #7a91ed;
-    border-color: #728bec; }
+    background-color: #0c525d;
+    border-color: #0c525d; }
   .btn-check:focus + .btn-secondary, .btn-secondary:focus {
     color: #000;
-    background-color: #7a91ed;
-    border-color: #728bec;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
     box-shadow: 0 0 0 0.25rem rgba(83, 107, 199, 0.5); }
   .btn-check:checked + .btn-secondary, .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
     color: #000;
-    background-color: #8198ee;
-    border-color: #728bec; }
+    background-color: #17a2b8;
+    border-color: #17a2b8; }
     .btn-check:checked + .btn-secondary:focus, .btn-check:active + .btn-secondary:focus, .btn-secondary:active:focus, .btn-secondary.active:focus, .show > .btn-secondary.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.25rem rgba(83, 107, 199, 0.5); }
   .btn-secondary:disabled, .btn-secondary.disabled {
@@ -2724,8 +2724,8 @@ textarea.form-control-lg {
     background-color: transparent; }
 
 .btn-outline-secondary {
-  color: #627EEA;
-  border-color: #627EEA; }
+  color: #17a2b8;
+  border-color: #17a2b8; }
   .btn-outline-secondary:hover {
     color: #000;
     background-color: #627EEA;
@@ -4918,7 +4918,7 @@ textarea.form-control-lg {
     color: #0f4eca; }
 
 .link-secondary {
-  color: #627EEA; }
+  color: #17a2b8; }
   .link-secondary:hover, .link-secondary:focus {
     color: #8198ee; }
 
@@ -5223,7 +5223,7 @@ textarea.form-control-lg {
   border-color: #1362FC !important; }
 
 .border-secondary {
-  border-color: #627EEA !important; }
+  border-color: #17a2b8 !important; }
 
 .border-success {
   border-color: #37D159 !important; }
@@ -5819,7 +5819,7 @@ textarea.form-control-lg {
   color: #1362FC !important; }
 
 .text-secondary {
-  color: #627EEA !important; }
+  color: #17a2b8 !important; }
 
 .text-success {
   color: #37D159 !important; }
@@ -5873,7 +5873,7 @@ textarea.form-control-lg {
   background-color: #1362FC !important; }
 
 .bg-secondary {
-  background-color: #627EEA !important; }
+  background-color: #17a2b8 !important; }
 
 .bg-success {
   background-color: #37D159 !important; }
@@ -10585,7 +10585,7 @@ svg.pulse-svg {
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -10781,7 +10781,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 */
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -11014,7 +11014,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     transform: rotate(-45deg) translateY(-50%); } }
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -16943,7 +16943,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_2"] {
   --primary: #6610f2;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #510bc4;
   --primary-dark: #290564;
   --rgba-primary-1: rgba(102, 16, 242, 0.1);
@@ -17108,7 +17108,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_13"] {
   --primary: #2a2a2a;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #111111;
   --primary-dark: black;
   --rgba-primary-1: rgba(42, 42, 42, 0.1);
@@ -17123,7 +17123,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-primary="color_14"] {
   --primary: #4885ed;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #1a66e8;
   --primary-dark: #0e3d8e;
   --rgba-primary-1: rgba(72, 133, 237, 0.1);
@@ -17168,7 +17168,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -17295,7 +17295,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -17996,7 +17996,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 #external-events [data-class="bg-pink"]::before {
   background: #e83e8c; }
 #external-events [data-class="bg-secondary"]::before {
-  background: #627EEA; }
+  background: #17a2b8; }
 
 .fc .fc-row .fc-content-skeleton table, .fc .fc-row .fc-content-skeleton td, .fc .fc-row .fc-helper-skeleton td {
   border-color: #F2F2F2; }
@@ -19226,7 +19226,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -19434,12 +19434,12 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     background-color: rgba(255, 195, 104, 0.1);
     border-color: transparent; }
 .checkbox-secondary .form-check-input:focus {
-  border-color: #627EEA;
+  border-color: #17a2b8;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(98, 126, 234, 0.25); }
 .checkbox-secondary .form-check-input:checked {
-  background-color: #627EEA;
-  border-color: #627EEA; }
+  background-color: #17a2b8;
+  border-color: #17a2b8; }
   [data-theme-version="dark"] .checkbox-secondary .form-check-input:checked {
     background-color: rgba(98, 126, 234, 0.5);
     border-color: transparent; }
@@ -19723,7 +19723,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -19973,7 +19973,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -20019,7 +20019,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -20052,7 +20052,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -20105,7 +20105,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;
@@ -21038,7 +21038,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   border-left: 0.25rem solid var(--primary); }
 
 .alert-alt.alert-secondary {
-  border-left: 0.25rem solid #627EEA; }
+  border-left: 0.25rem solid #17a2b8; }
 
 .alert-alt.alert-success {
   border-left: 0.25rem solid #37D159; }
@@ -21062,7 +21062,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   border-left: 0.25rem solid var(--primary-dark) !important; }
 
 .alert-alt.alert-secondary.solid {
-  border-left: 0.25rem solid #1838b4 !important; }
+  border-left: 0.25rem solid #17a2b8 !important; }
 
 .alert-alt.alert-success.solid {
   border-left: 0.25rem solid #1a6f2c !important; }
@@ -21092,9 +21092,9 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   border-color: var(--primary); }
 
 .alert.alert-secondary.solid {
-  background: #627EEA;
+  background: #17a2b8;
   color: #fff;
-  border-color: #627EEA; }
+  border-color: #17a2b8; }
 
 .alert.alert-success.solid {
   background: #37D159;
@@ -21140,7 +21140,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .alert.alert-outline-secondary {
   background: transparent;
   color: #969ba0;
-  border-color: #627EEA; }
+  border-color: #17a2b8; }
 
 .alert.alert-outline-success {
   background: transparent;
@@ -21222,8 +21222,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   color: var(--primary); }
 
 .badge-outline-secondary {
-  border: 0.0625rem solid #627EEA;
-  color: #627EEA; }
+  border: 0.0625rem solid #17a2b8;
+  color: #17a2b8; }
   [data-theme-version="dark"] .badge-outline-secondary {
     color: #969ba0; }
 
@@ -21282,7 +21282,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   background-color: #37D159; }
 
 .badge-secondary {
-  background-color: #627EEA; }
+  background-color: #17a2b8; }
 
 .badge-info {
   background-color: #b48dd3; }
@@ -21325,7 +21325,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 
 .light.badge-secondary {
   background-color: #f2f4fd;
-  color: #627EEA; }
+  color: #17a2b8; }
   [data-theme-version="dark"] .light.badge-secondary {
     background-color: rgba(98, 126, 234, 0.5);
     color: #969ba0; }
@@ -21568,16 +21568,16 @@ button {
 .light.btn-secondary {
   background-color: #f2f4fd;
   border-color: #f2f4fd;
-  color: #627EEA; }
+  color: #17a2b8; }
   .light.btn-secondary g [fill] {
-    fill: #627EEA; }
+    fill: #17a2b8; }
   [data-theme-version="dark"] .light.btn-secondary {
     background-color: rgba(98, 126, 234, 0.5);
     border-color: transparent;
     color: #fff; }
   .light.btn-secondary:hover {
-    background-color: #627EEA;
-    border-color: #627EEA;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
     color: #fff; }
     .light.btn-secondary:hover g [fill] {
       fill: #fff; }
@@ -21664,12 +21664,12 @@ button {
       .btn.tp-btn.btn-primary:hover g [fill] {
         fill: #fff; }
   .btn.tp-btn.btn-secondary {
-    color: #627EEA; }
+    color: #17a2b8; }
     .btn.tp-btn.btn-secondary g [fill] {
-      fill: #627EEA; }
+      fill: #17a2b8; }
     .btn.tp-btn.btn-secondary:hover {
-      background-color: #627EEA;
-      border-color: #627EEA;
+      background-color: #17a2b8;
+      border-color: #17a2b8;
       color: #fff; }
       .btn.tp-btn.btn-secondary:hover g [fill] {
         fill: #fff; }
@@ -21748,15 +21748,15 @@ button {
       .btn.tp-btn-light.btn-primary:hover g [fill] {
         fill: var(--primary); }
   .btn.tp-btn-light.btn-secondary {
-    color: #627EEA; }
+    color: #17a2b8; }
     .btn.tp-btn-light.btn-secondary g [fill] {
-      fill: #627EEA; }
+      fill: #17a2b8; }
     .btn.tp-btn-light.btn-secondary:hover {
       background-color: #f2f4fd;
       border-color: #f2f4fd;
-      color: #627EEA; }
+      color: #17a2b8; }
       .btn.tp-btn-light.btn-secondary:hover g [fill] {
-        fill: #627EEA; }
+        fill: #17a2b8; }
   .btn.tp-btn-light.btn-warning {
     color: #FFC368; }
     .btn.tp-btn-light.btn-warning g [fill] {
@@ -22529,7 +22529,7 @@ button {
   color: #fff; }
 
 .label-secondary {
-  background: #627EEA;
+  background: #17a2b8;
   color: #fff; }
 
 .label-info {
@@ -24087,7 +24087,7 @@ code {
   .table.bg-secondary-hover th {
     color: #6C6C6C; }
   .table.bg-secondary-hover tr:hover td, .table.bg-secondary-hover tr:hover th {
-    background: #627EEA;
+    background: #17a2b8;
     color: #fff !important; }
   .table.bg-info-hover th, .table.bg-info-hover td {
     border: none;
@@ -25616,7 +25616,7 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 
 :root {
   --primary: #1362FC;
-  --secondary: #627EEA;
+  --secondary: #17a2b8;
   --primary-hover: #034bd9;
   --primary-light: #aac7fe;
   --primary-dark: #012875;

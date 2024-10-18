@@ -6,7 +6,7 @@ import { Link ,useHistory } from "react-router-dom";
 import { ThemeContext } from "../../../context/ThemeContext";
 import PageTitle from "../../../components/PageTitle";
 
-import logo from '../../../images/logo.jpg';
+import logo from '../../../images/logo_header.png';
 
 const ActivateAccount = () => {
   

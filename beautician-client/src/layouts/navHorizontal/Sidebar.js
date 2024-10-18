@@ -113,19 +113,19 @@ const SideBar = () => {
       <PerfectScrollbar className="deznav-scroll">
         <MM className="metismenu" id="menu">
           <li className={`${deshBoard.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+            <Link className="has-arrow ai-icon" to="/page-ztyle-beautician" >
               <i className="fa fa-home"></i>
               <span className="nav-text">Home</span>
             </Link>
      
           </li>
           <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
-				    <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+				    <Link className="has-arrow ai-icon" to="/page-about-us" >
 					    <i className="fa fa-users"></i><span className="nav-text">About Us</span>
 				    </Link>
           </li>
           <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+            <Link className="has-arrow ai-icon" to="/page-services" >
               <i className="fa fa-wrench"></i>
               <span className="nav-text">Our Services</span>
             </Link>
@@ -153,19 +153,19 @@ const SideBar = () => {
             </Link>
           </li>
           <li className={`${account.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+            <Link className="has-arrow ai-icon" to="/page-register" >
               <i className="fa fa-user-plus"></i>
               <span className="nav-text">Register Your Account</span>
             </Link>
           </li>
           <li className={`${account.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+            <Link className="has-arrow ai-icon" to="/page-login" >
               <i className="fa fa-user-circle"></i>
               <span className="nav-text">Sign In ToYour Account</span>
             </Link>
           </li>
           <li className={`${account.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/page-srs-matrimony" >
+            <Link className="has-arrow ai-icon" to="/page-contact" >
               <i className="fa fa-tty"></i>
               <span className="nav-text">Contact Us</span>
             </Link>

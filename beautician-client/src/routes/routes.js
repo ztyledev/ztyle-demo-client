@@ -5,7 +5,15 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import RegisterSuccessNext from "../pages/RegisterSuccessNext";
 import ForgotPassword from "../pages/ForgotPassword";
+//import ResetPassword from "../pages/ResetPassword";
+import PasswordMailsendStatus from "../pages/PasswordMailsendStatus";
+import PasswordUpdateStatus from "../pages/PasswordUpdateStatus";
 // import Error404 from "../pages/Error404";
+
+//general pages
+import AboutUs from "../pages/AboutUs";
+import Services from "../pages/Services";
+import Contact from "../pages/Contact";
 
 /// dashboard
 
@@ -42,13 +50,22 @@ import TestPage from "../pages/TestPage";
 
 
 const publicRoutes = [
-    { path: 'page-srs-matrimony', element: LandingPage },
+    { path: 'page-ztyle-beautician', element: LandingPage },
     { path: 'page-login', element: Login },
     { path: 'page-register', element: Registration },
     { path: 'page-register-success-next', element: RegisterSuccessNext },
-    { path: 'page-forgot-password', element: ForgotPassword }
+    { path: 'page-forgot-password', element: ForgotPassword },
+    { path: 'page-password-mailsend-status', element: PasswordMailsendStatus },
+    { path: 'page-password-update-status', element: PasswordUpdateStatus },
+    //{ path:  'page-beautician-reset-password', element:ResetPassword},
+    
+
     // { path: '*', element: Error404 }
     
+    //general pages
+    { path: 'page-about-us', element: AboutUs },
+    { path: 'page-services', element: Services },
+    { path: 'page-contact', element: Contact },
 ]
 
 const authProtectedRoutes = [

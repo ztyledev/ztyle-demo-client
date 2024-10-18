@@ -47,7 +47,7 @@ const Header = (props) => {
 
 	var c = finalName[0];
 
-	var headerName = isNaN(c[0]) ? finalName : ["User Profile"];
+	var headerName = isNaN(c[0]) ? finalName : ["Profile"];
 
 	
   return (
@@ -80,7 +80,7 @@ const Header = (props) => {
 				
 				<Dropdown as="li" className="nav-item notification_dropdown ">
 					<Dropdown.Toggle variant="" as="a" className="nav-link  ai-icon i-false c-pointer">
-						<Link to='/page-login' className="text-primary" title="About-US">
+						<Link to='/page-about-us' className="text-primary" title="About-US">
 							<span className="me-2" > <i className="fa fa-users"/></span>	
 						</Link> 
 						<div className="pulse-css"></div>
@@ -91,7 +91,7 @@ const Header = (props) => {
 					  className="nav-link bell bell-link i-false c-pointer ai-icon"
 					  onClick={() => onNote()}
 					>
-						<Link to='/page-login' className="text-primary" title="Services Provided">
+						<Link to='/page-services' className="text-primary" title="Services Provided">
 							<span className="me-2" > <i className="fa fa-wrench"/></span>	
 						</Link> 
 						<div className="pulse-css"></div>
@@ -100,7 +100,7 @@ const Header = (props) => {
 			  
 				<Dropdown as="li" className="nav-item dropdown notification_dropdown ">
 							  <Dropdown.Toggle className="nav-link i-false c-pointer ai-icon" variant="" as="a">
-								  <Link to='/page-login' className="text-primary" title="Contact-US">
+								  <Link to='/page-contact' className="text-primary" title="Contact-US">
 									   <span className="me-2" > <i className="fa fa-tty"/></span>	
 								  </Link> 
 						{/* <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,7 +115,7 @@ const Header = (props) => {
 					
 						{/* <img src={defaultProfilePic} width={20} alt="" /> */}
 								  {/* <div className="header-info ms-3"> */}
-								  <Link to ='/page-login' title="login to your matrimony account">
+								  <Link to ='/page-login' title="login to your ztyle beautician account">
 									  <button className="btn btn-secondary">
 										  <span className="me-2"> <i className="fa fa-user-circle" /></span>Login
 									  </button>

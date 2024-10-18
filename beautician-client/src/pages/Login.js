@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // image
-import loginbg from "../images/mybg3.png";
+import loginbg from "../images/full_logo.png";
 
 import Spinner from '../components/Spinner/Spinner';
 
