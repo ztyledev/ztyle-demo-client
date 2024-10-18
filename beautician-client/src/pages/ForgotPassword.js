@@ -16,7 +16,15 @@ const ForgotPassword = () => {
                   <div className="auth-form">
                     <div className="text-center mb-3">
 						<Link to="/login">
-							<img src={logosrs} alt="logo" width="290" height="35" viewBox="0 0 336 41" fill="none"/>
+            <svg width="250" height="100" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                            <linearGradient id="myGradient">
+                              <stop offset="0%" stop-color="black" />
+                              <stop offset="100%" stop-color="grey" />
+                            </linearGradient>
+                          </defs>
+                          <text x="50" y="50" font-size="60" font-weight="bold" fill="url(#myGradient)">ztyle</text>
+                        </svg>
 						</Link>
                     </div>
                     <h4 className="text-center mb-4 ">Forgot Password</h4>
@@ -37,7 +45,7 @@ const ForgotPassword = () => {
                       <div className="text-center">
                         <button
                           type="submit"
-                          className="btn btn-primary btn-block"
+                          className="btn btn-secondary btn-block"
                         >
                           SUBMIT
                         </button>

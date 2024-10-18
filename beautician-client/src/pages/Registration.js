@@ -22,7 +22,15 @@ const Register = () => {
                   <div className="auth-form">
                     <div className="text-center mb-3">  
                       <Link to="/page-login">
-                        <img width="290" height="35" viewBox="0 0 336 41" fill="none" src={logosrs} alt="" />
+                      <svg width="250" height="100" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                            <linearGradient id="myGradient">
+                              <stop offset="0%" stop-color="black" />
+                              <stop offset="100%" stop-color="grey" />
+                            </linearGradient>
+                          </defs>
+                          <text x="50" y="50" font-size="60" font-weight="bold" fill="url(#myGradient)">ztyle</text>
+                        </svg>
                       </Link>
                       
                     </div>
@@ -71,7 +79,7 @@ const Register = () => {
                       <div className="text-center mt-4">
                         <button
                           type="submit"
-                          className="btn btn-primary btn-block"
+                          className="btn btn-secondary btn-block"
                         >
                           Sign me up
                         </button>
