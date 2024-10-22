@@ -6,6 +6,7 @@ import { Modal, Button } from 'react-bootstrap';
 // actions
 import { resetAuth } from '../store/auth/authSlice';
 import { resetShop } from '../store/shop/shopSlice';
+import { resetAdmin } from '../store/admin/adminSlice';
 
 
 function LogoutPage(props) {
@@ -16,6 +17,7 @@ function LogoutPage(props) {
   function handleLogout() {
     setbasicModal(false);
     dispatch(resetShop());
+    dispatch(resetAdmin());
     dispatch(resetAuth());
     
 

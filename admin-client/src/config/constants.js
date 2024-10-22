@@ -14,7 +14,17 @@ const Constants = {
   url_shops_shop_image: baseurl + '/api/admin/shops/shop-image',
   url_shops_image1: baseurl + '/api/admin/shops/image1',
   url_shops_image2: baseurl + '/api/admin/shops/image2',
-  url_shop_certificate: baseurl + '/api/admin/shops/certificate'
+  url_shop_certificate: baseurl + '/api/admin/shops/certificate',
+  url_shops_pending_state: baseurl + '/api/admin/shops/pending/by-state',
+  url_shops_pending_district: baseurl + '/api/admin/shops/pending/by-district',
+  url_shops_state: baseurl + '/api/admin/shops/by-state',
+  url_shops_district: baseurl + '/api/admin/shops/by-district',
+  url_shop_shop_id: baseurl + '/api/admin/shops/my-shop',
+  
+  // admins
+  url_admins_pending: baseurl + '/api/admin/pending/admins',
+  url_admins: baseurl + '/api/admin/admins'
+  
   
 };
 

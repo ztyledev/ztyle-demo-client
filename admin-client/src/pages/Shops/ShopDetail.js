@@ -28,7 +28,8 @@ import {
 	deleteImage2,
 	updateShopCertificate,
 	deleteShopCertificate,
-	deleteCurrentShop
+	deleteCurrentShop,
+	editShopStatusById
 } from '../../store/shop/shopActions';
 
 // reset actions
@@ -92,6 +93,8 @@ const ProfileDetail = () => {
 	const [deleteImage1Modal, setdeleteImage1Modal] = useState(false);
 	const [deleteImage2Modal, setdeleteImage2Modal] = useState(false);
 	const [deleteShopCertificateModal, setdeleteShopCertificateModal] = useState(false);
+	const [rejectActivationModal, setrejectActivationModal] = useState(false);
+
 	
 	
 	// display error
@@ -374,15 +377,24 @@ const ProfileDetail = () => {
 
 	}
 
-	useEffect(() => {
-		return (
-			() => {
-                dispatch(resetShop())
-			}
-		)
+	/// Shop status access
 
-	}, [dispatch]);
+	const handleActivate = () => {
+		
+		const shopData = { status: "active" };
+		dispatch(editShopStatusById({ shopData, id, token }));
+	}
+	
+	const handleDeactivate = () => {
+		
+		const shopData = { status: "pending" };
+		dispatch(editShopStatusById({ shopData, id, token }));
+	}
 
+	const handleReject = () => {
+		const shopData = { status: "rejected" };
+		dispatch(editShopStatusById({ shopData, id, token }));
+	}
 
 	if (loadingShop) {
 		return(
@@ -426,32 +438,62 @@ const ProfileDetail = () => {
 																<div className="text-center">
                                                                     <h3 className="text-info">Shop Status : Pending</h3>
                                                                     <p>
-                                                                        The Shop Activation pending You can activate the shop or delete . 
+                                                                        The Shop Activation pending. You Need To Activate The Same . 
                                                                     </p>
                                                                         
-																	 <button className="btn btn-success me-2">
+																	 <button className="btn btn-success me-2" onClick={handleActivate}>
                                                                     
                                                                         <span className="me-2"> <i className="fa fa-toggle-on" /> </span> {loadingShop ? <Spinner /> : "Activate"}
 																	</button>
-                                                                    <button className="btn btn-primary me-2">
-                                                                    
-                                                                        <span className="me-2"> <i className="fa fa-trash" /> </span> {loadingShop ? <Spinner /> : "Delete"}
-                                                                    </button>
+																	<button className="btn btn-danger me-2" onClick={()=>setrejectActivationModal(true)}>																	                                                        
+																		<span className="me-2"> <i className="fa fa-ban" /> </span> {loadingShop ? <Spinner /> : "Reject"}									
+																	</button>
+																	<Modal className="fade" show={rejectActivationModal}>
+																		<Modal.Header>																	
+																			<Modal.Title>Are You Sure You want to Reject. </Modal.Title>											
+																			<Button
+																			variant=""
+																			className="btn-close"
+																			onClick={() => setrejectActivationModal(false)}
+																			>																						
+																			</Button>									
+																		</Modal.Header>
+																		<Modal.Body> Rejected Shops Cannot Be Reactivated</Modal.Body>
+																		<Modal.Footer>
+																			<Button
+																			onClick={() => setrejectActivationModal(false)}
+																			variant="danger light"
+																			>
+																			Close
+																			</Button>
+																			<Button variant="primary"
+																				onClick={handleReject}
+																			>
+																				Reject 
+																			</Button>
+																		</Modal.Footer>																				
+																	</Modal>										                                                               
 																</div>
-																: // for active shop
+																: status === "active" ? // for active
+																	
 																<div className="text-center">
                                                                     <h3 className="text-success">Shop Status:Active</h3>
                                                                     <p>
-                                                                        You can delete the shop and its entire details if it is necessary. 
+                                                                        You can deactivate the shop  if it is necessary. 
                                                                     </p>
                                                                         
-                                                                    <button className="btn btn-primary me-2" onClick={''}>
+                                                                    <button className="btn btn-primary me-2" onClick={handleDeactivate}>
                                                                     
-                                                                        <span className="me-2"> <i className="fa fa-trash" /> </span> {loadingShop ? <Spinner /> : "Delete"}
+                                                                        <span className="me-2"> <i className="fa fa-toggle-off" /> </span> {loadingShop ? <Spinner /> : "Deactivate"}
                                                                     </button>
 																</div>
-															
-															
+																	: 
+																	<div className="text-center">
+																		<h3 className="text-danger">Status : Rejected</h3>
+																		<p>
+																			The Activation Of This Shop Is Rejected
+																		</p>
+																	</div>
 														}
                                                             																																										                                                               																																										
 													</div>

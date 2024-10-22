@@ -445,15 +445,202 @@ export const deleteCurrentShop = createAsyncThunk (
 
 // Shop actions by admin
 
-export const getPendingShops = createAsyncThunk(
-    'shops/getPendingShops',
-    async ({ token }, { rejectWithValue }) => {
+export const getPendingShopsByState = createAsyncThunk(
+    'shops/getPendingShopsBystate',
+    async ({ searchData, token }, { rejectWithValue }) => {
          const config = {
             headers: {
                 'authorization': `Bearer ${token}`
             }
         }
         try {
+            const { data } = await axios.post(
+                Constants.url_shops_pending_state,
+                searchData,
+                config
+            )
+            if (data) {
+                return data;
+            }
+            else {
+                return null;
+            }
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+    }
+)
+
+export const getPendingShopsByDistrict = createAsyncThunk(
+    'shops/getPendingShopsBydistrict',
+    async ({ searchData, token }, { rejectWithValue }) => {
+         const config = {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }
+        try {
+            const { data } = await axios.post(
+                Constants.url_shops_pending_district,
+                searchData,
+                config
+            )
+            if (data) {
+                return data;
+            }
+            else {
+                return null;
+            }
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+    }
+)
+
+// status control
+
+export const editShopStatusById = createAsyncThunk(
+    'shop/editShopStatusById',
+    async ({ shopData, id, token }, { rejectWithValue }) => {
+        
+        // token in header
+        const config = {
+                headers: {
+                    'authorization': `Bearer ${token}`
+                }
+        }
+
+        try {
+            const { data } = await axios.patch(
+                `${Constants.url_shops}/${id}`,
+                shopData,
+                config
+            )
+
+            if (data) {
+                return data;
+            }
+            else {
+                return null;
+            }
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+    }
+)
+
+export const getActiveShopsByState = createAsyncThunk(
+    'shops/getActiveShopsBystate',
+    async ({ searchData, token }, { rejectWithValue }) => {
+         const config = {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }
+        try {
+            const { data } = await axios.post(
+                Constants.url_shops_state,
+                searchData,
+                config
+            )
+            if (data) {
+                return data;
+            }
+            else {
+                return null;
+            }
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+    }
+)
+
+export const getActiveShopsByDistrict = createAsyncThunk(
+    'shops/getActiveShopsByDistrict',
+    async ({ searchData, token }, { rejectWithValue }) => {
+         const config = {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }
+        try {
+            const { data } = await axios.post(
+                Constants.url_shops_district,
+                searchData,
+                config
+            )
+            if (data) {
+                return data;
+            }
+            else {
+                return null;
+            }
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+    }
+)
+
+export const getActiveShopByShopId = createAsyncThunk(
+    'shops/getActiveShopsByShopId',
+    async ({ searchData, token }, { rejectWithValue }) => {
+         const config = {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }
+        try {
+            const { data } = await axios.post(
+                Constants.url_shop_shop_id,
+                searchData,
+                config
+            )
+            if (data) {
+                return data;
+            }
+            else {
+                return null;
+            }
             
         }
         catch (err) {

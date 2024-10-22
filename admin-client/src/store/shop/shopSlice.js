@@ -14,13 +14,20 @@ import {
     updateShopCertificate,
     deleteShopCertificate,
     deleteCurrentShop,
+    getPendingShopsByState,
+    getPendingShopsByDistrict,
+    editShopStatusById,
+    getActiveShopsByState,
+    getActiveShopsByDistrict,
+    getActiveShopByShopId
 
 } from './shopActions'
 
 const initialState = {
     loadingShop: false,
     currentShop: null,
-    pendingShop:null,
+    pendingShops: null,
+    activeShops:null,
     error: null,
     success:false
 }
@@ -65,7 +72,7 @@ const shopSlice = createSlice({
             state.error = payload
             state.success =false
         },
-        //edit basic profile
+        //edit shop profile
         [editShopById.pending]: (state) => {
             state.loadingShop = true
             state.error = null
@@ -226,6 +233,102 @@ const shopSlice = createSlice({
             state.error = null
         },
         [deleteCurrentShop.rejected]: (state, { payload }) => {
+            state.loadingShop = false
+            state.error = payload
+            state.success =false
+        },
+        // get pending shops by state
+        [getPendingShopsByState.pending]: (state) => {
+            state.loadingShop = true
+            state.error = null
+            state.success =false
+        },
+        [getPendingShopsByState.fulfilled]: (state, { payload }) => {
+            state.loadingShop = false
+            state.pendingShops = payload
+            state.error = null
+        },
+        [getPendingShopsByState.rejected]: (state, { payload }) => {
+            state.loadingShop = false
+            state.error = payload
+            state.success =false
+        },
+        // get pending shops by district
+        [getPendingShopsByDistrict.pending]: (state) => {
+            state.loadingShop = true
+            state.error = null
+            state.success =false
+        },
+        [getPendingShopsByDistrict.fulfilled]: (state, { payload }) => {
+            state.loadingShop = false
+            state.pendingShops = payload
+            state.error = null
+        },
+        [getPendingShopsByDistrict.rejected]: (state, { payload }) => {
+            state.loadingShop = false
+            state.error = payload
+            state.success =false
+        },
+        // shop status
+        [editShopStatusById.pending]: (state) => {
+            state.loadingShop = true
+            state.error = null
+            state.success =false
+        },
+        [editShopStatusById.fulfilled]: (state, { payload }) => {
+            state.loadingShop = false
+            state.currentShop = payload
+            state.error = null
+        },
+        [editShopStatusById.rejected]: (state, { payload }) => {
+            state.loadingShop = false
+            state.error = payload
+            state.success =false
+        },
+        // get active shops by state
+        [getActiveShopsByState.pending]: (state) => {
+            state.loadingShop = true
+            state.error = null
+            state.success =false
+        },
+        [getActiveShopsByState.fulfilled]: (state, { payload }) => {
+            state.loadingShop = false
+            state.activeShops = payload
+            state.error = null
+        },
+        [getActiveShopsByState.rejected]: (state, { payload }) => {
+            state.loadingShop = false
+            state.error = payload
+            state.success =false
+        },
+        // get active shops by district
+        [getActiveShopsByDistrict.pending]: (state) => {
+            state.loadingShop = true
+            state.error = null
+            state.success =false
+        },
+        [getActiveShopsByDistrict.fulfilled]: (state, { payload }) => {
+            state.loadingShop = false
+            state.activeShops = payload
+            state.error = null
+        },
+        [getActiveShopsByDistrict.rejected]: (state, { payload }) => {
+            state.loadingShop = false
+            state.error = payload
+            state.success =false
+        },
+         // get active shop by shop id
+        [getActiveShopByShopId.pending]: (state) => {
+            state.loadingShop = true
+            state.error = null
+            state.success =false
+        },
+        [getActiveShopByShopId.fulfilled]: (state, { payload }) => {
+            state.loadingShop = false
+            state.activeShops = payload
+            state.error = null
+        },
+        [getActiveShopByShopId.rejected]: (state, { payload }) => {
             state.loadingShop = false
             state.error = payload
             state.success =false

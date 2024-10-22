@@ -33,8 +33,18 @@ import FormAdvanceShopEdit from "../pages/Forms/formAdvanceShopEdit";
 import AppProfile from "../pages/AppsMenu/AppProfile/AppProfile";
 
 /// shops
-import ShopsPending from '../pages/Shops/ShopList/ShopsPending';
+import PendingSelect from '../pages/Shops/ShopList/PendingSelect';
+import ShopSelect from '../pages/Shops/ShopList/ShopSelect';
+import ShopsPendingState from '../pages/Shops/ShopList/ShopsPendingState';
+import ShopsPendingDistrict from '../pages/Shops/ShopList/ShopsPendingDistrict';
+import ShopsState from '../pages/Shops/ShopList/ShopsState';
+import ShopsDistrict from '../pages/Shops/ShopList/ShopsDistrict';
+import ShopsShopId from '../pages/Shops/ShopList/ShopsShopId';
 import ShopDetail from '../pages/Shops/ShopDetail';
+
+/// admins
+import PendingAdmins from '../pages/Admins/PendingAdmins';
+import AdminDetail from '../pages/Admins/AdminDetail';
 
 
 /// account
@@ -78,8 +88,19 @@ const authProtectedRoutes = [
     { path: 'form-edit-advance-info/:id', element: FormAdvanceShopEdit },
 
     /// shops
-    { path: 'shops-pending', element: ShopsPending },
+    { path: 'shops-pending-select', element: PendingSelect },
+    { path: 'state-shops-pending', element: ShopsPendingState },
+    { path: 'district-shops-pending', element: ShopsPendingDistrict },
+    { path: 'shop-select', element: ShopSelect },
+    { path: 'shops-state', element: ShopsState },
+    { path: 'shops-district', element: ShopsDistrict },
+    { path: 'shops-shop-id', element: ShopsShopId },
     { path: 'shop-detail/:id', element: ShopDetail },
+
+    /// admins
+    { path: 'admins-pending', element: PendingAdmins },
+    { path: 'admin-detail/:id', element: AdminDetail },
+
     
     /// user profile
     { path: 'app-profile', element: AppProfile },

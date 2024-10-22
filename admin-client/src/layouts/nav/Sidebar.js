@@ -119,8 +119,8 @@ const SideBar = () => {
      
           </li>
           <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
-				    <Link className="has-arrow ai-icon" to="/profiles-matching" >
-					    <i className="flaticon-045-heart"></i><span className="nav-text">Matching Profiles</span>
+				    <Link className="has-arrow ai-icon" to="/shop-select" >
+					    <i className="fa fa-store"></i><span className="nav-text">Active Shops</span>
 				    </Link>
           </li>
           <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>

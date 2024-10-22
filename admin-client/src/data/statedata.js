@@ -1,6 +1,6 @@
 export const statedata = [
     {
-        name: "kerala",
+        name: "Kerala",
         districts: ["Trivandrum", "Kollam", "Pathanamthitta",
             "Alappuzha", "Kottayam", "Idukki", "Eranakulam",
             "Thrissur", "Palakkad", "Kozhikkod", "wayanad",

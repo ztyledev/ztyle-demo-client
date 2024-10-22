@@ -120,7 +120,7 @@ const Home = () => {
 							</div>
 						</div>
 						<div className="col-xl-12 col-sm-6">
-							 	</div>
+						</div>
 					</div>
 				</div>
 				<div className="col-xl-9 col-xxl-8">

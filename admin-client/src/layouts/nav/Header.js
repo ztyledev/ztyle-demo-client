@@ -283,7 +283,7 @@ const Header = (props) => {
 
 					<Dropdown.Menu align="right" className="mt-3 dropdown-menu dropdown-menu-end">
 						
-					  <Link to="/shops-pending" className="dropdown-item ai-icon">
+					  <Link to="/shops-pending-select" className="dropdown-item ai-icon">
 						 <i className="fa fa-store text-secondary"></i>
 						<span className="ms-2">pending shops </span>
 					  </Link>

@@ -55,12 +55,15 @@ const Register = () => {
     const errorObj = { ...errorsObj };
     if (fullName === '') {
       errorObj.fullName = 'Full Name is Required'
+      error = true;
     }
     if (designation === '') {
       errorObj.designation = 'Designation is Required'
+      error = true;
     }
     if (mobile === '') {
       errorObj.mobile = 'Mobile Number is Required'
+      error = true;
     }
     if (email === '') {
       errorObj.email = 'email Is Required';
