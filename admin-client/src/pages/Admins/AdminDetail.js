@@ -186,13 +186,13 @@ const AdminDetail = () => {
                                             <div className="card text-center">
                                                 <div className="card-body">
                                                     <div className="text-center">
-                                                        <h3 className="text-success">Delete Admin Account</h3>
+                                                        <h3 className="text-danger">Delete Admin Account</h3>
                                                         <p>
                                                             You can Delete the admin  if it is necessary. 
                                                         </p>
                                                             
                                                         <button className="btn btn-primary me-2" onClick={'handleDelete'}>                                           
-                                                            <span className="me-2"> <i className="fa fa-toggle-off" /> </span> {loadingAdmin ? <Spinner /> : "Deactivate"}
+                                                            <span className="me-2"> <i className="fa fa-trash" /> </span> {loadingAdmin ? <Spinner /> : "Delete"}
                                                         </button>                                           
                                                     </div>
                                                 </div>

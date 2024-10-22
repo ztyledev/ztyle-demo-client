@@ -3,7 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 // actions
 import {
     getPendingAdmins,
-    getAdminById
+    getAdminById,
+    activateAdminById
+
 } from './adminActions'
 
 
@@ -56,8 +58,26 @@ const adminSlice = createSlice({
             state.error = payload
             state.success =false
         },
+        // activate admin by id
+        [activateAdminById.pending]: (state) => {
+            state.loadingAdmin = true
+            state.error = null
+            state.success =false
+        },
+        [activateAdminById.fulfilled]: (state, { payload }) => {
+            state.loadingAdmin = false
+            state.currentAdmin = payload
+            state.error = null
+        },
+        [getAdminById.rejected]: (state, { payload }) => {
+            state.loadingAdmin = false
+            state.currentAdmin=null
+            state.error = payload
+            state.success =false
+        },
     }
 })
+
 
 
 export const { resetAdmin} = adminSlice.actions

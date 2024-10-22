@@ -23,8 +23,8 @@ const Constants = {
   
   // admins
   url_admins_pending: baseurl + '/api/admin/pending/admins',
-  url_admins: baseurl + '/api/admin/admins'
-  
+  url_admins: baseurl + '/api/admin/admins',
+  url_admins_activate:baseurl+'/api/admin/admins/activate'
   
 };
 
