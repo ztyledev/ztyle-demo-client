@@ -18,7 +18,8 @@ import swal from "sweetalert";
 
 //actions
 import {
-    getAdminById
+    getAdminById,
+	activateAdminById
 } from '../../store/admin/adminActions'
 
 
@@ -37,7 +38,7 @@ const AdminDetail = () => {
 	},[]);
 
 	
-	const { token } = useSelector(state => state.auth);
+	const { token, adminInfo } = useSelector(state => state.auth);
 	
 	
 
@@ -71,7 +72,10 @@ const AdminDetail = () => {
     const [basicModal, setBasicModal] = useState(false);
     const [rejectActivationModal, setrejectActivationModal] = useState(false);
 
-	
+	const handleActivate = () => {
+		const adminData = {designation: adminInfo.designation, status: adminInfo.status};
+		dispatch (activateAdminById({adminData, id, token}));
+	}
 	
 	// display error
 	useEffect(() => {
@@ -122,7 +126,7 @@ const AdminDetail = () => {
                                                                         The Admin Account Activation pending. You Need To Activate The Same . 
                                                                     </p>
                                                                         
-																	 <button className="btn btn-success me-2" onClick={''}>
+																	 <button className="btn btn-success me-2" onClick={handleActivate}>
                                                                     
                                                                         <span className="me-2"> <i className="fa fa-toggle-on" /> </span> {loadingAdmin ? <Spinner /> : "Activate"}
 																	</button>
