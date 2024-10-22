@@ -94,7 +94,9 @@ const AdminDetail = () => {
 	
 	else if (currentAdmin) {
 		
-        const { status } = currentAdmin;
+        const { status, fullName, designation, mobile, email } = currentAdmin;
+
+		
 
 
 	 
@@ -220,22 +222,22 @@ const AdminDetail = () => {
 																<div className="profile-about-me">
 																	<div className="pt-4 border-bottom-1 pb-3">
 																		<h4 className="text-secondary mb-4">
-																			Basic Information
+																			Admin Information
 																		</h4>
 																		<div className="row mb-2">
 																			<div className="col-4">
-																				<h5 className="f-w-500">Name Of The Shop<span className="pull-right">:</span></h5>
+																				<h5 className="f-w-500">Full Name<span className="pull-right">:</span></h5>
 																			</div>
 																			<div className="col-8">
-																				<span>{'shopName'}</span>
+																				<span>{fullName}</span>
 																			</div>
 																		</div>
 																		<div className="row mb-2">
 																			<div className="col-4">
-																				<h5 className="f-w-500">Owner's FullName<span className="pull-right">:</span></h5>
+																				<h5 className="f-w-500">Designation<span className="pull-right">:</span></h5>
 																			</div>
 																			<div className="col-8">
-																				<span>{'ownerFullName'}</span>
+																				<span>{designation}</span>
 																			</div>
 																		</div>
 																		<div className="row mb-2">
@@ -243,63 +245,22 @@ const AdminDetail = () => {
 																				<h5 className="f-w-500">  Mobile Number <span className="pull-right">:</span></h5>
 																			</div>
 																			<div className="col-8">
-																				<span>{'mobile'}</span>
+																				<span>{mobile}</span>
 																			</div>
 																		</div>
 																		<div className="row mb-2">
 																			<div className="col-4">
-																				<h5 className="f-w-500"> State <span className="pull-right">:</span></h5>
+																				<h5 className="f-w-500"> E-mail <span className="pull-right">:</span></h5>
 																			</div>
 																			<div className="col-8">
-																				<span>{'state'}</span>
+																				<span>{email}</span>
 																			</div>
 																		</div>
-																		<div className="row mb-2">
-																			<div className="col-4">
-																				<h5 className="f-w-500">  District <span className="pull-right">:</span></h5>
-																			</div>
-																			<div className="col-8">
-																				<span>{'district'}</span>
-																			</div>
-																		</div>
+																		
 																	</div>
 						
 						
-																<div className="pt-4 border-bottom-1 pb-3">
-																	<h4 className="text-secondary mb-4">
-																		Shop Info
-																	</h4>
-																	<div className="row mb-2">
-																		<div className="col-4">
-																			<h5 className="f-w-500"> Shop Id<span className="pull-right">:</span></h5>
-																		</div>
-																		<div className="col-8">
-																			<span>{'shopId'} </span>
-																		</div>
-
-																	</div>
-																	
-																	
-																		<div className="row mb-2">
-																			<div className="col-4">
-																				<h5 className="f-w-500"> Opening Time <span className="pull-right">:</span></h5>
-																			</div>
-																			<div className="col-8">
-																				<span>{'stdOpeningTime'} </span>
-																			</div>
-																		</div>
-																		<div className="row mb-2">
-																			<div className="col-4">
-																				<h5 className="f-w-500">  Closing Time <span className="pull-right">:</span></h5>
-																			</div>
-																			<div className="col-8">
-																				<span>{'stdClosingTime'}</span>											
-																			</div>
-																		</div>
-																		
-																		
-																		
-																	</div>
+																
 																	
 																</div>
 					
