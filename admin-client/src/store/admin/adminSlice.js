@@ -69,7 +69,7 @@ const adminSlice = createSlice({
             state.currentAdmin = payload
             state.error = null
         },
-        [getAdminById.rejected]: (state, { payload }) => {
+        [activateAdminById.rejected]: (state, { payload }) => {
             state.loadingAdmin = false
             state.currentAdmin=null
             state.error = payload
