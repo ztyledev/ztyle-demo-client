@@ -8,6 +8,7 @@ const Constants = {
   url_admin_register: baseurl + "/api/auth/admin-register",
   url_admin_forgot_password: baseurl + '/api/auth/admin-request-reset-password',
   url_admin_reset_password: baseurl + '/api/auth/admin-reset-password',
+  url_admin_account_deactivate: baseurl + '/api/auth/admin-deactivate-account',
   
   // shop
   url_shops: baseurl + '/api/admin/shops',
@@ -22,10 +23,20 @@ const Constants = {
   url_shop_shop_id: baseurl + '/api/admin/shops/my-shop',
   
   // admins
+  url_admins:baseurl+'/api/admin/admins',
   url_admins_pending: baseurl + '/api/admin/pending/admins',
   url_admins: baseurl + '/api/admin/admins',
-  url_admins_activate:baseurl+'/api/admin/admins/activate'
+  url_admins_activate: baseurl + '/api/admin/admins/activate',
+  url_admins_deactivate: baseurl + '/api/admin/admins/deactivate',
+  url_admins_reject: baseurl + '/api/admin/admins/reject',
+  url_admins_delete: baseurl + '/api/admin/admins/delete',
+
+  // beauticians
+  url_beauticians: baseurl + '/api/admin/beauticians',
+  url_beauticians_shop_id: baseurl + '/api/admin/beauticians/shop-id'
   
+
 };
+
 
 export default Constants;

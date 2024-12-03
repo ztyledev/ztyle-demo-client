@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import swal from 'sweetalert';
 
 // actions
 import { adminLogin } from '../store/auth/authActions';
@@ -10,8 +9,9 @@ import { resetAuth } from '../store/auth/authSlice';
 // image
 import loginbg from "../images/full_logo.png";
 
+// components
 import Spinner from '../components/Spinner/Spinner';
-
+import swal from 'sweetalert';
 
 const Login = () => {
 	const dispatch = useDispatch();

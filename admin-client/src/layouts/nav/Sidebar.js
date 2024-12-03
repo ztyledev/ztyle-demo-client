@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useScrollPosition } from "react-use-scroll-position";
 import { ThemeContext } from "../../context/ThemeContext";
 import LogoutPage from '../../pages/Logout'
+import AccountDeactivate from "../../pages/AccountDeactivate";
 
 /// Image
 //import profile from "../../../images/profile/pic1.jpg";
@@ -124,33 +125,16 @@ const SideBar = () => {
 				    </Link>
           </li>
           <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/profiles-fresh" >
-              <i className="flaticon-041-graph"></i>
-              <span className="nav-text">New Profiles</span>
+            <Link className="has-arrow ai-icon" to="/admins-all" >
+              <i className="fa fa-user"></i>
+              <span className="nav-text">All Admins</span>
             </Link>
      
           </li>
 
-          <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/profiles-sent-interest" >
-              <i className="flaticon-045-heart"></i>
-              <span className="nav-text">Interest Sent</span>
-            </Link>
-          </li>
-
-           <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/profiles-received-interest" >
-              <i className="flaticon-086-star"></i>
-              <span className="nav-text">Interest Received</span>
-            </Link>
-          </li>
+         
           
-          <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="/profiles-mutual-interest" >
-              <i className="flaticon-013-checkmark"></i>
-              <span className="nav-text">Mutual Interests</span>
-            </Link>
-          </li>
+         
 
           <li className={`${account.includes(path) ? "mm-active" : ""}`}>
             <Link className="has-arrow ai-icon" to="/account-status" >
@@ -171,10 +155,13 @@ const SideBar = () => {
               <span className="nav-text">Your Profile</span>
             </Link>
           </li>
+          <li>
+            <AccountDeactivate />
+          </li>
           <li >
             <LogoutPage className="text-white"/>
-            </li>
-
+          </li>
+          
          
         </MM>
 		<div className="copyright">

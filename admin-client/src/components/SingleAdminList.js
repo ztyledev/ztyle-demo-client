@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import defaultProfilePic from '../images/avatar/defaultProfilePic.png';
 
 
-const SingleShopList = (props) => {
+const SingleAdminList = (props) => {
    const {
       _id,
       fullName,
@@ -50,4 +50,4 @@ const SingleShopList = (props) => {
    );
 };
 
-export default SingleShopList;
+export default SingleAdminList;

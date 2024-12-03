@@ -16,7 +16,7 @@ function RegisterSuccessNext() {
                 <div className="col-xl-12">
                   <div className="auth-form">
                     <div className="text-center mb-3">
-                      <Link to="/dashboard">
+                      <Link to="/page-login">
                         <svg width="250" height="100" xmlns="http://www.w3.org/2000/svg">
                           <defs>
                             <linearGradient id="myGradient">

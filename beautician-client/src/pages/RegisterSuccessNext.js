@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {Card,Alert} from 'react-bootstrap'
 
-import logosrs from '../images/svg/srslogo.svg'; 
 
 function RegisterSuccessNext() {
   
@@ -17,20 +16,28 @@ function RegisterSuccessNext() {
                 <div className="col-xl-12">
                   <div className="auth-form">
                     <div className="text-center mb-3">
-						<Link to="/dashboard">
-                            <img src={logosrs} alt="logo" width="290" height="35" viewBox="0 0 336 41" fill="none" />                  
-						</Link>
+                      <Link to="/page-login">
+                        <svg width="250" height="100" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                            <linearGradient id="myGradient">
+                              <stop offset="0%" stop-color="black" />
+                              <stop offset="100%" stop-color="grey" />
+                            </linearGradient>
+                          </defs>
+                          <text x="50" y="50" font-size="60" font-weight="bold" fill="url(#myGradient)">ztyle</text>
+                        </svg>                        
+                      </Link>
                     </div>
                     <h4 className="text-center mb-4 ">Registration Success</h4>
 
                     <Card>
                       <Card.Body>
                         <Alert
-                          variant="primary"
+                          variant="secondary"
                           className="solid alert-dismissible fade show"
 
                         >
-                          <Link to="/dashboard" style={{"textDecoration":"none","color":"white"}}>
+                          <Link to="/page-login" style={{"textDecoration":"none","color":"white"}}>
                             <strong> Your Registration is successful  </strong> . please login again
                           </Link>
                           
@@ -44,7 +51,7 @@ function RegisterSuccessNext() {
                     <div className="new-account mt-3">
                       <p className="">
                         Please Click{" "}
-                        <Link className="text-primary" to="/dashboard">
+                        <Link className="text-primary" to="/page-login">
                           Log in
                         </Link>
                       </p>

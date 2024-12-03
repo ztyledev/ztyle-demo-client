@@ -8,6 +8,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import PageTitle from "../../components/PageTitle";
 import Spinner from "../../components/Spinner/Spinner";
 import swal from 'sweetalert';
+import CheckBox from "../../components/CheckBox";
 
 // data
 import { statedata } from "../../data/statedata";
@@ -70,7 +71,7 @@ const FormBasicShopEdit = () => {
   const [shopId, setshopId] = useState('');
   const [ownerFullName, setownerFullName] = useState('');
   const [mobile, setmobile] = useState('');
-  // const [workingDays, setworkingDays] = useState([]);
+  const [workingDays, setworkingDays] = useState([]);
   const [openingTime, setopeningTime] = useState('');
   const [closingTime, setclosingTime] = useState('');
 
@@ -99,18 +100,17 @@ const FormBasicShopEdit = () => {
     setData(data=>({...data, district:e.target.value}))
   }
 
-  // const handleWorkingDays=(e)=>{
-  //   const {value,checked} = e.target;
+   const workingDaysHandler = (index) => {
+    setworkingDays(
+      workingDays.map((day, currentIndex) =>
+        currentIndex === index ?
+          { ...day, checked: !day.checked }
+          : day
+      )
+    )
+  }
 
-  //   if(checked){
-  //     setworkingDays([...workingDays,value]);
-  //   }
-  //   else{
-  //     setworkingDays(workingDays.filter((e) => e !== value))
-  //   }
-    
-  // }
-
+  
 
   useEffect(() => {
     if (currentShop) {
@@ -120,7 +120,7 @@ const FormBasicShopEdit = () => {
       setownerFullName(currentShop.ownerFullName);
       setmobile(currentShop.mobile);
       setData({ state: currentShop.state, district: currentShop.district });
-      // setworkingDays(currentShop.workingDays);
+      setworkingDays(currentShop.workingDays);
       setopeningTime(currentShop.openingTime);
       setclosingTime(currentShop.closingTime);
       
@@ -159,10 +159,10 @@ const FormBasicShopEdit = () => {
       errorObj.district = 'District is Required';
       error = true;
     }
-    // if (workingDays === '') {
-    //   errorObj.workingDays = 'Working Days is Required';
-    //   error = true;
-    // }
+    if (workingDays === '') {
+      errorObj.workingDays = 'Working Days is Required';
+      error = true;
+    }
     if (openingTime === '') {
       errorObj.openingTime = 'Opening Time is Required';
       error = true;
@@ -178,7 +178,7 @@ const FormBasicShopEdit = () => {
           if(error){
             return
           }
-    const shopData = { shopName, shopId, ownerFullName, mobile, state, district, openingTime, closingTime, profileCompletion: "50" }
+    const shopData = { shopName, shopId, ownerFullName, mobile, state, district,workingDays, openingTime, closingTime, profileCompletion: "50" }
     
     const id = currentShop._id;
 
@@ -380,7 +380,7 @@ const FormBasicShopEdit = () => {
                         </div>
                         {errors.shopId && <div className="text-danger fs-12">{errors.shopId}</div>}
                       </div>
-                      {/* <div className="form-group mb-3 row">
+                      <div className="form-group mb-3 row">
                         <div className="col-xl-6 col-lg-6">
                           <div className="card">
                             <label
@@ -392,95 +392,28 @@ const FormBasicShopEdit = () => {
                             </label>
               
                             <div className="card-body">
-                              <div className="basic-form">
-                                
+                              <div className="basic-form">                               
                                   <div className="form-group">
-                                    <div className="form-check form-check-inline">
-                                      <label className="form-check-label">
-                                        <input
-                                          type="checkbox"
-                                          className="form-check-input"
-                                          value="Sunday"
-                                          onChange={handleWorkingDays}
-                                        />
-                                        Sunday
-                                      </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                      <label className="form-check-label">
-                                        <input
-                                          type="checkbox"
-                                          className="form-check-input"
-                                          value="Monday"
-                                          onChange={handleWorkingDays}
-                                        />
-                                        Monday
-                                      </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                      <label className="form-check-label">
-                                        <input
-                                          type="checkbox"
-                                          className="form-check-input"
-                                          value="Tuesday"
-                                          onChange={handleWorkingDays}
-                                        />
-                                        Tuesday
-                                      </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                      <label className="form-check-label">
-                                        <input
-                                          type="checkbox"
-                                          className="form-check-input"
-                                          value="Wednesday"
-                                          onChange={handleWorkingDays}
-                                        />
-                                        Wednesday
-                                      </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                      <label className="form-check-label">
-                                        <input
-                                          type="checkbox"
-                                          className="form-check-input"
-                                          value="Thursday"
-                                          onChange={handleWorkingDays}
-                                        />
-                                        Thursday
-                                      </label>
-                                  </div>
-                                  <div className="form-check form-check-inline">
-                                    <label className="form-check-label">
-                                      <input
-                                        type="checkbox"
-                                        className="form-check-input"
-                                        value="Friday"
-                                        onChange={handleWorkingDays}
-                                      />
-                                      Friday
-                                    </label>
-                                  </div>
-                                  <div className="form-check form-check-inline">
-                                    <label className="form-check-label">
-                                      <input
-                                        type="checkbox"
-                                        className="form-check-input"
-                                        value="Saturday"
-                                        onChange={handleWorkingDays}
-                                      />
-                                      Saturday
-                                    </label>
-                                  </div>
+                                    {                                   
+                                      workingDays.map((day, index) => (                                      
+                                        <CheckBox                                          
+                                          key={day.name}                                          
+                                          isChecked={day.checked}
+                                          checkHandler={() => workingDaysHandler(index)}
+                                          label={day.name}
+                                          index={index}                        
+                                        />                                        
+                                      ))                                     
+                                    
+                                    }                                    
                                   
-                                  
-                                  </div>
-                              </div>
-                            </div>
-                          </div>
+                                  </div>                              
+                                </div>                               
+                              </div>                              
+                            </div>                            
                           {errors.workingDays && <div className="text-danger fs-12">{errors.workingDays}</div>}
                         </div>
-                      </div> */}
+                      </div>
                       <div className="form-group mb-3 row">
                         <label
                           className="col-lg-4 col-form-label"

@@ -65,7 +65,7 @@ const FormAdvanceShopAdd = () => {
   const [location, setlocation] = useState('');
   const [accountId, setaccountId] = useState('');
   const [category, setcategory] = useState('');
-  // const [menu, setmenu] = useState([]);
+  const [menu, setmenu] = useState([]);
   
 
   useEffect(() => {
@@ -75,27 +75,34 @@ const FormAdvanceShopAdd = () => {
       setlocation(currentShop.location);
       setaccountId(currentShop.accountId);
       setcategory(currentShop.category);
+      setmenu(currentShop.menu);
 
     }
   }, [currentShop]);
   
-  //  const handleMenu=(e)=>{
-  //   const {value,checked} = e.target;
+ 
 
-  //   // console.log(`${value} is ${checked}`);
+  const handleMenuChange = (e, index) => {
+    const { name, value } = e.target;
+    setmenu(prevMenu =>
+      prevMenu.map((item, i) =>
+        i === index ? { ...item, [name]: value } : item
+      )
+    )
+        
+  }
+  
+  const handleDeleteInput = (index) => {
+    const newArray = [...menu];     
+    newArray.splice(index, 1);
+    setmenu(newArray);
+  }
+  const handleAddInput = () => {
+    setmenu([...menu, { name: '', price: '' }]);
+  }
 
-  //   if(checked){
-  //     setmenu([...menu,value]);
-  //   }
-  //   else{
-  //     setmenu(menu.filter((e) => e !== value))
-  //   }
-    
-  // }
-
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-
+  const handleSubmit=()=>{
+  
     let error = false;
     const errorObj = { ...errorsObj };
     if (address === '') {
@@ -114,10 +121,10 @@ const FormAdvanceShopAdd = () => {
       errorObj.category = 'Category Of Shop Is Required';
       error = true;
     }
-    // if (menu.length === 0) {
-    //   errorObj.menu = 'Shop Menu Is Required';
-    //   error = true;
-    // }
+    if (menu.length === 0) {
+      errorObj.menu = 'Shop Menu Is Required';
+      error = true;
+    }
          
     seterrors(errorObj);
 
@@ -125,8 +132,8 @@ const FormAdvanceShopAdd = () => {
       return
     }
 
-    const shopData = { address, location, accountId, category, profileCompletion: "100", advanceProfileStatus: true };
-    
+    const shopData = { address, location, accountId, category, menu, profileCompletion: "100" };
+
     const id = currentShop._id;
     dispatch(editShopById({ id, shopData, token }));
      
@@ -162,11 +169,8 @@ const FormAdvanceShopAdd = () => {
               </div>
               <div className="card-body">
                 <div className="form-validation">
-                  <form
+                  <div
                     className="form-valide"
-                    action="#"
-                    method="post"
-                    onSubmit={handleSubmit}
                   >
                     <h4 className="text-secondary"> Info About Selected Shop</h4>
                     <div className="row">
@@ -266,81 +270,78 @@ const FormAdvanceShopAdd = () => {
                             />
                           </div>
                           {errors.accountId && <div className="text-danger fs-12">{errors.accountId}</div>}
-                        </div>
-                        {/* <div className="form-group mb-3 row">
-                          <div className="col-xl-6 col-lg-6">
-                            <div className="card">
-                              <label
-                                className="col-lg-4 col-form-label"
-                                htmlFor="val-menu"
-                              >
-              
-                                Shop's Menu
-                              </label>
-              
-                              <div className="card-body">
-                                <div className="basic-form">
-                                
-                                  <div className="form-group">
-                                    <div className="form-check form-check-inline">
-                                      <label className="form-check-label">
-                                        <input
-                                          type="checkbox"
-                                          className="form-check-input"
-                                          value="Hair Cut"
-                                          onChange={handleMenu}
-                                        />
-                                        Hair Cut
-                                      </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                      <label className="form-check-label">
-                                        <input
-                                          type="checkbox"
-                                          className="form-check-input"
-                                          value="Shave"
-                                          onChange={handleMenu}
-                                        />
-                                        Shave
-                                      </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                      <label className="form-check-label">
-                                        <input
-                                          type="checkbox"
-                                          className="form-check-input"
-                                          value="Hair Cut & Shave"
-                                          onChange={handleMenu}
-                                        />
-                                        Hair Cut & Shave
-                                      </label>
-                                    </div>
-                            
+                        </div>                                                                     
+                      </div>
+                      <div className="col-xl-6">                       
+                        <h4 className="text-secondary">Shop's Menu</h4>
+                        {
+                          menu.map((item, index) => (
+                            <div className="form-group mb-3 row" key={index}>
+                              <h5 className="text-info">Menu Item</h5>                             
+                              <label                            
+                                className="col-lg-4 col-form-label"                                   
+                                htmlFor="val-location"                                    
+                              >                               
+                                Name Of The Service                            
+                                <span className="text-danger">*</span>                           
+                              </label>                           
+                              <div className="col-lg-6">                           
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  name="name"
+                                  placeholder="Like Haircut, Shave etc."
+                                  value={item.name}
+                                  onChange={(e) => handleMenuChange(e, index)}
                                   
-                                 
-                                  </div>
-                                </div>
+                                />
                               </div>
-                            </div>
-                            {errors.menu && <div className="text-danger fs-12">{errors.menu}</div>}
-                          </div>
-                        </div> */}
-                      
-                      
+                              <label                            
+                                className="col-lg-4 col-form-label"                                   
+                                htmlFor="val-location"                                    
+                              >                               
+                                Price Of The Service                            
+                                <span className="text-danger">*</span>                           
+                              </label>                           
+                              <div className="col-lg-6">                           
+                                <input
+                                  type="number"
+                                  className="form-control"
+                                  name="price"
+                                  placeholder="Price in &#8377;"
+                                  value={item.price}
+                                  onChange={(e) => handleMenuChange(e,index)}
 
-                      
-                                     
-              
-                        <div className="form-group mb-3 row">
+                                />
+                              </div>
+                              <div>
+                                {
+                                  menu.length > 1 && (
+                                      <button className="btn btn-primary" onClick={() => handleDeleteInput(index)}>Delete</button>
+                                  )
+                                }
+                                
+                                {
+                                  index === menu.length - 1 && (
+                                      <button className="btn btn-secondary" onClick={() => handleAddInput()}>Add</button>
+                                  )
+                                }
+                              </div>                             
+                            </div>                           
+                          ))
+                            
+                        }                        
+                        {errors.menu && <div className="text-danger fs-12">{errors.menu}</div>}                         
+                      </div>
+                      <div className="form-group mb-3 row">
                           <div className="col-lg-8 ms-auto">
-                            <button type="submit" className="btn btn-secondary">
+                            <button className="btn btn-secondary" onClick={handleSubmit}>
                               {loadingShop ? <Spinner /> : "Submit"}
                             </button>
                           </div>
-                        </div>
-                      </div>
+                      </div> 
                     </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>

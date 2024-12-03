@@ -1,30 +1,23 @@
-const baseurl = "http://35.154.23.158:3000";
+const baseurl = "http://localhost:5000";
 const Constants = {
-  appname: "SRS",
+  appname: "Ztyle",
   baseurl: baseurl,
 
-  url_login: baseurl + "/users/login",
-  url_register: baseurl + "/signup",
-  url_otpverify: baseurl + "users/login/complete",
+  // auth
+  url_shop_ids: baseurl + '/api/auth/shop-ids',
+  url_beautician_login: baseurl + '/api/auth/beautician-login',
+  url_beautician_register: baseurl + '/api/auth/beautician-register',
+  url_beautician_forgot_password: baseurl + '/api/auth/beautician-request-reset-password',
+  url_beautician_reset_password: baseurl + '/api/auth/beautician-reset-password',
+  url_beautician_account_deactivate: baseurl + '/api/auth/beautician-deactivate-account',
+  
+  // profile
+  url_beautician_profiles: baseurl + '/api/beautician-profile/beautician-profiles',
+  url_beautician_profile: baseurl + '/api/beautician-profile/beautician-profiles/my-profile',
+  url_beautician_profiles_profile_pic: baseurl + '/api/beautician-profile/beautician-profiles/profile-pic'
+  
 
-  url_userId: baseurl+"/whoAmI",
-  url_getProfiles:baseurl+"/profiles",
-  url_postProfile:baseurl+"/profiles",
-
-  url_getInterests:baseurl+"/interests",
-  url_interestCount: baseurl+"/interests/count",
-
-
-  url_customers: baseurl + "api/coaches",
-  url_images: baseurl + "images/",
-  url_vendor: baseurl + "/api/v1/vendor",
-  url_services : baseurl + "/api/v1/service/public",
-  url_clinics : baseurl + "/api/v1/vendor/public?category=1",
-  url_salons : baseurl + "/api/v1/vendor/public?category=2",
-  url_specialists : baseurl + "/api/v1/vendor/public?category=3",
-  url_appointments : baseurl  + "/api/v1/appointment",
-  url_schedule : baseurl  + "/api/v1/appointment/vendor/",
-  url_bookappointment : baseurl + '/api/v1/appointment/customer'
 };
+
 
 export default Constants;

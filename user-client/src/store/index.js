@@ -3,7 +3,8 @@ import { configureStore } from '@reduxjs/toolkit';
 // reducers
 import authReducer from './auth/authSlice';
 import userProfileReducer from './userProfile/userProfileSlice';
-
+import shopReducer from './shop/shopSlice';
+import beauticianReducer from './beautician/beauticianSlice';
 
 // middleware localstorage
 const localStorageMiddleware = ({ getState }) => {
@@ -26,7 +27,9 @@ const store = configureStore({
     
   reducer: {
     auth: authReducer,
-    userProfile:userProfileReducer
+    userProfile: userProfileReducer,
+    shop: shopReducer,
+    beautician: beauticianReducer
   },
   preloadedState: reHydrateStore(),
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat([localStorageMiddleware])

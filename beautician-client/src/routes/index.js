@@ -1,5 +1,6 @@
 import React, { useContext} from 'react'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 /// styles
@@ -26,56 +27,83 @@ const Markup = () => {
 
     // console.log(menuToggle);
 
-    let path = window.location.pathname;
+    // let path = window.location.pathname;
 
-    path = path.split("/");
-    path = path[path.length - 1];
-    let pagePath = path.split("-").includes("page");
+    // path = path.split("/");
+    // path = path[path.length - 1];
+    // let pagePath = path.split("-").includes("page");
     
+    const { token } = useSelector(state => state.auth);
+
 
   return (
       <>
           <div
-              id={`${!pagePath ? "main-wrapper" : ""}`}
-              className={`${!pagePath ? "show" : "vh-100"}  ${
+              id={`${token ? "main-wrapper" : ""}`}
+              className={`${token ? "show" : "vh-100"}  ${
                   menuToggle ? "menu-toggle" : ""
                   }`}
           >
-              {!pagePath && <Nav />}
-              <div className={`${!pagePath ? "content-body" : ""}`}>
+              {token && <Nav />}
+              <div className={`${token ? "content-body" : ""}`}>
                   <div
-                      className={`${!pagePath ? "container-fluid" : ""}`}
+                      className={`${token ? "container-fluid" : ""}`}
                       style={{ minHeight: window.screen.height - 60 }}
                   >
                       
     
                       <Routes>
                           {
-                                publicRoutes.map((route, idx) => (
-                                    <Route
-                                        key={idx}
-                                        path={`/${route.path}`}
-                                        element={<route.element />}
+                                publicRoutes.map((route, idx) => {
+                                  if (!token) {
+                                      return <Route
+                                          key={idx}
+                                          path={`/${route.path}`}
+                                          element={<route.element />}
                     
-                                    />
-                                ))
+                                  />
+                                  }
+                                  else {
+                                      return <Route
+                                          key={idx}
+                                          path={`/${route.path}`}
+                                          element={<Navigate to='/dashboard' />}
+        
+                                      />
+                                  }
+                                  
+                              }
+                              )
+
                             } 
                             {
-                                authProtectedRoutes.map((route, idx) => (
-                                    <Route
-                                        key={idx}
-                                        path={`/${route.path}`}
-                                        element={<route.element />}
+                                authProtectedRoutes.map((route, idx) => {
+                                  if (token) {
+                                      return <Route
+                                          key={idx}
+                                          path={`/${route.path}`}
+                                          element={<route.element />}
                                         
-                                    />
-                                ))
+                                  />
+                                  }
+                                  else {
+                                     return <Route
+                                         key={idx}
+                                         path={`/${route.path}`}
+                                         element={<Navigate to='/page-ztyle-beautician' />}
+                                          
+                                      />
+                                  }
+                                  
+                              }
+                            )
                                 
                             }
               
                       </Routes>
                   </div>        
               </div>
-              {!pagePath && <Footer />}
+              {token && <Footer />}
               
           </div>
           

@@ -5,7 +5,8 @@ import {
     adminLogin,
     adminRegister,
     requestResetPassword,
-    resetPassword
+    resetPassword,
+    deactivateAccount
 } from './authActions'
 
 const initialState = {
@@ -83,6 +84,24 @@ const authSlice = createSlice({
             state.loading = false
             state.error = payload
             state.success = false
+        },
+        //  deactivate account
+        [deactivateAccount.pending]: (state) => {
+            state.loading = true
+            state.error = null
+            state.success=false
+            
+        },
+        [deactivateAccount.fulfilled]: (state) => {
+            state.loading = false
+            state.error = null
+            // state.userInfo=null
+            state.success =true
+        },
+        [deactivateAccount.rejected]: (state, { payload }) => {
+            state.loading = false
+            state.error = payload
+            state.success =false
         }
     }
 

@@ -219,7 +219,7 @@ const Register = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             className="form-control"
                             defaultValue="Password"
-                        />
+                          />
                           <span className="input-group-text" onClick={handleToggle} style={{ cursor: "pointer" }}>
                               <i className={icon}></i>
                           </span>

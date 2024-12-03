@@ -4,7 +4,9 @@ import { useDispatch } from 'react-redux';
 import {Modal,Button} from 'react-bootstrap';
 
 //Actions
-import {resetAuth} from '../store/auth/authSlice'
+import { resetAuth } from '../store/auth/authSlice';
+import { resetUserProfile } from '../store/userProfile/userProfileSlice';
+import { resetShop } from '../store/shop/shopSlice';
 
 
 function LogoutPage(props){
@@ -14,11 +16,13 @@ function LogoutPage(props){
     const [basicModal, setbasicModal] = useState(false);
 
     
-    function handleLogout() {
-        setbasicModal(false);
-        dispatch(resetAuth());
+  function handleLogout() {
+    setbasicModal(false);
+    dispatch(resetUserProfile());
+    dispatch(resetShop());
+    dispatch(resetAuth());
          
-    }
+  }
     return(
         <>
             <Modal className="fade" show={basicModal}>

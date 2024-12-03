@@ -2,16 +2,14 @@ import React, { Fragment,useState ,useEffect,useContext } from "react";
 import { Button, Modal, Tab, Row, Card, Col, Alert } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import Compress from 'react-image-file-resizer';
 
-// images/docs
-import defaultProfilePic from '../../images/avatar/defaultProfilePic.png';
+
+
 
 
 //components
 import PageTitle from "../../components/PageTitle";
 import { ThemeContext } from "../../context/ThemeContext";
-import RadialDonut from '../../components/RadialDonut';
 import LoadingScreen from "../../components/LoadingScreen";
 import Spinner from '../../components/Spinner/Spinner';
 import swal from "sweetalert";
@@ -19,7 +17,11 @@ import swal from "sweetalert";
 //actions
 import {
     getAdminById,
-	activateAdminById
+	activateAdminById,
+	deactivateAdminById,
+	rejectAdminById,
+	deleteAdminById
+
 } from '../../store/admin/adminActions'
 
 
@@ -65,8 +67,6 @@ const AdminDetail = () => {
 	const [activeToggle, setActiveToggle] = useState("basicProfile");
 
 	
-	const [currentShopCertificate, setcurrentShopCertificate] = useState('');
-	
 	
 	// for modals 
     const [basicModal, setBasicModal] = useState(false);
@@ -77,6 +77,24 @@ const AdminDetail = () => {
 		dispatch (activateAdminById({adminData, id, token}));
 	}
 	
+    const handleDeactivate = () => {
+		const adminData = { designation: adminInfo.designation, status: adminInfo.status };
+		dispatch(deactivateAdminById({ adminData, id, token }));
+
+	}
+	
+	const handleReject = () => {
+		const adminData = { designation: adminInfo.designation, status: adminInfo.status };
+		dispatch(rejectAdminById({ adminData, id, token }));
+	}
+
+	const handleDelete = () => {
+		setBasicModal(false);
+		const adminData = { designation: adminInfo.designation, status: adminInfo.status };
+		dispatch(deleteAdminById({ adminData, id, token }));
+	}
+
+
 	// display error
 	useEffect(() => {
 		if (error) {
@@ -99,8 +117,6 @@ const AdminDetail = () => {
 	else if (currentAdmin) {
 		
         const { status, fullName, designation, mobile, email } = currentAdmin;
-
-		
 
 
 	 
@@ -152,7 +168,7 @@ const AdminDetail = () => {
 																			Close
 																			</Button>
 																			<Button variant="primary"
-																				onClick={'handleReject'}
+																				onClick={handleReject}
 																			>
 																				Reject 
 																			</Button>
@@ -167,7 +183,7 @@ const AdminDetail = () => {
                                                                         You can deactivate the admin  if it is necessary. 
                                                                     </p>
                                                                         
-                                                                    <button className="btn btn-primary me-2" onClick={'handleDeactivate'}>
+                                                                    <button className="btn btn-primary me-2" onClick={handleDeactivate}>
                                                                     
                                                                         <span className="me-2"> <i className="fa fa-toggle-off" /> </span> {loadingAdmin ? <Spinner /> : "Deactivate"}
                                                                     </button>
@@ -195,12 +211,37 @@ const AdminDetail = () => {
                                                             You can Delete the admin  if it is necessary. 
                                                         </p>
                                                             
-                                                        <button className="btn btn-primary me-2" onClick={'handleDelete'}>                                           
+														<button className="btn btn-primary me-2" onClick={() => setBasicModal(true)}>
                                                             <span className="me-2"> <i className="fa fa-trash" /> </span> {loadingAdmin ? <Spinner /> : "Delete"}
                                                         </button>                                           
                                                     </div>
                                                 </div>
-                                            </div>
+											</div>
+											<Modal className="fade" show={basicModal}>
+												<Modal.Header>																	
+													<Modal.Title>Are You Sure You want to Delete. </Modal.Title>											
+													<Button
+													variant=""
+													className="btn-close"
+													onClick={() => setBasicModal(false)}
+													>																						
+													</Button>									
+												</Modal.Header>
+												<Modal.Body> Click Delete if you still want to delete this admin. </Modal.Body>
+												<Modal.Footer>
+													<Button
+													onClick={() => setBasicModal(false)}
+													variant="danger light"
+													>
+													Close
+													</Button>
+													<Button variant="primary"
+														onClick={handleDelete}
+													>
+														Delete 
+													</Button>
+												</Modal.Footer>																				
+											</Modal>
                                         </div>
                                         										
 										

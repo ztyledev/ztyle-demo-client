@@ -11,7 +11,6 @@ import swal from "sweetalert";
 import SingleShopList from "../../../components/SingleShopList";
 import LoadingScreen from "../../../components/LoadingScreen";
 
-// data
 
 // actions
 import {

@@ -17,12 +17,14 @@ const ForgotPassword = () => {
 
   const { loading, error, message } = useSelector(state => state.auth);
 
-  const [email, setemail] = useState('');
+  
 
   // error object for validation
   let errorsObj = { email: '' };
-
   const [errors, seterrors] = useState({ errorsObj });
+
+  // fields
+  const [email, setemail] = useState('');
 
   const handleForgotPassword = (e) => {
     e.preventDefault();

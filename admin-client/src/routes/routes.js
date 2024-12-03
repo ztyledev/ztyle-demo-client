@@ -29,8 +29,6 @@ import FormBasicShopEdit from '../pages/Forms/formBasicShopEdit';
 import FormAdvanceShopAdd from "../pages/Forms/formAdvanceShopAdd";
 import FormAdvanceShopEdit from "../pages/Forms/formAdvanceShopEdit";
 
-/// apps menu
-import AppProfile from "../pages/AppsMenu/AppProfile/AppProfile";
 
 /// shops
 import PendingSelect from '../pages/Shops/ShopList/PendingSelect';
@@ -44,13 +42,12 @@ import ShopDetail from '../pages/Shops/ShopDetail';
 
 /// admins
 import PendingAdmins from '../pages/Admins/PendingAdmins';
+import AllAdmins from '../pages/Admins/AllAdmins';
 import AdminDetail from '../pages/Admins/AdminDetail';
 
-
-/// account
-
-import AccountStatus from "../pages/AppsMenu/Account/AccountStatus";
-import ActivateAccount from "../pages/AppsMenu/Account/ActivateAccount";
+/// beauticiann
+import BeauticiansByShopId from '../pages/Beauticians/BeauticianList/BeauticiansByShopId';
+import BeauticianDetail from '../pages/Beauticians/BeauticianDetail';
 
 /// test pages
 
@@ -99,17 +96,14 @@ const authProtectedRoutes = [
 
     /// admins
     { path: 'admins-pending', element: PendingAdmins },
+    { path: 'admins-all', element: AllAdmins },
     { path: 'admin-detail/:id', element: AdminDetail },
 
-    
-    /// user profile
-    { path: 'app-profile', element: AppProfile },
+    /// beauticians
+    { path: 'beauticians-by-shop-id/:id', element: BeauticiansByShopId },
+    { path: 'beautician-detail/:id', element: BeauticianDetail },
     
    
-    
-    /// account 
-    { path: 'activate-account', element: ActivateAccount },
-    { path: 'account-status', element: AccountStatus },
 
     /// test
 

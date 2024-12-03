@@ -150,7 +150,7 @@ const ResetPassword = () => {
                       </Link>
                       
                     </div>
-                    <h4 className="text-center mb-4 ">Plese Enter Password for Your SRS account</h4>
+                    <h4 className="text-center mb-4 ">Plese Enter Password for Your Ztyle account</h4>
                     
                       
                   

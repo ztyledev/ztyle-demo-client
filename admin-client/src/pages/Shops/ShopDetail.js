@@ -32,15 +32,14 @@ import {
 	editShopStatusById
 } from '../../store/shop/shopActions';
 
-// reset actions
-import { resetShop } from '../../store/shop/shopSlice';
 
 // data
 // import { monthdata } from "../../data/monthdata";
 
 // utils
-
 import { getStandardTime } from '../../utils/getStandardTime';
+import { extractActiveDays } from '../../utils/extractActiveDays';
+
 
 const ProfileDetail = () => {
 
@@ -412,8 +411,12 @@ const ProfileDetail = () => {
 			openingTime, closingTime, profileCompletion,
 			advanceProfileStatus, status, shopImage, image1, image2,shopCertificate } = currentShop;
         
+		// format to display
 		const stdOpeningTime = getStandardTime(openingTime);
 		const stdClosingTime = getStandardTime(closingTime);
+		const activeWorkingDays = extractActiveDays(workingDays);
+		
+
 
 		// advance shop details
 		const { address, location, accountId, category, menu } = currentShop;
@@ -537,6 +540,9 @@ const ProfileDetail = () => {
 															<li className="nav-item" onClick={() => setActiveToggle("certificate")}>
 																<Link to="#certificate" data-toggle="tab" className={`nav-link ${activeToggle === "certificate" ? "active show" : ""}`}>Shop Certificate </Link>
 															</li>
+															<li className="nav-item" onClick={() => setActiveToggle("beauticians")}>
+																<Link to="#beauticians" data-toggle="tab" className={`nav-link ${activeToggle === "beauticians" ? "active show" : ""}`}>Beauticians </Link>
+															</li>
 						
 						
 														</ul>
@@ -608,7 +614,7 @@ const ProfileDetail = () => {
 																			<h5 className="f-w-500"> Languages Known <span className="pull-right">:</span></h5>
 																		</div>
 																		<div className="col-4">
-																			{workingDays && workingDays.map((day) => <span key={day}> {day} , </span>)}
+																			{activeWorkingDays&& activeWorkingDays.map((day) => <span key={day}> {day} , </span>)}
 									
 																		</div>	                                                                           
 																	</div>
@@ -681,14 +687,34 @@ const ProfileDetail = () => {
 																							<span>{accountId}</span>
 																						</div>
 																					</div>
-																					<div className="row mb-2">
-																						<div className="col-4">
-																							<h5 className="f-w-500">  Shop's Menu <span className="pull-right">:</span></h5>
-																						</div>
-																						<div className="col-4">
-																							{menu && menu.map((item) => <span key={item}> {item} , </span>)}																							
-																						</div>									
-																					</div>
+																					<h4 className="text-secondary mb-4">
+																						Shop's Menu
+																					</h4>
+																																																							
+																							{menu && menu.map((item) => (
+																								<div key={item.name} style={{background:"whitesmoke",padding:"1rem",margin:"1rem"}}>
+																									<div className="row mb-2">
+																										<h5 className="text-info">Menu Item</h5>
+																									</div>
+																									<div className="row mb-2">
+																										<div className="col-4">
+																											<h5 className="f-w-500">Name Of The Service<span className="pull-right">:</span></h5>
+																										</div>
+																										<div className="col-8">
+																											<span>{item.name}</span>																										
+																										</div>																										
+																									</div>
+																									<div className="row mb-2">
+																										<div className="col-4">
+																											<h5 className="f-w-500">Price Of The Service<span className="pull-right">:</span></h5>																											
+																										</div>																										
+																										<div className="col-8">
+																											<span>&#8377; {item.price}</span>																										
+																										</div>
+																									</div>																									
+																								</div>
+																							))}																							
+																																																			
 																					
 																				</div>
 																			</div>																																																																																						
@@ -1040,7 +1066,7 @@ const ProfileDetail = () => {
 																					className="alert-dismissible solid fade show"																					
 																				>																					
 																					<strong> Registration Certificate Of The Shop</strong>{" "} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																					<a href={shopCertificate || defaultCertificate} target="_blank" style={{color:'white'}}> See Your file</a>																																																							
+																					<a href={shopCertificate || defaultCertificate} target="_blank" style={{color:'white'}}> see your file</a>																																																							
 																				</Alert>
 
 																				
@@ -1122,7 +1148,38 @@ const ProfileDetail = () => {
 																		</Modal>																		
 																	</div>
 																</div>
-															</div>					
+															</div>
+															<div id="beauticians" className={`tab-pane fade ${activeToggle === "beauticians" ? "active show" : ""}`} >
+																<div className="my-post-content pt-3">
+																	<div className="profile-uoloaded-post border-bottom-1 pb-5">
+																		<Card>
+																			<Card.Body>
+																				<Alert									
+																					variant="secondary"																					
+																					className="alert-dismissible solid fade show"																					
+																				>																					
+																					<strong> Beauticians Associated With The Shop</strong>{" "} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																					<Link to={`/beauticians-by-shop-id/${shopId}`} className="text-white">see the list</Link>																					
+																				</Alert>
+
+																				
+																			</Card.Body>
+																			
+																		</Card>
+																		
+
+							
+																		<Link className="post-title" to="/post-details">
+																			<h3 className="text-black">View The Beauticians</h3>
+																		</Link>
+																		<p>
+																			Click the above mentioned link to view beauticians registered under the specified shop.																			
+																		</p>
+																																																  																																																			
+																	</div>
+																</div>
+															</div>																														
+															{/* end of the section */}
 														</div>
 													</div>
 												</div>

@@ -340,4 +340,4 @@ const shopSlice = createSlice({
 
 
 export const { resetShop } = shopSlice.actions;
-export default shopSlice.reducer
+export default shopSlice.reducer;

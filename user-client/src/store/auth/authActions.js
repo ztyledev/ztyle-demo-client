@@ -118,3 +118,32 @@ export const resetPassword = createAsyncThunk(
         }
     }
 )
+
+export const deactivateAccount = createAsyncThunk(
+    'account/deactivateAccount',
+    async ({ id, token }, { rejectWithValue }) => {
+         // set header
+        const config = {
+                headers: {
+                    'authorization': `Bearer ${token}`
+                }
+        }
+
+        try {
+            await axios.delete(
+                `${Constants.url_user_account_deactivate}/${id}`,
+                config
+            )
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+    }
+)

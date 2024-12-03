@@ -25,21 +25,20 @@ import Home from "../pages/Dashboard/Home";
 
 import FormProfileAdd from "../pages/Forms/formProfileAdd";
 import FormProfileEdit from '../pages/Forms/formProfileEdit';
-import FormAdvanceProfileAdd from "../pages/Forms/formAdvanceProfileAdd";
-import FormAdvanceProfileEdit from "../pages/Forms/formAdvanceProfileEdit";
+
 
 /// apps menu
 
 import AppProfile from "../pages/AppsMenu/AppProfile/AppProfile";
 
-/// profiles
+/// Shops
 
-import ProfilesMatching from "../pages/AppsMenu/Profiles/ProfileList/ProfilesMatching";
-import ProfilesFresh from "../pages/AppsMenu/Profiles/ProfileList/ProfilesFresh";
-import ProfilesInterstSent from "../pages/AppsMenu/Profiles/ProfileList/ProfilesInterestSent";
-import ProfilesInterestReceived from "../pages/AppsMenu/Profiles/ProfileList/ProfilesInterestReceived";
-import ProfilesInterestMutual from "../pages/AppsMenu/Profiles/ProfileList/ProfilesInterestMutual";
-import ProfileDetail from "../pages/AppsMenu/Profiles/ProfileDetail";
+import ShopList from '../pages/AppsMenu/Shops/ShopList';
+import ShopDetail from '../pages/AppsMenu/Shops/ShopDetail';
+
+/// Beauticians
+
+import BeauticiansByShopId from '../pages/AppsMenu/Beauticians/BeauticiansByShopId';
 
 /// account
 
@@ -77,19 +76,17 @@ const authProtectedRoutes = [
     ///form
     { path: 'form-add-profile', element: FormProfileAdd },
     { path: 'form-edit-profile', element: FormProfileEdit },
-    { path: 'form-add-advance-info', element: FormAdvanceProfileAdd },
-    { path: 'form-edit-advance-info', element: FormAdvanceProfileEdit },
     
     /// user profile
     { path: 'app-profile', element: AppProfile },
+
+    /// shops
+    { path: 'shops', element: ShopList },
+    { path: 'shop-detail/:id', element: ShopDetail },
+
+    /// beauticians
+    { path: 'beauticians-by-shop-id/:id', element: BeauticiansByShopId },
     
-    /// profiles
-    { path: 'profiles-matching', element: ProfilesMatching },
-    { path: 'profiles-fresh', element: ProfilesFresh },
-    { path: 'profiles-sent-interest', element: ProfilesInterstSent },
-    { path: 'profiles-received-interest', element: ProfilesInterestReceived },
-    { path: 'profiles-mutual-interest', element: ProfilesInterestMutual },
-    { path: 'profile-detail/:id', element: ProfileDetail },
     
     /// account 
     { path: 'activate-account', element: ActivateAccount },

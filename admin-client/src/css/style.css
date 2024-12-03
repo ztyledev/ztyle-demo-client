@@ -12984,13 +12984,13 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     fill: #fff; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"] .hamburger .line,
   [data-nav-headerbg="color_13"] .hamburger .line {
-    background: #555; }
+    background: #000; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line,
   [data-nav-headerbg="color_13"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line {
-    background-color: #2a2a2a; }
+    background-color: #000; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"][data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line,
   [data-nav-headerbg="color_13"][data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line {
-    background-color: #555; }
+    background-color: #000; }
   [data-nav-headerbg="color_13"][data-theme-version="dark"][data-nav-headerbg="color_8"] .brand-title path,
   [data-nav-headerbg="color_13"][data-nav-headerbg="color_8"] .brand-title path {
     fill: #000; }
@@ -16646,7 +16646,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     color: #fff; }
   [data-headerbg="color_13"][data-theme-version="dark"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line,
   [data-headerbg="color_13"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line {
-    background-color: #fff; }
+    background-color: #000; }
   [data-headerbg="color_13"][data-theme-version="dark"] .header-right .search-area .form-control,
   [data-headerbg="color_13"][data-theme-version="dark"] .header-right .search-area .input-group-text,
   [data-headerbg="color_13"] .header-right .search-area .form-control,

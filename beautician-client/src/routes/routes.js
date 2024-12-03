@@ -1,3 +1,5 @@
+import { Navigate } from 'react-router-dom';
+
 /// pages
 
 import LandingPage from "../pages/LandingPage";
@@ -5,7 +7,7 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import RegisterSuccessNext from "../pages/RegisterSuccessNext";
 import ForgotPassword from "../pages/ForgotPassword";
-//import ResetPassword from "../pages/ResetPassword";
+import ResetPassword from "../pages/ResetPassword";
 import PasswordMailsendStatus from "../pages/PasswordMailsendStatus";
 import PasswordUpdateStatus from "../pages/PasswordUpdateStatus";
 // import Error404 from "../pages/Error404";
@@ -57,7 +59,7 @@ const publicRoutes = [
     { path: 'page-forgot-password', element: ForgotPassword },
     { path: 'page-password-mailsend-status', element: PasswordMailsendStatus },
     { path: 'page-password-update-status', element: PasswordUpdateStatus },
-    //{ path:  'page-beautician-reset-password', element:ResetPassword},
+    { path: 'page-beautician-reset-password', element: ResetPassword },
     
 
     // { path: '*', element: Error404 }
@@ -70,6 +72,7 @@ const publicRoutes = [
 
 const authProtectedRoutes = [
     /// dashboard
+    { path: '/', element: () => <Navigate to='/dashboard' /> },
     { path: 'dashboard', element: Home },
     
     ///form
