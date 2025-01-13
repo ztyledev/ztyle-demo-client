@@ -14,8 +14,18 @@ const Constants = {
   // profile
   url_beautician_profiles: baseurl + '/api/beautician-profile/beautician-profiles',
   url_beautician_profile: baseurl + '/api/beautician-profile/beautician-profiles/my-profile',
-  url_beautician_profiles_profile_pic: baseurl + '/api/beautician-profile/beautician-profiles/profile-pic'
+  url_beautician_profiles_profile_pic: baseurl + '/api/beautician-profile/beautician-profiles/profile-pic',
   
+  // booking
+  url_my_bookings: baseurl + '/api/booking/beautician-bookings/my-bookings',
+  url_bookings: baseurl + '/api/booking/beautician-bookings',
+  
+  // payment
+  url_payments_by_booking_id: baseurl + '/api/payment/beautician-payments/by-booking',
+  
+  // notification
+  url_notifications: baseurl + '/api/notification/beautician-notifications',
+  url_read_notifications: baseurl + '/api/notification/beautician-read-notifications'
 
 };
 

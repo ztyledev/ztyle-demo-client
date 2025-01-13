@@ -119,13 +119,13 @@ const SideBar = () => {
             </Link>
      
           </li>
+          <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
+            <Link className="has-arrow ai-icon" to="/bookings" >           
+              <i className="fas fa-calendar-check"></i><span className="nav-text">Service Bookings</span>        
+            </Link>        
+          </li>
           
-         
-
-         
-
-           
-          
+                        
          
 
           <li className={`${account.includes(path) ? "mm-active" : ""}`}>

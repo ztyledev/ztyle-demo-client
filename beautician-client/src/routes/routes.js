@@ -28,18 +28,15 @@ import FormBasicProfileEdit from '../pages/Forms/formBasicProfileEdit';
 import FormAdvanceProfileAdd from "../pages/Forms/formAdvanceProfileAdd";
 import FormAdvanceProfileEdit from "../pages/Forms/formAdvanceProfileEdit";
 
-/// apps menu
-
+/// beautician profile
 import AppProfile from "../pages/AppsMenu/AppProfile/AppProfile";
 
-/// profiles
+// booking
+import Bookings from '../pages/AppsMenu/Booking/Bookings';
+import CurrentBooking from '../pages/AppsMenu/Booking/CurrentBooking';
 
-import ProfilesMatching from "../pages/AppsMenu/Profiles/ProfileList/ProfilesMatching";
-import ProfilesFresh from "../pages/AppsMenu/Profiles/ProfileList/ProfilesFresh";
-import ProfilesInterstSent from "../pages/AppsMenu/Profiles/ProfileList/ProfilesInterestSent";
-import ProfilesInterestReceived from "../pages/AppsMenu/Profiles/ProfileList/ProfilesInterestReceived";
-import ProfilesInterestMutual from "../pages/AppsMenu/Profiles/ProfileList/ProfilesInterestMutual";
-import ProfileDetail from "../pages/AppsMenu/Profiles/ProfileDetail";
+// payment
+import PaymentByBookingId from '../pages/AppsMenu/Payment/PaymentByBookingId';
 
 /// account
 
@@ -83,14 +80,13 @@ const authProtectedRoutes = [
     
     /// user profile
     { path: 'app-profile', element: AppProfile },
-    
-    /// profiles
-    { path: 'profiles-matching', element: ProfilesMatching },
-    { path: 'profiles-fresh', element: ProfilesFresh },
-    { path: 'profiles-sent-interest', element: ProfilesInterstSent },
-    { path: 'profiles-received-interest', element: ProfilesInterestReceived },
-    { path: 'profiles-mutual-interest', element: ProfilesInterestMutual },
-    { path: 'profile-detail/:id', element: ProfileDetail },
+
+    /// booking
+    { path: 'bookings', element: Bookings },
+    { path: 'current-booking/:id', element: CurrentBooking },
+
+    /// payment
+    { path: 'payments/by-booking/:id', element: PaymentByBookingId },
     
     /// account 
     { path: 'activate-account', element: ActivateAccount },

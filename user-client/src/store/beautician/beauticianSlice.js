@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // actions
 import {
-    getBeauticiansByShopId
+    getBeauticiansByShopId,
+    getBeauticianById,
 } from './beauticianActions'
 
 const initialState = {
@@ -34,6 +35,21 @@ const beauticianSlice = createSlice({
             state.beauticians=null
             state.error = payload
             
+        },
+         // get beautician by id
+        [getBeauticianById.pending]: (state) => {
+            state.loading = true
+            state.error = null
+        },
+        [getBeauticianById.fulfilled]: (state, { payload }) => {
+            state.loading = false
+            state.currentBeautician = payload
+            state.error = null
+        },
+        [getBeauticianById.rejected]: (state, { payload }) => {
+            state.loading = false
+            state.currentBeautician=null
+            state.error = payload
         },
     }
 })

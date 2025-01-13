@@ -16,9 +16,26 @@ const Constants = {
 
   // shop
   url_shops: baseurl + '/api/user/shops',
-
+  url_menu_shops: baseurl + '/api/user/menu/shops',
+  
   // beautician
-  url_beauticians_by_shop_id: baseurl + '/api/user/beauticians/shop-id'
+  url_beauticians_by_shop_id: baseurl + '/api/user/beauticians/shop-id',
+  url_beauticians: baseurl + '/api/user/beauticians',
+
+  // booking
+  url_slots: baseurl + '/api/booking/user-slots',
+  url_bookings: baseurl + '/api/booking/user-bookings',
+  url_my_bookings: baseurl + '/api/booking/user-bookings/my-bookings',
+
+  // payment
+  url_service_price: baseurl + '/api/payment/service-price',
+  url_order: baseurl + '/api/payment/orders',
+  url_verify: baseurl + '/api/payment/verify',
+  url_payments_by_booking_id: baseurl + '/api/payment/user-payments/by-booking',
+  
+  // notification
+  url_notifications: baseurl + '/api/notification/user-notifications',
+  url_read_notifications: baseurl + '/api/notification/user-read-notifications',
   
 };
 

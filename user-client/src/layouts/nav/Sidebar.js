@@ -125,7 +125,11 @@ const SideBar = () => {
 					    <i className="fa fa-store"></i><span className="nav-text">Beauty Shops</span>
 				    </Link>
           </li>
-         
+          <li className={`${profiles.includes(path) ? "mm-active" : ""}`}>
+            <Link className="has-arrow ai-icon" to="/bookings" >
+					    <i className="fas fa-calendar-check"></i><span className="nav-text">My Bookings</span>
+				    </Link>
+          </li>
 
          
           

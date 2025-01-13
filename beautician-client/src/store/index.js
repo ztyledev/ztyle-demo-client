@@ -3,6 +3,10 @@ import { configureStore } from '@reduxjs/toolkit';
 // reducers
 import authReducer from './auth/authSlice';
 import beauticianProfileReducer from './beauticianProfile/beauticianProfileSlice';
+import bookingReducer from './booking/bookingSlice';
+import paymentReducer from './payment/paymentSlice';
+import notificationReducer from './notification/notificationSlice';
+
 
 // middleware localstorage
 const localStorageMiddleware = ({ getState }) => {
@@ -23,7 +27,10 @@ const reHydrateStore = () => {
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    beauticianProfile: beauticianProfileReducer
+    beauticianProfile: beauticianProfileReducer,
+    booking: bookingReducer,
+    payment: paymentReducer,
+    notification: notificationReducer
       
   },
     

@@ -40,11 +40,11 @@ const SingleShopList = (props) => {
                            <p>   Owner : {ownerFullName}</p>
                                                                         
                            <button type="submit" className="btn btn-secondary mb-1 ms-1" >
-                                <span className="me-2"> <i className="far fa-arrow-alt-circle-right" /></span> Book Service
+                                <span className="me-2"> <i className="far fa-arrow-alt-circle-right" /></span> Book A Service
                            </button>
                            <Link to={`/shop-detail/${_id}`}>
                               <button className="btn btn-primary mb-1 ms-1">
-                                    <span className="me-2"> <i className="fa fa-info" /></span>View Details
+                                    <span className="me-2"> <i className="fa fa-info" /></span>Shop Details
                               </button>
                            </Link>                    	                                     
                      </div>

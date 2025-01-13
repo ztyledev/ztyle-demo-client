@@ -7,6 +7,10 @@ import {Modal,Button} from 'react-bootstrap';
 import { resetAuth } from '../store/auth/authSlice';
 import { resetUserProfile } from '../store/userProfile/userProfileSlice';
 import { resetShop } from '../store/shop/shopSlice';
+import { resetBeautician } from '../store/beautician/beauticianSlice';
+import { resetBooking } from '../store/booking/bookingSlice';
+import { resetPayment } from '../store/payment/paymentSlice';
+import { resetNotification } from '../store/notification/notificationSlice';
 
 
 function LogoutPage(props){
@@ -20,7 +24,12 @@ function LogoutPage(props){
     setbasicModal(false);
     dispatch(resetUserProfile());
     dispatch(resetShop());
+    dispatch(resetBeautician());
+    dispatch(resetBooking());
+    dispatch(resetPayment());
+    dispatch(resetNotification());
     dispatch(resetAuth());
+    
          
   }
     return(

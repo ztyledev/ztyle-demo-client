@@ -39,3 +39,38 @@ export const getBeauticiansByShopId = createAsyncThunk(
         }
     }
 )
+
+export const getBeauticianById = createAsyncThunk(
+    'beautician/getBeauticianById',
+    async ({ id, token }, { rejectWithValue }) => {
+         // token in header
+        const config = {
+                headers: {
+                    'authorization': `Bearer ${token}`
+                }
+        }
+        try {
+            const { data } = await axios.get(
+                `${Constants.url_beauticians}/${id}`,
+                config
+            )
+
+            if (data) {
+                return data;
+            }
+            else {
+                return null;
+            }
+            
+        }
+        catch (err) {
+            if (err.response && err.response.data.message) {
+                
+                return rejectWithValue(err.response.data.message);
+            }
+            else {
+                return rejectWithValue(err.message);
+            }
+        }
+    }
+)

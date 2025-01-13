@@ -35,10 +35,26 @@ import AppProfile from "../pages/AppsMenu/AppProfile/AppProfile";
 
 import ShopList from '../pages/AppsMenu/Shops/ShopList';
 import ShopDetail from '../pages/AppsMenu/Shops/ShopDetail';
+import ShopMenu from '../pages/AppsMenu/Shops/ShopMenu';
 
 /// Beauticians
 
 import BeauticiansByShopId from '../pages/AppsMenu/Beauticians/BeauticiansByShopId';
+import BeauticianDetail from '../pages/AppsMenu/Beauticians/BeauticianDetail';
+import BeauticianSelect from '../pages/AppsMenu/Beauticians/BeauticianSelect';
+
+/// Booking
+
+import SelectDate from '../pages/AppsMenu/Booking/SelectDate';
+import SelectSlot from '../pages/AppsMenu/Booking/SelectSlot';
+import Bookings from '../pages/AppsMenu/Booking/Bookings';
+import CurrentBooking from '../pages/AppsMenu/Booking/CurrentBooking';
+
+// payment
+
+import MakePayment from '../pages/AppsMenu/Payment/MakePayment';
+import PaymentSuccessNext from '../pages/AppsMenu/Payment/PaymentSuccessNext';
+import PaymentByBookingId from '../pages/AppsMenu/Payment/PaymentByBookingId';
 
 /// account
 
@@ -83,9 +99,23 @@ const authProtectedRoutes = [
     /// shops
     { path: 'shops', element: ShopList },
     { path: 'shop-detail/:id', element: ShopDetail },
+    { path: 'shop-menu/:id', element: ShopMenu },
 
     /// beauticians
     { path: 'beauticians-by-shop-id/:id', element: BeauticiansByShopId },
+    { path: 'beautician-detail/:id', element: BeauticianDetail },
+    { path: 'beautician-select/:id', element: BeauticianSelect },
+    
+    /// booking
+    { path: 'select-date', element: SelectDate },
+    { path: 'select-slot', element: SelectSlot }, 
+    { path: 'bookings', element: Bookings },
+    { path: 'current-booking/:id', element: CurrentBooking },
+    
+    /// payment
+    { path: 'make-payment/:id', element: MakePayment },
+    { path: 'payment-success-next', element: PaymentSuccessNext },
+    { path: 'payments/by-booking/:id', element: PaymentByBookingId },
     
     
     /// account 

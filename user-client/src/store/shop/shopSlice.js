@@ -4,7 +4,9 @@ import { createSlice } from '@reduxjs/toolkit';
 // actions
 import {
     getShops,
-    getShopById
+    getShopById,
+    getShopMenu,
+    getMenuItem
 } from './shopActions';
 
 
@@ -49,6 +51,34 @@ const shopSlice = createSlice({
             state.error = null
         },
         [getShopById.rejected]: (state, { payload }) => {
+            state.loading = false
+            state.error = payload
+        },
+        // get menu
+        [getShopMenu.pending]: (state) => {
+            state.loading = true
+            state.error = null
+        },
+        [getShopMenu.fulfilled]: (state, { payload }) => {
+            state.loading = false
+            state.menu = payload
+            state.error = null
+        },
+        [getShopMenu.rejected]: (state, { payload }) => {
+            state.loading = false
+            state.error = payload
+        },
+        // get menu item
+        [getMenuItem.pending]: (state) => {
+            state.loading = true
+            state.error = null
+        },
+        [getMenuItem.fulfilled]: (state, { payload }) => {
+            state.loading = false
+            state.selectedMenu = payload
+            state.error = null
+        },
+        [getMenuItem.rejected]: (state, { payload }) => {
             state.loading = false
             state.error = payload
         },

@@ -93,7 +93,7 @@ const AccountDeactivate = () => {
               
                    <span className="ms-2" >Deactivate</span>
                 
-               <p> SRS Account</p> 
+               <p> Ztyle Account</p> 
            
                 
             </Link>

@@ -5,6 +5,10 @@ import authReducer from './auth/authSlice';
 import userProfileReducer from './userProfile/userProfileSlice';
 import shopReducer from './shop/shopSlice';
 import beauticianReducer from './beautician/beauticianSlice';
+import bookingReducer from './booking/bookingSlice';
+import paymentReducer from './payment/paymentSlice';
+import notificationReducer from './notification/notificationSlice';
+
 
 // middleware localstorage
 const localStorageMiddleware = ({ getState }) => {
@@ -29,7 +33,11 @@ const store = configureStore({
     auth: authReducer,
     userProfile: userProfileReducer,
     shop: shopReducer,
-    beautician: beauticianReducer
+    beautician: beauticianReducer,
+    booking: bookingReducer,
+    payment: paymentReducer,
+    notification:notificationReducer
+    
   },
   preloadedState: reHydrateStore(),
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat([localStorageMiddleware])

@@ -26146,3 +26146,17 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
       color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
+
+/*custom */
+
+.center-60 {
+  width: 50%;
+  margin: auto;
+}
+
+@media only screen and (max-width:598px) {
+  .center-60 {
+    width: 100%;
+  }
+
+}
