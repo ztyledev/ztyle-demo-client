@@ -41,7 +41,7 @@ const FormBasicShopAdd = () => {
   // access user state
   const { token } = useSelector(state => state.auth);
   
-  // error object for  
+  // error object for  fields
   let errorsObj = { shopName: '', shopId: '', ownerFullName: '', mobile: '', state: '', district: '', workingDays: '', openingTime: '', closingTime: '' };
   const [errors, seterrors] = useState({errorsObj});
 

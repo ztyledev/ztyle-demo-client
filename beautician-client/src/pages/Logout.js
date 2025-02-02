@@ -7,6 +7,7 @@ import { Modal, Button } from 'react-bootstrap';
 import { resetAuth } from '../store/auth/authSlice';
 import { resetBeauticianProfile } from '../store/beauticianProfile/beauticianProfileSlice';
 import { resetBooking } from '../store/booking/bookingSlice';
+import { resetReview } from '../store/review/reviewSlice';
 import { resetNotification } from '../store/notification/notificationSlice';
 
 
@@ -21,6 +22,7 @@ function LogoutPage(props) {
         setbasicModal(false);
         dispatch(resetBeauticianProfile());
         dispatch(resetBooking());
+        dispatch(resetReview());
         dispatch(resetNotification());
         dispatch(resetAuth());
         

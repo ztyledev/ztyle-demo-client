@@ -16,6 +16,12 @@ import swal from 'sweetalert';
 const Login = () => {
 	const dispatch = useDispatch();
 
+	// reset redux state on mount
+	useEffect(() => {
+		dispatch(resetAuth());
+	}, [dispatch]);
+	
+	
 	const body = document.querySelector("body");
     body.setAttribute("data-layout", "vertical");
 	body.setAttribute("data-nav-headerbg", "color_13");

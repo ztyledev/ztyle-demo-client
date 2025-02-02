@@ -10,7 +10,6 @@ import ResetPassword from '../pages/ResetPassword';
 import PasswordMailsendStatus from '../pages/PasswordMailsendStatus';
 import PassordUpdateStatus from '../pages/PasswordUpdateStatus';
 
-
 // import Error404 from "../pages/Error404";
 
 /// general
@@ -36,6 +35,8 @@ import AppProfile from "../pages/AppsMenu/AppProfile/AppProfile";
 import ShopList from '../pages/AppsMenu/Shops/ShopList';
 import ShopDetail from '../pages/AppsMenu/Shops/ShopDetail';
 import ShopMenu from '../pages/AppsMenu/Shops/ShopMenu';
+import ShopSearch from '../pages/AppsMenu/Shops/ShopSearch';
+
 
 /// Beauticians
 
@@ -55,6 +56,10 @@ import CurrentBooking from '../pages/AppsMenu/Booking/CurrentBooking';
 import MakePayment from '../pages/AppsMenu/Payment/MakePayment';
 import PaymentSuccessNext from '../pages/AppsMenu/Payment/PaymentSuccessNext';
 import PaymentByBookingId from '../pages/AppsMenu/Payment/PaymentByBookingId';
+
+// review
+import MyShopReview from '../pages/AppsMenu/Review/MyShopReview';
+import MyBeauticianReview from '../pages/AppsMenu/Review/MyBeauticianReview';
 
 /// account
 
@@ -100,6 +105,8 @@ const authProtectedRoutes = [
     { path: 'shops', element: ShopList },
     { path: 'shop-detail/:id', element: ShopDetail },
     { path: 'shop-menu/:id', element: ShopMenu },
+    { path: 'shops-search', element: ShopSearch },
+
 
     /// beauticians
     { path: 'beauticians-by-shop-id/:id', element: BeauticiansByShopId },
@@ -117,6 +124,9 @@ const authProtectedRoutes = [
     { path: 'payment-success-next', element: PaymentSuccessNext },
     { path: 'payments/by-booking/:id', element: PaymentByBookingId },
     
+    /// review
+    { path: 'reviews/shop/my-review/:id', element: MyShopReview },
+    { path: 'reviews/beautician/my-review/:id', element: MyBeauticianReview },
     
     /// account 
     { path: 'activate-account', element: ActivateAccount },

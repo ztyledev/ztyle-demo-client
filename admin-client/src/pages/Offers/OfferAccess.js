@@ -5,13 +5,13 @@ import { useDispatch } from 'react-redux';
 
 
 // components
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext";
 
 // action
-import { resetShop } from '../../../store/shop/shopSlice';
+import { resetShop } from '../../store/shop/shopSlice';
 
 
-const OfferSelect = () => {
+const OfferAccess = () => {
     const dispatch = useDispatch();
 
 
@@ -35,9 +35,9 @@ const OfferSelect = () => {
                 <Row>
                     <Card>
                         <Card.Header className="d-block">
-                            <Card.Title>The Criteria For Selection</Card.Title>
+                            <Card.Title>Actions Associated With Offer</Card.Title>
                             <p className="mb-0 subtitle">
-                                here you can select <code>shops </code> as a statewise or districtwise list.
+                                here you can view and add <code>offers</code> and also search offer based on code.
                             </p>
                         </Card.Header>
                         <Card.Body>
@@ -45,9 +45,9 @@ const OfferSelect = () => {
                                 variant="secondary"
                                 className="alert-dismissible solid fade show"
                             >
-                                <strong> Statewise Shops</strong>{" "} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
-                                <Link style={{color:"white"}} to="/shops-state">
-                                    click here to get active shops by selecting a specific state
+                                <strong> View Offers</strong>{" "} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
+                                <Link style={{color:"white"}} to="/offers">
+                                    click here to view all offers which are active or inactive
                                 </Link>
                                             
                             </Alert>
@@ -57,9 +57,9 @@ const OfferSelect = () => {
                                 variant="primary"
                                 className="alert-dismissible solid fade show"
                             >
-                                <strong> Districtwise Shops</strong>{" "} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
-                                <Link style={{color:"white"}} to="/shops-district">
-                                    click here to get Active shops by selecting a district in a specific state
+                                <strong> Add Offer</strong>{" "} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
+                                <Link style={{color:"white"}} to="/form-add-offer">
+                                    click here to add an offer which will be activated immediately. 
                                 </Link>
                                             
                             </Alert>
@@ -69,9 +69,9 @@ const OfferSelect = () => {
                                 variant="success"
                                 className="alert-dismissible solid fade show"
                             >
-                                <strong> Search Shop</strong>{" "} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
-                                <Link style={{color:"white"}} to="/shops-shop-id">
-                                    click here to get a shop by entering Shop Id
+                                <strong> Search Offer</strong>{" "} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
+                                <Link style={{color:"white"}} to="/offer-offer-code">
+                                    click here to get an offer by entering offer code.
                                 </Link>
                                             
                             </Alert>
@@ -83,4 +83,4 @@ const OfferSelect = () => {
   )
 }
 
-export default OfferSelect
+export default OfferAccess

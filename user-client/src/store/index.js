@@ -7,6 +7,7 @@ import shopReducer from './shop/shopSlice';
 import beauticianReducer from './beautician/beauticianSlice';
 import bookingReducer from './booking/bookingSlice';
 import paymentReducer from './payment/paymentSlice';
+import reviewReducer from './review/reviewSlice';
 import notificationReducer from './notification/notificationSlice';
 
 
@@ -36,6 +37,7 @@ const store = configureStore({
     beautician: beauticianReducer,
     booking: bookingReducer,
     payment: paymentReducer,
+    review: reviewReducer,
     notification:notificationReducer
     
   },

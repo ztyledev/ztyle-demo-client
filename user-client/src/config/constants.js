@@ -33,6 +33,14 @@ const Constants = {
   url_verify: baseurl + '/api/payment/verify',
   url_payments_by_booking_id: baseurl + '/api/payment/user-payments/by-booking',
   
+  // review
+  url_my_shop_review: baseurl + '/api/review/reviews/shop/my-review',
+  url_shop_reviews: baseurl + '/api/review/reviews/shop',
+  url_shop_reviews_by_user: baseurl + '/api/review/reviews/shop/by-user',
+  url_my_beautician_review: baseurl + '/api/review/reviews/beautician/my-review',
+  url_beautician_reviews: baseurl + '/api/review/reviews/beautician',
+  url_beautician_reviews_by_user: baseurl + '/api/review/reviews/beautician/by-user',
+  
   // notification
   url_notifications: baseurl + '/api/notification/user-notifications',
   url_read_notifications: baseurl + '/api/notification/user-read-notifications',

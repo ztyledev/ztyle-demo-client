@@ -5,6 +5,9 @@ import authReducer from './auth/authSlice';
 import shopReducer from './shop/shopSlice';
 import adminReducer from './admin/adminSlice';
 import beauticianReducer from './beautician/beauticianSlice';
+import offerReducer from './offer/offerSlice';
+import reviewReducer from './review/reviewSlice';
+
 
 
 // middleware localstorage
@@ -29,8 +32,11 @@ const store = configureStore({
     auth: authReducer,
     shop: shopReducer,
     admin: adminReducer,
-    beautician: beauticianReducer
+    beautician: beauticianReducer,
+    offer: offerReducer,
+    review: reviewReducer
   },
+  
   preloadedState: reHydrateStore(),
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat([localStorageMiddleware])
 })

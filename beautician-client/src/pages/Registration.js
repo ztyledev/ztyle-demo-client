@@ -20,6 +20,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  
 
   useEffect(() => {
     dispatch(getShopIds({ type: "beacutician" }));

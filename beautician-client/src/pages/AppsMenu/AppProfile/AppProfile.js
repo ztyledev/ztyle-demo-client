@@ -23,6 +23,7 @@ import PageTitle from "../../../components/PageTitle";
 import Spinner from '../../../components/Spinner/Spinner';
 import swal from 'sweetalert';
 import LoadingScreen from "../../../components/LoadingScreen";
+import BeauticianReviews from "../../../components/beauticianReview/BeauticianReviews";
 
 // data 
 import { monthdata } from "../../../data/monthdata";
@@ -209,7 +210,8 @@ const AppProfile = () => {
 			email, gender, dob, position,
 			specialty, yearsOfExperience, employmentStatus, holidaySchedule,
 			languagesSpoken, advanceProfileStatus, profilePic,
-			availableSlots
+			availableSlots,
+			clientRating
 		 } = beauticianProfile;
 		
 		const dateOfBirth=new Date(dob);
@@ -368,68 +370,21 @@ const AppProfile = () => {
         <div className="col-xl-4">
 			<div className="row">
 				<div className="col-lg-12">
-					<div className="card">
-						<div className="card-body">
-							<div className="profile-statistics">
-								<div className="text-center">
-									<div className="row">
-										<div className="col">
-											<h3 className="m-b-0">150</h3><span>Follower</span>
-										</div>
-										<div className="col">
-											<h3 className="m-b-0">140</h3> <span>Place Stay</span>
-										</div>
-										<div className="col">
-											<h3 className="m-b-0">45</h3> <span>Reviews</span>
-										</div>
-									</div>
-									<div className="mt-4">
-										<Link	to="/post-details"	className="btn btn-primary mb-1 me-1">Follow</Link>
-										<Button as="a" href="#" className="btn btn-primary mb-1 ms-1" onClick={() => setSendMessage(true)}>Send Message</Button>
-									</div>
-								</div>
-							  {/* send Modal */}
-								<Modal className="modal fade" show={sendMessage}>
-									<div className="modal-content">
-										<div className="modal-header">
-											<h5 className="modal-title">Send Message</h5>
-											<Button variant="" type="button" className="btn-close" data-dismiss="modal" onClick={() => setSendMessage(false)}>
+					<div className="card">												
+						<div className="card-body">													
+							<div className="profile-statistics">																																												
+								<div className="text-center">                                                           
+									<h2 className="text-secondary">Overall Rating</h2>
+									<p className="text-center mb-3">
+										{			
 												
-											</Button>
-										</div>
-										<div className="modal-body">
-											<form className="comment-form" onSubmit={(e) => { e.preventDefault(); setSendMessage(false); }}>
-												<div className="row">
-													<div className="col-lg-6">
-														<div className="form-group mb-3">
-															<label htmlFor="author" className="text-black font-w600">  Name <span className="required">*</span> </label>
-															<input type="text" className="form-control" defaultValue="Author" name="Author" placeholder="Author" />
-														</div>
-													</div>
-													<div className="col-lg-6">
-														<div className="form-group mb-3">
-															<label htmlFor="email" className="text-black font-w600"> Email <span className="required">*</span></label>
-															<input type="text" className="form-control" defaultValue="Email" placeholder="Email" name="Email"/>
-														</div>
-													</div>
-													<div className="col-lg-12">
-														<div className="form-group mb-3">
-															<label htmlFor="comment" className="text-black font-w600">Comment</label>
-															<textarea rows={8} className="form-control" name="comment" placeholder="Comment" defaultValue={""}/>
-														</div>
-													</div>
-													<div className="col-lg-12">
-														<div className="form-group mb-3">
-															<input type="submit" value="Post Comment" className="submit btn btn-primary" name="submit"/>
-														</div>
-													</div>
-												</div>
-											</form>
-										</div>
-									</div>
-								</Modal>
+											clientRating ?<span className="rating">{clientRating} &#9733;</span>: <h4 className="text-info">No review has been submitted yet</h4>
+										}
+										
+									</p>
+								</div>	                                                       
 							</div>
-						</div>
+						</div>												
 					</div>
 				</div>	
 				<div className="col-lg-12">
@@ -558,6 +513,9 @@ const AppProfile = () => {
 							<li className="nav-item" onClick={() => setActiveToggle("posts")}>
 								<Link to="#my-posts" data-toggle="tab" className={`nav-link ${ activeToggle === "posts" ? "active show" : ""}`}>Photo</Link>
 							</li>
+							<li className="nav-item" onClick={() => setActiveToggle("reviews")}>
+								<Link to="#reviews" data-toggle="tab" className={`nav-link ${activeToggle === "reviews" ? "active show" : ""}`}>Reviews </Link>
+							</li>			
 						</ul>
 					<div className="tab-content">
 					<div id="basicProfile" className={`tab-pane fade ${ activeToggle === "basicProfile" ? "active show" : ""}`}>
@@ -895,6 +853,14 @@ const AppProfile = () => {
 								
 							</div>
 						</div>
+						<div id="reviews" className={`tab-pane fade ${activeToggle === "reviews" ? "active show" : ""}`} >
+							<div className="my-post-content pt-3">
+								<div className="profile-uoloaded-post border-bottom-1 pb-5">				
+									<BeauticianReviews />																	
+								</div>
+							</div>
+						</div>				
+						{/* end of section				 */}
 					</div>
                 </div>
               </div>

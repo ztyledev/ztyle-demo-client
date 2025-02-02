@@ -12,10 +12,9 @@ import defaultProfilePic from '../../../images/avatar/beauticianProfilePic.png';
 //components
 import PageTitle from "../../../components/PageTitle";
 import { ThemeContext } from "../../../context/ThemeContext";
-
 import LoadingScreen from "../../../components/LoadingScreen";
-
 import swal from "sweetalert";
+import BeauticianReviews from "../../../components/beauticianReview/BeauticianReviews";
 
 //actions
 import {
@@ -129,7 +128,18 @@ const BeauticianDetail = () => {
 												<div className="card-body">													
 													<div className="profile-statistics">																																												
                                                         <div className="text-center">                                                           
-															<h3 className="text-secondary">{fullName }</h3>                                                                                                                                                                                                    																	 																																											                                                               
+															<h2 className="text-secondary">{fullName}</h2>
+															<p className="text-center mb-3">
+																{
+																	currentBeautician.clientRating?<span className="rating">{currentBeautician.clientRating} &#9733;</span>: <Link to={`/reviews/beautician/my-review/${currentBeautician._id}`}><h4 className="text-info">Be the first one to review this beautician</h4></Link>
+																}
+																
+															</p>
+															<p className="text-center mb-2">
+																{
+																	currentBeautician.clientRating?<Link to={`/reviews/beautician/my-review/${currentBeautician._id}`}><h4>Rate and review this beautician</h4></Link>:""
+																}
+															</p>
                                                         </div>	                                                       
 													</div>
 												</div>												
@@ -158,7 +168,11 @@ const BeauticianDetail = () => {
 															</li>
 															<li className="nav-item" onClick={() => setActiveToggle("advancedInfo")}>
 																<Link to="#advanced-info" data-toggle="tab" className={`nav-link ${activeToggle === "advancedInfo" ? "active show" : ""}`}>Available Slots For Booking </Link>
-															</li>																												
+															</li>
+															<li className="nav-item" onClick={() => setActiveToggle("reviews")}>
+																<Link to="#reviews" data-toggle="tab" className={`nav-link ${activeToggle === "reviews" ? "active show" : ""}`}>Reviews </Link>
+															</li>
+															
 															
 																																		
 						
@@ -363,6 +377,13 @@ const BeauticianDetail = () => {
 																	</div>
 																}
 
+															</div>
+															<div id="reviews" className={`tab-pane fade ${activeToggle === "reviews" ? "active show" : ""}`} >
+																<div className="my-post-content pt-3">
+																	<div className="profile-uoloaded-post border-bottom-1 pb-5">																																				
+																		<BeauticianReviews />																	
+																	</div>
+																</div>
 															</div>
 															
 															

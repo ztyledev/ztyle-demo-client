@@ -25,7 +25,6 @@ const Constants = {
   // admins
   url_admins:baseurl+'/api/admin/admins',
   url_admins_pending: baseurl + '/api/admin/pending/admins',
-  url_admins: baseurl + '/api/admin/admins',
   url_admins_activate: baseurl + '/api/admin/admins/activate',
   url_admins_deactivate: baseurl + '/api/admin/admins/deactivate',
   url_admins_reject: baseurl + '/api/admin/admins/reject',
@@ -33,8 +32,15 @@ const Constants = {
 
   // beauticians
   url_beauticians: baseurl + '/api/admin/beauticians',
-  url_beauticians_shop_id: baseurl + '/api/admin/beauticians/shop-id'
+  url_beauticians_shop_id: baseurl + '/api/admin/beauticians/shop-id',
   
+  // offer
+  url_offers: baseurl + '/api/offer/offers',
+  url_offer_by_code: baseurl + '/api/offer/offers/by-admin',
+  
+  // review
+  url_shop_reviews_by_admin: baseurl + '/api/review/reviews/shop/by-admin',
+  url_beautician_reviews_by_admin: baseurl + '/api/review/reviews/beautician/by-admin'
 
 };
 

@@ -15,6 +15,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import RadialDonut from '../../components/RadialDonut';
 import LoadingScreen from "../../components/LoadingScreen";
 import Spinner from '../../components/Spinner/Spinner';
+import BeauticianReviews from "../../components/beauticianReview/BeauticianReviews";
 import swal from "sweetalert";
 
 //actions
@@ -134,7 +135,7 @@ const BeauticianDetail = () => {
             email, gender, dob, position,
             specialty, yearsOfExperience, employmentStatus,
             holidaySchedule, languagesSpoken, advanceProfileStatus,
-            profilePic, availableSlots, status, profileCompletion } = currentBeautician;
+            profilePic, availableSlots, status, profileCompletion,clientRating } = currentBeautician;
         
         const dateOfBirth=new Date(dob);
 		const dobDay = dateOfBirth.getDate();
@@ -155,7 +156,22 @@ const BeauticianDetail = () => {
 						<div className="card">							
 							<div className="card-body">								
 								<div className="row">						
-									<div className="col-xl-3 col-lg-6  col-md-6 col-xxl-5 ">																
+									<div className="col-xl-3 col-lg-6  col-md-6 col-xxl-5 ">
+										<div className="col-lg-10">
+											<div className="card">												
+												<div className="card-body">													
+													<div className="profile-statistics">
+														<h2 className="text-secondary text-center">{fullName}</h2>
+														<p className="text-center mb-3">
+															{
+																clientRating?<span className="rating">{clientRating} &#9733;</span>:<h4 className="text-info">No review has been submitted</h4>
+															}
+															
+														</p>
+													</div>
+												</div>												
+											</div>
+										</div>
 										<div className="col-lg-10">											
 											<div className="card">												
 												<div className="card-body">													
@@ -262,10 +278,10 @@ const BeauticianDetail = () => {
 															<li className="nav-item" onClick={() => setActiveToggle("photos")}>
 																<Link to="#my-posts" data-toggle="tab" className={`nav-link ${activeToggle === "photos" ? "active show" : ""}`}>Photos </Link>
 															</li>
-															
-															
-						
-						
+															<li className="nav-item" onClick={() => setActiveToggle("reviews")}>
+																<Link to="#reviews" data-toggle="tab" className={`nav-link ${activeToggle === "reviews" ? "active show" : ""}`}>Reviews </Link>
+															</li>
+																																						
 														</ul>
 														<div className="tab-content">
 															<div id="basicProfile" className={`tab-pane fade ${activeToggle === "basicProfile" ? "active show" : ""}`}>
@@ -529,14 +545,17 @@ const BeauticianDetail = () => {
 																		<img src={profilePic || storePic} alt="" className="img-fluid w-80 rounded" />																														  
 																		
 																																																  																																																					
-																	</div>
-																																		
-																	
-																	{/* end of the section */}															 
+																	</div>																																																																	 
 																</div>																																																																										
 															</div>
-															
-																																												
+															<div id="reviews" className={`tab-pane fade ${activeToggle === "reviews" ? "active show" : ""}`} >
+																<div className="my-post-content pt-3">
+																	<div className="profile-uoloaded-post border-bottom-1 pb-5">
+																		review component
+																		<BeauticianReviews />
+																	</div>
+																</div>
+															</div>																																											
 															{/* end of the section */}
 														</div>
 													</div>

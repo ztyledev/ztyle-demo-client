@@ -5,6 +5,7 @@ import authReducer from './auth/authSlice';
 import beauticianProfileReducer from './beauticianProfile/beauticianProfileSlice';
 import bookingReducer from './booking/bookingSlice';
 import paymentReducer from './payment/paymentSlice';
+import reviewReducer from './review/reviewSlice';
 import notificationReducer from './notification/notificationSlice';
 
 
@@ -30,6 +31,7 @@ const store = configureStore({
     beauticianProfile: beauticianProfileReducer,
     booking: bookingReducer,
     payment: paymentReducer,
+    review: reviewReducer,
     notification: notificationReducer
       
   },

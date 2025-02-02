@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
-/// pages
 
+/// pages
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
@@ -12,22 +12,21 @@ import PasswordUpdateStatus from "../pages/PasswordUpdateStatus";
 // import Error404 from "../pages/Error404";
 
 // general
-
 import AboutUs from '../pages/AboutUs';
 import Services from '../pages/Services';
 import Contact from "../pages/Contact";
 
 
 /// dashboard
-
 import Home from "../pages/Dashboard/Home";
 
 /// forms
-
 import FormBasicShopAdd from "../pages/Forms/formBasicShopAdd";
 import FormBasicShopEdit from '../pages/Forms/formBasicShopEdit';
 import FormAdvanceShopAdd from "../pages/Forms/formAdvanceShopAdd";
 import FormAdvanceShopEdit from "../pages/Forms/formAdvanceShopEdit";
+import FormAddOffer from '../pages/Forms/formAddOffer';
+import FormEditOffer from '../pages/Forms/formEditOffer';
 
 
 /// shops
@@ -48,6 +47,14 @@ import AdminDetail from '../pages/Admins/AdminDetail';
 /// beauticiann
 import BeauticiansByShopId from '../pages/Beauticians/BeauticianList/BeauticiansByShopId';
 import BeauticianDetail from '../pages/Beauticians/BeauticianDetail';
+
+
+/// offer
+import OfferAccess from '../pages/Offers/OfferAccess';
+import Offers from '../pages/Offers/Offers';
+import OffersOfferCode from '../pages/Offers/OffersOfferCode';
+import OfferDetails from '../pages/Offers/OfferDetails';
+
 
 /// test pages
 
@@ -83,7 +90,9 @@ const authProtectedRoutes = [
     { path: 'form-edit-basic-shop/:id', element: FormBasicShopEdit },
     { path: 'form-add-advance-info/:id', element: FormAdvanceShopAdd },
     { path: 'form-edit-advance-info/:id', element: FormAdvanceShopEdit },
-
+    { path: 'form-add-offer', element: FormAddOffer },
+    { path: 'form-edit-offer/:id', element: FormEditOffer },
+    
     /// shops
     { path: 'shops-pending-select', element: PendingSelect },
     { path: 'state-shops-pending', element: ShopsPendingState },
@@ -103,7 +112,12 @@ const authProtectedRoutes = [
     { path: 'beauticians-by-shop-id/:id', element: BeauticiansByShopId },
     { path: 'beautician-detail/:id', element: BeauticianDetail },
     
-   
+    /// offer
+    { path: 'offer-access', element: OfferAccess },
+    { path: 'offers', element: Offers },
+    { path: 'offers/:id', element: OfferDetails },
+    { path: 'offer-offer-code', element: OffersOfferCode },
+    
 
     /// test
 

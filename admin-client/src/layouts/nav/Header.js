@@ -52,7 +52,7 @@ const Header = (props) => {
 
 	var c = finalName[0];
 
-	var headerName = isNaN(c[0]) ? finalName : ["Profile"];
+	var headerName = isNaN(c[0]) ? finalName : ["Details"];
 
 	const adminInfo = useSelector(state => state.auth.adminInfo);
 	

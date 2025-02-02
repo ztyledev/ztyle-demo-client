@@ -10,6 +10,7 @@ import { resetShop } from '../store/shop/shopSlice';
 import { resetBeautician } from '../store/beautician/beauticianSlice';
 import { resetBooking } from '../store/booking/bookingSlice';
 import { resetPayment } from '../store/payment/paymentSlice';
+import { resetReview } from '../store/review/reviewSlice';
 import { resetNotification } from '../store/notification/notificationSlice';
 
 
@@ -27,6 +28,7 @@ function LogoutPage(props){
     dispatch(resetBeautician());
     dispatch(resetBooking());
     dispatch(resetPayment());
+    dispatch(resetReview());
     dispatch(resetNotification());
     dispatch(resetAuth());
     

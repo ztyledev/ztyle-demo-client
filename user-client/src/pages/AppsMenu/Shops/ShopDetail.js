@@ -5,16 +5,15 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // images/docs
 import storePic from '../../../images/store.png';
-import defaultCertificate from '../../../pdfs/The Shop Registration Certificate.pdf';
 
 
 //components
 import PageTitle from "../../../components/PageTitle";
 import { ThemeContext } from "../../../context/ThemeContext";
-import RadialDonut from '../../../components/RadialDonut';
 import LoadingScreen from "../../../components/LoadingScreen";
-import Spinner from '../../../components/Spinner/Spinner';
 import swal from "sweetalert";
+import ShopReviews from "../../../components/shopReview/ShopReviews";
+
 
 //actions
 import {
@@ -121,7 +120,18 @@ const ProfileDetail = () => {
 											<div className="card">												
 												<div className="card-body">													
                                                     <div className="profile-statistics">
-                                                        <h2 className="text-secondary text-center">{shopName}</h2>                                                                               
+														<h2 className="text-secondary text-center">{shopName}</h2>
+														<p className="text-center mb-3">
+															{
+																currentShop.clientRating?<span className="rating">{currentShop.clientRating} &#9733;</span>: <Link to={`/reviews/shop/my-review/${currentShop.shopId}`}><h4 className="text-info">Be the first one to review this shop</h4></Link>
+															}
+															
+														</p>
+														<p className="text-center mb-2">
+															{
+																currentShop.clientRating?<Link to={`/reviews/shop/my-review/${currentShop.shopId}`}><h4>Rate and review this shop</h4></Link>:""
+															}
+														</p>
 													</div>
 												</div>												
 											</div>											
@@ -156,6 +166,9 @@ const ProfileDetail = () => {
 															</li>															
 															<li className="nav-item" onClick={() => setActiveToggle("beauticians")}>
 																<Link to="#beauticians" data-toggle="tab" className={`nav-link ${activeToggle === "beauticians" ? "active show" : ""}`}>Beauticians </Link>
+															</li>
+															<li className="nav-item" onClick={() => setActiveToggle("reviews")}>
+																<Link to="#reviews" data-toggle="tab" className={`nav-link ${activeToggle === "reviews" ? "active show" : ""}`}>Reviews </Link>
 															</li>
 						
 						
@@ -416,7 +429,14 @@ const ProfileDetail = () => {
 																																																  																																																			
 																	</div>
 																</div>
-															</div>																														
+															</div>
+															<div id="reviews" className={`tab-pane fade ${activeToggle === "reviews" ? "active show" : ""}`} >
+																<div className="my-post-content pt-3">
+																	<div className="profile-uoloaded-post border-bottom-1 pb-5">																																				
+																		<ShopReviews/>																																																  																																																			
+																	</div>
+																</div>
+															</div>
 															{/* end of the section */}
 														</div>
 													</div>

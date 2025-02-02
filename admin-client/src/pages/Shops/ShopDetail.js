@@ -15,6 +15,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import RadialDonut from '../../components/RadialDonut';
 import LoadingScreen from "../../components/LoadingScreen";
 import Spinner from '../../components/Spinner/Spinner';
+import ShopReviews from "../../components/shopReview/ShopReviews";
 import swal from "sweetalert";
 
 //actions
@@ -409,7 +410,7 @@ const ProfileDetail = () => {
         const { shopName, shopId, ownerFullName,
             mobile, state, district, workingDays,
 			openingTime, closingTime, profileCompletion,
-			advanceProfileStatus, status, shopImage, image1, image2,shopCertificate } = currentShop;
+			advanceProfileStatus, status, shopImage, image1, image2,shopCertificate,clientRating } = currentShop;
         
 		// format to display
 		const stdOpeningTime = getStandardTime(openingTime);
@@ -430,7 +431,22 @@ const ProfileDetail = () => {
 						<div className="card">							
 							<div className="card-body">								
 								<div className="row">						
-									<div className="col-xl-3 col-lg-6  col-md-6 col-xxl-5 ">																
+									<div className="col-xl-3 col-lg-6  col-md-6 col-xxl-5 ">
+										<div className="col-lg-10">
+											<div className="card">												
+												<div className="card-body">													
+													<div className="profile-statistics">
+														<h2 className="text-secondary text-center">{shopName}</h2>
+														<p className="text-center mb-3">
+															{
+																clientRating?<span className="rating">{clientRating} &#9733;</span>:<h4 className="text-info">No review has been submitted</h4>
+															}
+															
+														</p>
+													</div>
+												</div>												
+											</div>
+										</div>	
 										<div className="col-lg-10">											
 											<div className="card">												
 												<div className="card-body">													
@@ -543,7 +559,9 @@ const ProfileDetail = () => {
 															<li className="nav-item" onClick={() => setActiveToggle("beauticians")}>
 																<Link to="#beauticians" data-toggle="tab" className={`nav-link ${activeToggle === "beauticians" ? "active show" : ""}`}>Beauticians </Link>
 															</li>
-						
+															<li className="nav-item" onClick={() => setActiveToggle("reviews")}>
+																<Link to="#reviews" data-toggle="tab" className={`nav-link ${activeToggle === "reviews" ? "active show" : ""}`}>Reviews </Link>
+															</li>																			
 						
 														</ul>
 														<div className="tab-content">
@@ -1178,7 +1196,15 @@ const ProfileDetail = () => {
 																																																  																																																			
 																	</div>
 																</div>
-															</div>																														
+															</div>
+															<div id="reviews" className={`tab-pane fade ${activeToggle === "reviews" ? "active show" : ""}`} >
+																<div className="my-post-content pt-3">
+																	<div className="profile-uoloaded-post border-bottom-1 pb-5">
+																		
+																		<ShopReviews/>																																																  																																																			
+																	</div>
+																</div>
+															</div>
 															{/* end of the section */}
 														</div>
 													</div>

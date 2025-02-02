@@ -8,6 +8,9 @@ import { resetAuth } from '../store/auth/authSlice';
 import { resetShop } from '../store/shop/shopSlice';
 import { resetAdmin } from '../store/admin/adminSlice';
 import { resetBeautician } from '../store/beautician/beauticianSlice';
+import { resetOffer } from '../store/offer/offerSlice';
+import { resetReview } from '../store/review/reviewSlice';
+
 
 
 function LogoutPage(props) {
@@ -19,9 +22,11 @@ function LogoutPage(props) {
     setbasicModal(false);
     dispatch(resetShop());
     dispatch(resetAdmin());
-    dispatch(resetAuth());
     dispatch(resetBeautician());
-    
+    dispatch(resetOffer());
+    dispatch(resetReview());
+    dispatch(resetAuth());
+
   }
   return (
     <>

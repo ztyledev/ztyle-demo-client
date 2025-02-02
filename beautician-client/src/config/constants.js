@@ -23,6 +23,9 @@ const Constants = {
   // payment
   url_payments_by_booking_id: baseurl + '/api/payment/beautician-payments/by-booking',
   
+  // review
+  url_beautician_reviews_by_beautician: baseurl + '/api/review//reviews/beautician/by-beautician',
+
   // notification
   url_notifications: baseurl + '/api/notification/beautician-notifications',
   url_read_notifications: baseurl + '/api/notification/beautician-read-notifications'

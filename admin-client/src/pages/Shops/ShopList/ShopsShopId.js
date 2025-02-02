@@ -95,12 +95,12 @@ const ShopsShopId = () => {
   
     return (
       <Fragment>
-        <PageTitle activeMenu="District" motherMenu="Pending Shops" />
+        <PageTitle activeMenu="Active" motherMenu="Shops" />
 
           <div className="row">
             {activeShops ?  <SingleShopList shop={activeShops} /> :
               <div className="text-danger text-center ">
-                No profiles found. please wait a while for new profiles
+                No profiles found. please wait a while for new shops
               </div>
             }
 
